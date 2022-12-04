@@ -9,10 +9,9 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import Crash from './pages/404'
 
-import Button from "./components/Button";
-import Navbar from "./components/Navbar";
-import ProfilePic from "./components/ProfilePic";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -39,15 +38,10 @@ function App() {
       <Router>
         <>
         <div className="App">
-          <Navbar />
           <Routes>
-            <Route path="/" element={{/* landing page */}} />
+            <Route path="/" element={<Login />} />
             <Route path="*" element={<Crash />} />
           </Routes>
-
-          <Button /> {/*Should move these into pages me thinks?*/}
-          <ProfilePic />
-          <Footer />
         </div>
         </>
       </Router>
