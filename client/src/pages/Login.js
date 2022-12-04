@@ -1,16 +1,16 @@
 import React from 'react';
 import Footer from '../components/Footer';
-import ProfilePic from '../components/ProfilePic';
 import Navbar from '../components/Navbar';
-import Button from '../components/Button';
+import LoginCard from '../components/LoginCard';
+
+//These are just random components thrown in here for now I am using for testing
 
 const Login = () => {
   
     return (
      <>
      <Navbar />
-     <Button />
-     <ProfilePic />
+     <LoginCard />
      <Footer />
      </>
     );
