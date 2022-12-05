@@ -7,9 +7,9 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import "./App.css";
-import Crash from './pages/404'
+import Crash from "./pages/404";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 
@@ -37,15 +37,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="*" element={<Crash />} />
-          </Routes>
-        </div>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="*" element={<Crash />} />
+            </Routes>
+          </div>
         </>
       </Router>
-      
     </ApolloProvider>
   );
 }

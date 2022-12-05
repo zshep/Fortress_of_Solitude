@@ -5,7 +5,7 @@ import Button from "./Button";
 
 
 const StyledLoginCard = styled.div`
-    width: 75%;
+  
     height: 300px;
     mad-width: 450px;
     border-radius: 5px;
