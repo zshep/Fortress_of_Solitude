@@ -1,8 +1,10 @@
 import React from "react";
 
+// Child elements of Columnsss.js. To nest multiple columns next to each other, create new Column with content as the children.
+// https://bulma.io/documentation/columns/basics/
+
 function Column({ attr, children }) {
   if (attr === undefined) {
-    console.log("undefined YO!")
     return Array.isArray(children) ? (
       children.map((el, i) => {
         return (
