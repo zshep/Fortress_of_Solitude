@@ -12,6 +12,7 @@ import Crash from "./pages/404";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import ProfilePage from "./pages/ProfilePage";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -41,6 +42,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="*" element={<Crash />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Routes>
           </div>
         </>
