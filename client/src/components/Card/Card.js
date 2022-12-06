@@ -4,7 +4,7 @@ import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import CardImage from "./CardImage";
 import CardContent from "./CardContent";
-const image = require("../wood.png").default;
+const image = require("../wood.png");
 
 // example of built out card using individual components. Can be mixed/matched to restructure cards.
 // https://bulma.io/documentation/components/card/
