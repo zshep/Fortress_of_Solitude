@@ -3,9 +3,6 @@ import Container from "../components/Container";
 import Section from "../components/Section";
 import Columnsss from "../components/Column/Columnsss";
 import Column from "../components/Column/Column";
-
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import LoginCard from "../components/LoginCard";
 
 
@@ -14,7 +11,6 @@ import LoginCard from "../components/LoginCard";
 const Login = () => {
   return (
     <>
-      <Navbar />
       <Section>
         <Container>
           <Columnsss attr={"is-centered"}>
@@ -24,7 +20,6 @@ const Login = () => {
           </Columnsss>
         </Container>
       </Section>
-      <Footer />
     </>
   );
 };

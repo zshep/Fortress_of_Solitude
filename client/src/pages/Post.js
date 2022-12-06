@@ -1,0 +1,1 @@
+// View an individual job posting with details
