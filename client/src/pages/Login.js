@@ -35,13 +35,13 @@ const Login = () => {
       </Section>
       <Section>
         <Columnsss>
-          <Column attr={'is-one-third'}>
+          <Column attr={"is-one-third"}>
             <Card />
           </Column>
-          <Column attr={'is-one-third'}>
+          <Column attr={"is-one-third"}>
             <Card />
           </Column>
-          <Column attr={'is-one-third'}>
+          <Column attr={"is-one-third"}>
             <Card />
           </Column>
         </Columnsss>
