@@ -25,7 +25,8 @@ function NavMenu() {
       className={`navbar-menu ${navState.isActive ? "is-active" : ""}`}
     >
       <div className="navbar-end">
-        <NavItem href="/">Home</NavItem>
+        <NavItem href="/profile">Home</NavItem>
+        {/* change this back to / once we get auth runnning from back end */}
         <NavItem href="/board">Board</NavItem>
       </div>
     </div>

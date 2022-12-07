@@ -21,14 +21,24 @@ transform:rotate(-4deg);
     line-height:1.7em;
     font-size:19px;
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-    color:#130d6b;
+    color: black;
+    h1 {
+      font-size:25px; 
+     position:relative;
+   }
+   h2 {
+    font-size:18px; 
+   position:relative;
+ }
     
 
 `;
 
-function GreenSticky() {
+function GreenSticky({title, summary}) {
   return (
     <StyledStickyNote>
+      <h1>{title}</h1>
+      <h2>{summary}</h2>
         <GreenCorner />
     </StyledStickyNote>
   )
