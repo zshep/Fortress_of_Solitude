@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Crash from "./pages/404";
 import ProfilePage from "./pages/ProfilePage";
+import StickyNote from "./components/StickyNote";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="*" element={<Crash />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/board" element={<StickyNote />} />
               </Routes>
               <Footer />
             </LoginProvider>
