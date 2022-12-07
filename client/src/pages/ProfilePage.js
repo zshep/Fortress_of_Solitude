@@ -1,5 +1,4 @@
 import React from "react";
-// import { useLoginContext } from '../utils/LoginContext'
 import Auth from "../utils/auth";
 import ProfileBox from "../components/ProfileBox";
 
