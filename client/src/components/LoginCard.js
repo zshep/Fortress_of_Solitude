@@ -23,6 +23,8 @@ function LoginCard() {
   );
 }
 
+// ***----Consider Deletion----***
+
 // const LoginButton = ({ icon, name, onClick }) => (
 //   <div className="field">
 //     <p

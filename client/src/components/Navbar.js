@@ -1,8 +1,13 @@
 import React from 'react'
 import Logo from '../components/gob4.jpg'
+import Auth from '../utils/auth'
 
 export default function Navbar() {
   const [isActive, setisActive] = React.useState(false)
+
+  const logoutUser = () => {
+    Auth.logout()
+  }
 
   return (
     <nav className='navbar is-black' role='navigation' aria-label='main navigation'>
@@ -36,12 +41,12 @@ export default function Navbar() {
             <a href='/' className='navbar-item'>
               Home
             </a>
-            <a href='/profile' className='navbar-item'>
-              Profile
-            </a>
             <a href='/board' className='navbar-item'>
               Board
             </a>
+            <a onClick={() => {logoutUser()}} className='navbar-item'>
+              Logout
+            </a> 
           </div>
         </div>
       </div>
