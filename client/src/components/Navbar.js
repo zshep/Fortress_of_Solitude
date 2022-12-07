@@ -36,8 +36,11 @@ export default function Navbar() {
             <a href='/' className='navbar-item'>
               Home
             </a>
-            <a href='/' className='navbar-item'>
-              Documentation
+            <a href='/profile' className='navbar-item'>
+              Profile
+            </a>
+            <a href='/board' className='navbar-item'>
+              Board
             </a>
           </div>
         </div>
