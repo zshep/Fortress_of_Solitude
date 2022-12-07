@@ -7,13 +7,13 @@ type User {
     email: String!
     password: String!
     PP: INT
-
+}
 # Query    
 type Query {
     users: [User]
     user(username: String!): User
-    }
-}`
+    
+    }`
 
 
 module.exports = typeDefs;
