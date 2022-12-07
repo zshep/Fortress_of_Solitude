@@ -3,8 +3,8 @@ import { useLoginContext } from '../utils/LoginContext'
 import ProfileBox from '../components/ProfileBox'
 
 function ProfilePage() {
-  const [state, dispatch] = useLoginContext()
-  console.log(state)
+  const loggedIn = useLoginContext()
+  console.log(loggedIn)
   return (
     <ProfileBox />
   )

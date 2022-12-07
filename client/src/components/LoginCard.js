@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LOGIN } from "../utils/actions";
+import { LOGIN, LOGOUT } from "../utils/actions";
 import { useLoginContext } from "../utils/LoginContext";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -40,7 +40,7 @@ const LoginButton = ({ icon, name, onClick }) => (
 
 function LoginForm() {
   const [loginUser, { error }] = useMutation(LOGIN_USER)
-  const [state, dispatch] = useLoginContext();
+  const [loggedIn, dispatch] = useLoginContext();
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
@@ -68,27 +68,29 @@ function LoginForm() {
     };
     console.log(submission);
 
-    // try {
-    //   const { data } = await loginUser({
-    //     variables: {...submission}
-    //   })
+    try {
+      const { data } = await loginUser({
+        variables: {...submission}
+      })
 
-    //   if (!data) {
-    //     throw new Error("Something went wrong")
-    //   }
+      if (!data) {
+        throw new Error("Something went wrong")
+      }
 
-    //   Auth.login(data.login.token)
+      console.log(data)
+      Auth.login(data.login.token)
 
-    // } catch (err) {console.error(err)}
+    } catch (err) {console.error(err)}
 
     // log in user using mutation.
     // set Auth.login with returned token
     // sets logged in state to true
-    await dispatch({
-      type: LOGIN,
-      // payload: "here is the payload"
-    });
-    console.log(state)
+    // await dispatch({
+    //   type: LOGIN,
+    //   token: 12345,
+    //   user: submission
+    // });
+    // console.log(loggedIn)
     // window.location.assign('/profile')
 
     setEmail("");

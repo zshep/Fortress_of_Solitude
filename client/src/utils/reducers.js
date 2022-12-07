@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 //import actions from actions.js
-import { LOGIN } from "./actions";
+import { LOGIN, LOGOUT } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -10,6 +10,15 @@ export const reducer = (state, action) => {
         ...state,
         isLoggedIn: true,
         testing: "Reducer tested",
+        token: action.token,
+        user: action.user,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        token: "",
+        user: {}
       };
     default:
       return state;

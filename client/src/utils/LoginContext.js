@@ -3,14 +3,14 @@ import { useLoginReducer } from "./reducers";
 
 const LoginContext = createContext();
 
-const LoginProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useLoginReducer({
+const LoginProvider = ({ value = [], children, ...props }) => {
+  const [loggedIn, dispatch] = useLoginReducer({
     isLoggedIn: false,
     testing: "",
   });
 
   return (
-    <LoginContext.Provider value={[state, dispatch]} {...props}>
+    <LoginContext.Provider value={[loggedIn, dispatch]} {...props}>
       {children}
     </LoginContext.Provider>
   );
