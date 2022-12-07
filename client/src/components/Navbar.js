@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../components/woodLogo.jpg'
+import Logo from '../components/gob4.jpg'
 
 export default function Navbar() {
   const [isActive, setisActive] = React.useState(false)
