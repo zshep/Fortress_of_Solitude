@@ -8,7 +8,7 @@ export const reducer = (state, action) => {
     case LOGIN:
       return {
         ...state,
-        isLoggedIn: !action.isLoggedIn,
+        isLoggedIn: true,
         testing: "Reducer tested",
       };
     default:

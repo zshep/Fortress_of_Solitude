@@ -68,26 +68,28 @@ function LoginForm() {
     };
     console.log(submission);
 
-    try {
-      const { data } = await loginUser({
-        variables: {...submission}
-      })
+    // try {
+    //   const { data } = await loginUser({
+    //     variables: {...submission}
+    //   })
 
-      if (!data) {
-        throw new Error("Something went wrong")
-      }
+    //   if (!data) {
+    //     throw new Error("Something went wrong")
+    //   }
 
-      Auth.login(data.login.token)
+    //   Auth.login(data.login.token)
 
-    } catch (err) {console.error(err)}
+    // } catch (err) {console.error(err)}
 
     // log in user using mutation.
     // set Auth.login with returned token
     // sets logged in state to true
-    // await dispatch({
-    //   type: LOGIN,
+    await dispatch({
+      type: LOGIN,
       // payload: "here is the payload"
-    // });
+    });
+    console.log(state)
+    // window.location.assign('/profile')
 
     setEmail("");
     setPassword("");
