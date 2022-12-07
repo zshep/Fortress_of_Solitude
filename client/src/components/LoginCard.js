@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import { LOGIN, LOGOUT } from "../utils/actions";
-// import { useLoginContext } from "../utils/LoginContext";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
@@ -81,19 +79,10 @@ function LoginForm() {
       Auth.login(data.login.token);
       // route user to their personal page?
       // console.log(`/profile/${data.login.user._id}`)
-      window.location.assign('/profile')
+      window.location.assign("/profile");
     } catch (err) {
       throw new Error("Something went wrong!");
     }
-
-
-    // sets logged in state to true
-    // do we really even need?
-    // await dispatch({
-    //   type: LOGIN,
-    //   token: 12345,
-    //   user: submission
-    // });
 
     setEmail("");
     setPassword("");

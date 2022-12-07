@@ -8,9 +8,9 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { LoginProvider } from "./utils/LoginContext";
+import { NavProvider } from "./utils/NavContext";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Crash from "./pages/404";
@@ -42,16 +42,16 @@ function App() {
       <Router>
         <>
           <div className="App">
-            <LoginProvider>
+            <NavProvider>
               <Navbar />
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="*" element={<Crash />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/board" element={<Board />} />
-              </Routes>
-              <Footer />
-            </LoginProvider>
+            </NavProvider>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="*" element={<Crash />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/board" element={<Board />} />
+            </Routes>
+            <Footer />
           </div>
         </>
       </Router>
