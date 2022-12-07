@@ -8,7 +8,7 @@ function NavMenu() {
     Auth.logout();
   };
   const [navState] = useNavContext();
-  return (
+  return Auth.loggedIn() ? (
     <div
       id="navbarBasicExample"
       className={`navbar-menu ${navState.isActive ? "is-active" : ""}`}
@@ -17,6 +17,16 @@ function NavMenu() {
         <NavItem href="/profile">Home</NavItem>
         <NavItem href="/board">Board</NavItem>
         <NavItem action={logoutUser}>Logout</NavItem>
+      </div>
+    </div>
+  ) : (
+    <div
+      id="navbarBasicExample"
+      className={`navbar-menu ${navState.isActive ? "is-active" : ""}`}
+    >
+      <div className="navbar-end">
+        <NavItem href="/">Home</NavItem>
+        <NavItem href="/board">Board</NavItem>
       </div>
     </div>
   );
