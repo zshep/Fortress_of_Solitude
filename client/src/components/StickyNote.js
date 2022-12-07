@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import StickyCorner from './StickyCorner';
 
 const StyledStickyNote = styled.div`
     box-sizing:border-box;
@@ -21,12 +22,15 @@ const StyledStickyNote = styled.div`
     font-size:19px;
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
     color:#130d6b;
+    
 
 `;
 
 function StickyNote() {
   return (
-    <StyledStickyNote/>
+    <StyledStickyNote>
+        <StickyCorner />
+    </StyledStickyNote>
   )
 }
 
