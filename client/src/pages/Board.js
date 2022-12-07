@@ -1,8 +1,8 @@
 import React from 'react'
 import Column from '../components/Column/Column'
 import Columnsss from '../components/Column/Columnsss'
-import StickyNote from '../components/StickyNote'
-import GreenSticky from '../components/GreenSticky'
+import StickyNote from '../components/StickyNotes/StickyNote'
+import GreenSticky from '../components/StickyNotes/GreenSticky'
 
 function Board() {
   return (
