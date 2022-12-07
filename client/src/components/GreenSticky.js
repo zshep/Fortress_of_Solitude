@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import StickyCorner from './StickyCorner';
+import GreenCorner from './GreenCorner';
 
 const StyledStickyNote = styled.div`
-transform:rotate(4deg);
+transform:rotate(-4deg);
     box-sizing:border-box;
-    background:#444; 
     width:250px;
     height:240px;
     position:relative;
-    background:#ffa;
+    background:#A6CE90;
     overflow:hidden;
     margin:30px auto;
     padding:20px;
@@ -27,12 +26,12 @@ transform:rotate(4deg);
 
 `;
 
-function StickyNote() {
+function GreenSticky() {
   return (
     <StyledStickyNote>
-        <StickyCorner />
+        <GreenCorner />
     </StyledStickyNote>
   )
 }
 
-export default StickyNote
+export default GreenSticky
