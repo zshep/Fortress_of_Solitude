@@ -6,7 +6,7 @@ type User {
     username: String!
     email: String!
     password: String!
-    PP: INT
+    PP: Int
 }
 # Query    
 type Query {
@@ -14,7 +14,11 @@ type Query {
     user(username: String!): User
     }
     
-# Mutation {
+type Auth {
+    token: ID
+    user: User
+}
+type Mutation {
     login(email: String!, password: String!): Auth
 }
 `;

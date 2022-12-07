@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { LOGIN } from "../utils/actions";
-import { useAppContext } from "../utils/GlobalState";
+import { LOGIN, LOGOUT } from "../utils/actions";
+import { useLoginContext } from "../utils/LoginContext";
+import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { useMutation } from "@apollo/client";
 
 function LoginCard() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -37,7 +39,8 @@ const LoginButton = ({ icon, name, onClick }) => (
 );
 
 function LoginForm() {
-  const [state, dispatch] = useAppContext();
+  const [loginUser, { error }] = useMutation(LOGIN_USER)
+  const [loggedIn, dispatch] = useLoginContext();
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
@@ -53,6 +56,8 @@ function LoginForm() {
       case "password":
         setPassword(inputValue);
         break;
+      default:
+        return
     }
   };
 
@@ -61,18 +66,36 @@ function LoginForm() {
       email,
       password,
     };
-
     console.log(submission);
+
+    try {
+      const { data } = await loginUser({
+        variables: {...submission}
+      })
+
+      if (!data) {
+        throw new Error("Something went wrong")
+      }
+
+      console.log(data)
+      Auth.login(data.login.token)
+
+    } catch (err) {console.error(err)}
 
     // log in user using mutation.
     // set Auth.login with returned token
     // sets logged in state to true
-    dispatch({
-      type: LOGIN,
-    });
+    // await dispatch({
+    //   type: LOGIN,
+    //   token: 12345,
+    //   user: submission
+    // });
+    // console.log(loggedIn)
+    // window.location.assign('/profile')
 
     setEmail("");
     setPassword("");
+    
   };
 
   return (
