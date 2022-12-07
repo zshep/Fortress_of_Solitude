@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const PostSchema = require ('./Post');
 
 const UserSchema = new Schema({
     username: {
@@ -15,15 +16,18 @@ const UserSchema = new Schema({
     },
     password: {
       type: String,
-      required: true,
+      required: true,s
       minlength: 5,
     },
-    Post: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Post',
-      },
-    ],
+    // Post: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Post',
+    //   },
+    // ],
+    publishedPosts: [
+        PostSchema
+    ]
   });
 
   const User = model('User', UserSchema);
