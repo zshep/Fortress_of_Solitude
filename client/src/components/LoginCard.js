@@ -1,33 +1,33 @@
-import React from 'react'
+import React, { useState } from "react";
+import { LOGIN } from "../utils/actions";
+import { useAppContext } from "../utils/GlobalState";
+import Auth from "../utils/auth";
 
-class LoginCard extends React.Component {
+function LoginCard() {
+  const [authenticated, setAuthenticated] = useState(false);
 
-  state = {
-    authenticated: false
-  }
+  const loginWithEmailAndPassword = () => setAuthenticated(true);
 
-  loginWithEmailAndPassword = () => { this.setState({ authenticated: true }) }
+  const loginWithProvider = () => setAuthenticated(true);
 
-  loginWithProvider = () => { this.setState({ authenticated: true }) }
-  
-  handleClose = () => { this.setState({ authenticated: false }) }
-  
-  render() {    
-    return(
-      <section className="section">
+  const handleClose = () => setAuthenticated(true);
 
-        <LoginForm handleSubmit={this.loginWithEmailAndPassword} />
-        
-        <SignInSuccess active={this.state.authenticated} handleClose={this.handleClose} />
+  return (
+    <section className="section">
+      <LoginForm />
 
-      </section>
-    )
-  }
+      <SignInSuccess active={authenticated} handleClose={handleClose} />
+    </section>
+  );
 }
 
 const LoginButton = ({ icon, name, onClick }) => (
   <div className="field">
-    <p className="control button is-medium is-danger" style={{ width: '300px' }} onClick={onClick}>
+    <p
+      className="control button is-medium is-danger"
+      style={{ width: "300px" }}
+      onClick={onClick}
+    >
       <span className="icon">
         <i className={`fa fa-${icon}`} aria-hidden="true"></i>
       </span>
@@ -36,52 +36,104 @@ const LoginButton = ({ icon, name, onClick }) => (
   </div>
 );
 
-class LoginForm extends React.Component {
+function LoginForm() {
+  const [state, dispatch] = useAppContext();
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
 
-  state = {
-    email: null,
-    password: null
-  }
+  const handleChange = (event) => {
+    const { target } = event;
+    const inputType = target.name;
+    const inputValue = target.value;
 
-  handleChange = (event) => this.setState({ [event.target.name]: event.target.value })
+    switch (inputType) {
+      case "email":
+        setEmail(inputValue);
+        break;
+      case "password":
+        setPassword(inputValue);
+        break;
+    }
+  };
 
-  handleSubmit = () => this.props.handleSubmit(this.state)
+  const handleSubmit = async () => {
+    const submission = {
+      email,
+      password,
+    };
 
-  render() {
-    return (
-      <div className="container has-text-centered box" style={{ maxWidth: '300px' }}>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            this.handleSubmit();
-          }}>
-          <div className="field">
-            <label className="label" htmlFor="email">Email</label>
-            <div className="control">
-              <input className="input" name="email" type="email" placeholder="email" required onChange={this.handleChange} />
-            </div>
+    console.log(submission);
+
+    // log in user using mutation.
+    // set Auth.login with returned token
+    // sets logged in state to true
+    dispatch({
+      type: LOGIN,
+    });
+
+    setEmail("");
+    setPassword("");
+  };
+
+  return (
+    <div
+      className="container has-text-centered box"
+      style={{ maxWidth: "300px" }}
+    >
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
+        <div className="field">
+          <label className="label" htmlFor="email">
+            Email
+          </label>
+          <div className="control">
+            <input
+              className="input"
+              name="email"
+              type="email"
+              placeholder="email"
+              required
+              onChange={handleChange}
+            />
           </div>
+        </div>
 
-          <div className="field">
-            <label className="label" htmlFor="password">Password</label>
-            <div className="control">
-              <input className="input" name="password" type="password" placeholder="password" required onChange={this.handleChange}/>
-            </div>
+        <div className="field">
+          <label className="label" htmlFor="password">
+            Password
+          </label>
+          <div className="control">
+            <input
+              className="input"
+              name="password"
+              type="password"
+              placeholder="password"
+              required
+              onChange={handleChange}
+            />
           </div>
+        </div>
 
-          <div className="field">
-            <div className="control buttons is-centered">
-              <input className="button is-medium is-dark is-fullwidth" type="submit" value="Sign In" />
-            </div>
+        <div className="field">
+          <div className="control buttons is-centered">
+            <input
+              className="button is-medium is-dark is-fullwidth"
+              type="submit"
+              value="Sign In"
+            />
           </div>
-        </form>
-      </div>
-    );
-  }
+        </div>
+      </form>
+    </div>
+  );
 }
 
 const SignInSuccess = ({ active, handleClose }) => (
-  <div className={`modal ${active && 'is-active'}`}>
+  <div className={`modal ${active && "is-active"}`}>
     <div className="modal-background" onClick={handleClose}></div>
     <div className="modal-content">
       <div className="notification is-success has-text-centered">
@@ -92,10 +144,9 @@ const SignInSuccess = ({ active, handleClose }) => (
           </span>
           <span className="title"> Sign In Succesful!</span>
         </p>
-        
       </div>
     </div>
   </div>
 );
 
-export default LoginCard
+export default LoginCard;
