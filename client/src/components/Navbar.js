@@ -28,7 +28,7 @@ export default function Navbar() {
           <span aria-hidden='true'></span>
           <span aria-hidden='true'></span>
         </a>
-        <h2 className="title is-2">Goblin Mode</h2>
+        <h2 className="title is-2">GoMode</h2>
       </div>
       <div id='navbarBasicExample' className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
         <div className='navbar-end'>
