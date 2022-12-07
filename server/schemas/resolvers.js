@@ -8,7 +8,13 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username })
         },
-    }
+    },
+
+    Mutation: {
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+        }
+    },
 }
 
 module.exports = resolvers;
