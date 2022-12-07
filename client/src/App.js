@@ -8,7 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AppProvider } from "./utils/GlobalState";
+import { LoginProvider } from "./utils/LoginContext";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -41,7 +41,7 @@ function App() {
       <Router>
         <>
           <div className="App">
-            <AppProvider>
+            <LoginProvider>
               <Navbar />
               <Routes>
                 <Route path="/" element={<Login />} />
@@ -49,7 +49,7 @@ function App() {
                 <Route path="/profile" element={<ProfilePage />} />
               </Routes>
               <Footer />
-            </AppProvider>
+            </LoginProvider>
           </div>
         </>
       </Router>

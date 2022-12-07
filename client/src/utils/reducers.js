@@ -1,21 +1,21 @@
 import { useReducer } from "react";
 //import actions from actions.js
 import { LOGIN } from "./actions";
-import Auth from "./auth"
 
 export const reducer = (state, action) => {
   switch (action.type) {
     //cases go here
-    case LOGIN: 
+    case LOGIN:
       return {
         ...state,
-        isLoggedIn: !action.isLoggedIn
-      }
+        isLoggedIn: !action.isLoggedIn,
+        testing: "Reducer tested",
+      };
     default:
       return state;
   }
 };
 
-export function useAppReducer(initialState) {
+export function useLoginReducer(initialState) {
   return useReducer(reducer, initialState);
 }
