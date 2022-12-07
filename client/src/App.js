@@ -14,7 +14,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Crash from "./pages/404";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/profilepage";
 
 const httpLink = createHttpLink({
   uri: "graphql",
