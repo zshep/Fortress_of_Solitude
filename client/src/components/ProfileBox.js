@@ -4,10 +4,10 @@ import ProfilePic from './ProfilePic'
 function ProfileBox() {
   return (
     
-    <div className="card">
+    <div className="container">
   <header className="card-header">
     <p className="card-header-title">
-      Profile Page PLACEHOLDER JACOB. PLACEHOLDER
+      User's Profile Page
     </p>
     <button className="card-header-icon" aria-label="more options">
       <span className="icon">
@@ -16,14 +16,24 @@ function ProfileBox() {
     </button>
   </header>
   <div className="card-content">
+    <div className="columns">
+    <div className="column is-one-quarter">
   <ProfilePic/>
+  </div>
+  <div className="column">
+  <p> Username </p>
+  <p> Community Name</p>
+  <p> PP Level</p>
+  </div>
+  </div>
     <div className="content">
-      This is a placeholder so business logic can be implemented. Trust the process. But also change if you want.
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     </div>
   </div>
   <footer className="card-footer">
-    <a href="#" className="card-footer-item">See All Posts</a>
-    <a href="#" className="card-footer-item">My Posts</a>
+    <a href="/board" className="card-footer-item">See All Posts</a>
+    <a href="/board" className="card-footer-item">My Posts</a>
+    {/* We need to change this second one to render posts by user once back end is set up */}
   </footer>
 </div>
   )
