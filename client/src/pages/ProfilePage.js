@@ -1,13 +1,14 @@
-import React from 'react'
-import { useLoginContext } from '../utils/LoginContext'
-import ProfileBox from '../components/ProfileBox'
+import React from "react";
+// import { useLoginContext } from '../utils/LoginContext'
+import Auth from "../utils/auth";
+import ProfileBox from "../components/ProfileBox";
 
 function ProfilePage() {
-  const loggedIn = useLoginContext()
-  console.log(loggedIn)
-  return (
+  return Auth.loggedIn() ? (
     <ProfileBox />
-  )
+  ) : (
+    console.log('log in or else')
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;
