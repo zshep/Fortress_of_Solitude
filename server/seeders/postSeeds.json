@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Looking for goblin hunters",
+        "author": "Shep",
+        "body": "Need help hunting goblins"
+    },
+    {
+        "title": "useState Tutoring",
+        "author": "Jacob",
+        "body": "I don't understand Redux"
+    },
+    {
+        "title": "Gutter Cleaning",
+        "author": "Patrick",
+        "body": "Looking for someone to help me clean out my gutters"
+    },
+    {
+        "title": "Junk Removal",
+        "author": "Shadin",
+        "body": "Looking for some hunks to take out all my junk in my garage"
+    },
+    {
+        "title": "Lawn Care Maintenance",
+        "author": "Tony",
+        "body": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks"
+    }
+]
