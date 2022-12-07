@@ -1,0 +1,32 @@
+[
+    {
+        "username": "Shep",
+        "email": "shep@sigma.com",
+        "password": "password01",
+        "PP": 0
+    },
+    {
+        "username": "Jacob",
+        "email": "jacob@beta.com",
+        "password": "password02",
+        "PP": 0
+    },
+    {
+        "username": "Patrick",
+        "email": "patrick@alpha.com",
+        "password": "password03",
+        "PP": 0
+    },
+    {
+        "username": "Shadin",
+        "email": "shadin@delta.com",
+        "password": "password04",
+        "PP": 0
+    },
+    {
+        "username": "Tony",
+        "email": "tony@omega.com",
+        "password": "password05",
+        "PP": 0
+    }
+]
