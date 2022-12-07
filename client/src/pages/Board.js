@@ -1,3 +1,10 @@
-// job board to browse available chore needs.
+import React from 'react'
+import StickyNote from '../components/StickyNote'
 
-import React from "react";
+function Board() {
+  return (
+    <StickyNote />
+  )
+}
+
+export default Board
