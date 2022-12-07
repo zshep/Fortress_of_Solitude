@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     },
     password: {
       type: String,
-      required: true,s
+      required: true,
       minlength: 5,
     },
     // Post: [
@@ -27,7 +27,11 @@ const UserSchema = new Schema({
     // ],
     publishedPosts: [
         PostSchema
-    ]
+    ],
+        toJSON: {
+            virtuals: true,
+        },
+    
   });
 
   const User = model('User', UserSchema);
