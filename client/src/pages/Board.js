@@ -46,11 +46,11 @@ function Board() {
     <Columnsss attr='is-multiline'>
       {data.map((el, i) => {
         return (i + 1) % 2 === 0 ? (
-          <div className="column is-one-quarter">
+          <div className="column is-one-third">
             <StickyNote title={el.title} summary={el.body} key={el.id} />
           </div>
         ) : (
-          <div className="column is-one-quarter">
+          <div className="column is-one-third">
             <GreenSticky title={el.title} summary={el.body} key={el.id} />
           </div>
         );
