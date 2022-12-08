@@ -2,34 +2,29 @@ const { Schema, model } = require('mongoose');
 //const timestamp
 
 const PostSchema = new Schema({
-  PostTitle: {
+  postTitle: {
     type: String,
     required: true,
     maxlength: 69,
     trim: true,
   },
-  PostCategory: {
+  postCategory: {
     type: String,
     required: true,
     maxlength: 69,
     trim: true,
   },
-  PostText: {
+  postText: {
     type: String,
-    required: 'You need to write a decription!',
+    required: true,
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  PostUser: {
+  postUser: {
     type: String,
     required: true,
     trim: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    //   add timestamp
   },
   // timestamp
 }, { timestamps: true })
