@@ -15,7 +15,7 @@ export default function Navbar() {
           <img src={Logo} alt="Logo" />
         </a>
         <NavBurger />
-        <h2 className="title is-2 has-text-grey-dark">GoMode</h2>
+        <h2 className="title is-2 has-text-grey-dark"  style={{ fontFamily: 'Permanent Marker' }}>GoMode</h2>
       </div>
       <div className="navbar-end">
         <NavMenu />

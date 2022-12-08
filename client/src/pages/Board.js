@@ -4,6 +4,7 @@ import { GET_POSTS } from "../utils/queries";
 import Columnsss from "../components/Column/Columnsss";
 import StickyNote from "../components/StickyNotes/StickyNote";
 import GreenSticky from "../components/StickyNotes/GreenSticky";
+import VolunteerBanner from "../components/VolunteerBanner";
 
 function Board() {
 
@@ -43,6 +44,8 @@ function Board() {
     },
   ];
   return (
+    <>
+    <VolunteerBanner />
     <Columnsss attr='is-multiline'>
       {data.map((el, i) => {
         return (i + 1) % 2 === 0 ? (
@@ -56,6 +59,7 @@ function Board() {
         );
       })}
     </Columnsss>
+    </>
   );
 }
 
