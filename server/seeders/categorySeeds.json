@@ -1,9 +1,12 @@
 [
     {
-        "category": "Yardwork"
+        "category": "YardWork"
     },
     {
         "category": "DoggyDuty"
+    },
+    {
+        "category": "Lessons"
     },
     {
         "category": "Cleaning"
