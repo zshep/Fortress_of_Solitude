@@ -1,4 +1,4 @@
-const { User, Post } = require("../models");
+const { User, Post, Category } = require("../models");
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -14,7 +14,10 @@ const resolvers = {
     },
     post: async (parent, { _id }) => {
       return await Post.findById(_id);
-    }
+    },
+    categories: async () => {
+      return await Category.find();
+    },
   },
 
   Mutation: {

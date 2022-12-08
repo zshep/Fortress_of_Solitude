@@ -11,10 +11,15 @@ type User {
 type Post {
     _id: ID
     postTitle: String!
-    postCategory: String!
+    postCategory: Category
     postText: String!
     postUser: String!
 }
+
+type Category {
+    _id: ID
+    category: String!
+  }
 
 # Queries
 type Query {
@@ -22,6 +27,7 @@ type Query {
     user(username: String!): User
     posts: [Post]
     post(_id: String!): Post
+    categories: [Category]
     }
     
 type Auth {
