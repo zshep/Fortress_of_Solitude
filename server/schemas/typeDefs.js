@@ -8,7 +8,8 @@ type User {
     password: String!
     PP: Int
 }
-# Query    
+# Query  
+# Need a getPosts mutation that gets all active posts for rendering on the board page.  
 type Query {
     users: [User]
     user(username: String!): User

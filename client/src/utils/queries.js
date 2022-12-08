@@ -8,3 +8,15 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const GET_POSTS = gql`
+  query getPosts {
+    getPosts {
+      PostTitle
+      PostCategory
+      PostText
+      PostUser
+      createdAt
+    }
+  }
+`

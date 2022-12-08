@@ -11,7 +11,7 @@ export default function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a href="/" className="navbar-item">
+        <a onClick={() => {console.log("Goblin mode activated")}} className="navbar-item">
           <img src={Logo} alt="Logo" />
         </a>
         <NavBurger />
