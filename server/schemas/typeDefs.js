@@ -31,10 +31,11 @@ type Query {
     post(_id: String!): Post
     categories: [Category]
     category(category: String!): Category
+    getMe: User
     }
     
 type Auth {
-    token: ID
+    token: ID!
     user: User
 }
 type Mutation {

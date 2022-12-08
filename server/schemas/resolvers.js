@@ -1,5 +1,6 @@
 const { User, Post, Category } = require("../models");
 const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -30,7 +31,14 @@ const resolvers = {
     },
     category: async (parent, { category }) => {
       return Category.findOne({ category }).populate('posts');
-    }
+    },
+    getMe: async (parent, args, context) => {
+      if (context.user) {
+        const meUser = await User.findOne({ _id: context.user._id });
+        return meUser;
+      }
+      throw new AuthenticationError("You need to be logged in");
+    },
   },
 
   Mutation: {
