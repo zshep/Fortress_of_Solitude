@@ -7,11 +7,21 @@ type User {
     email: String!
     password: String!
 }
-# Query  
-# Need a getPosts mutation that gets all active posts for rendering on the board page.  
+
+type Post {
+    _id: ID
+    postTitle: String!
+    postCategory: String!
+    postText: String!
+    postUser: String!
+}
+
+# Queries
 type Query {
     users: [User]
     user(username: String!): User
+    posts: [Post]
+    post(_id: String!): Post
     }
     
 type Auth {

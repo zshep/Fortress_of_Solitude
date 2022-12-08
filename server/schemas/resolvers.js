@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Post } = require("../models");
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,6 +9,12 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
+    posts: async () => {
+      return Post.find();
+    },
+    post: async (parent, { _id }) => {
+      return await Post.findById(_id);
+    }
   },
 
   Mutation: {
