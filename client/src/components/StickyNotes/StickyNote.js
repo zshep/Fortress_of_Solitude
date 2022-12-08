@@ -23,6 +23,12 @@ transform:rotate(4deg);
     font-size:19px;
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
     color: black;
+    transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: rotate(-4deg);
+    transition: transform 0.5s ease-in-out;
+  }
     h1 {
       font-size:25px; 
      position:relative;

@@ -5,6 +5,7 @@ import Columnsss from "../components/Column/Columnsss";
 import Column from "../components/Column/Column";
 import LoginCard from "../components/LoginCard";
 import Auth from "../utils/auth";
+import Button from "../components/Button";
 
 //These are just random components thrown in here for now I am using for testing
 
