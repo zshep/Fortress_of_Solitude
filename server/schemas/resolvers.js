@@ -9,8 +9,17 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { username }) => {
-      const params = username ? { username } : {};
+    posts: async (parent, { username, category }) => {
+      const params = {};
+
+      if (username) {
+        params.username = username;
+      }
+
+      if (category) {
+        params.category = category;
+      }
+
       return Post.find(params);
     },
     post: async (parent, { _id }) => {
@@ -19,6 +28,9 @@ const resolvers = {
     categories: async () => {
       return await Category.find();
     },
+    category: async (parent, { category }) => {
+      return Category.findOne({ category }).populate('posts');
+    }
   },
 
   Mutation: {

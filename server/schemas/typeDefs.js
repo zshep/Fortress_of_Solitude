@@ -20,6 +20,7 @@ type Post {
 type Category {
     _id: ID
     category: String!
+    posts: [Post]!
   }
 
 # Queries
@@ -29,6 +30,7 @@ type Query {
     posts: [Post]
     post(_id: String!): Post
     categories: [Category]
+    category(category: String!): Category
     }
     
 type Auth {
