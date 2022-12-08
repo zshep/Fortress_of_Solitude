@@ -1,35 +1,37 @@
 [
-
-      {  "title": "Looking for goblin hunters",
-        "author": "Shep",
-        "body": "Need help hunting goblins"
+    {
+        "postTitle": "Mow my lawn",
+        "postCategory": "Yardwork",
+        "postText": "My arm is broken and I can't mow my lawn. The HOA is trying to repossess my house and destroy my daffodils. Could you save me before Tuesday?",
+        "postUser": "Shep",
+        "createdAt": "3 o clock"
     },
     {
-        "title": "useState Tutoring",
-        "author": "Jacob",
-        "body": "I don't understand Redux"
+        "postTitle": "Dog Poop!",
+        "postCategory": "DoggyDuty",
+        "postText": "I need someone to pick up the dog poop off of my lawn. It's terrible. Oh GAWD",
+        "postUser": "Jacob",
+        "createdAt": "4 o clock"
     },
     {
-        "title": "Gutter Cleaning",
-        "author": "Patrick",
-        "body": "Looking for someone to help me clean out my gutters"
+        "postTitle": "Gutter Cleaning",
+        "postCategory": "Cleaning",
+        "postText": "Looking for someone to help me clean out my gutters",
+        "postUser": "Patrick",
+        "createdAt": "5 o clock"
     },
     {
-        "title": "Junk Removal",
-        "author": "Shadin",
-        "body": "Looking for some hunks to take out all my junk in my garage"
+        "postTitle": "Junk Removal",
+        "postCategory": "Cleaning",
+        "postText": "Looking for some hunks to take out all my junk in my garage",
+        "postUser": "Shadin",
+        "createdAt": "6 o clock"
     },
     {
-        "title": "Lawn Care Maintenance",
-        "author": "Tony",
-        "body": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks"
-
-    },
-    {
-    "postTitle": "Mow my lawn",
-    "postCategory":"Yardwork",
-    "postText": "My arm is broken and I can't mow my lawn. The HOA is trying to repossess my house and destroy my daffodils. Could you save me before Tuesday?",
-    "postUser": "Shep",
-    "createdAt": "3 o clock"
-    },
+        "postTitle": "Lawn Care Maintenance",
+        "postCategory": "Yardwork",
+        "postText": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks",
+        "postUser": "Tony",
+        "createdAt": "7 o clock"
+    }
 ]
