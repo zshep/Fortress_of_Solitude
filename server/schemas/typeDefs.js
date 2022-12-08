@@ -6,7 +6,6 @@ type User {
     username: String!
     email: String!
     password: String!
-    PP: Int
 }
 # Query  
 # Need a getPosts mutation that gets all active posts for rendering on the board page.  
