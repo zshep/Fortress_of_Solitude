@@ -7,10 +7,11 @@ const resolvers = {
       return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username });
+      return User.findOne({ username }).populate('posts');
     },
-    posts: async () => {
-      return Post.find();
+    posts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Post.find(params);
     },
     post: async (parent, { _id }) => {
       return await Post.findById(_id);

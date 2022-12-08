@@ -1,7 +1,7 @@
 [
     {
         "postTitle": "Mow my lawn",
-        "postCategory": "Yardwork",
+        "postCategory": "YardWork",
         "postText": "My arm is broken and I can't mow my lawn. The HOA is trying to repossess my house and destroy my daffodils. Could you save me before Tuesday?",
         "postUser": "Shep"
     },
@@ -28,5 +28,11 @@
         "postCategory": "Yardwork",
         "postText": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks",
         "postUser": "Tony"
+    },
+    {
+        "postTitle": "Coding Lessons",
+        "postCategory": "Lessons",
+        "postText": "Looking for someone to teach me how to code",
+        "postUser": "Patrick"
     }
 ]

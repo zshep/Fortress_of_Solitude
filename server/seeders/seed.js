@@ -14,6 +14,18 @@ db.once('open', async () => {
         await Post.create(postSeeds);
         await Category.create(categorySeeds);
 
+        for (let i = 0; i < postSeeds.length; i++) {
+            const { _id, postUser } = await Post.create(postSeeds[i]);
+            const user = await User.findOneAndUpdate(
+                { username: postUser },
+                {
+                    $addToSet: {
+                        posts: _id,
+                    },
+                }
+            );
+        }
+
         console.log('all done!');
         process.exit(0);
     } catch (err) {

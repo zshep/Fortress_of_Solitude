@@ -21,12 +21,12 @@ const UserSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  // Post: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Post',
-  //   },
-  // ],
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+  ],
   // publishedPosts: [
   //     PostSchema
   // ],
