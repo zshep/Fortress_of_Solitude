@@ -4,26 +4,36 @@ import ProfilePic from './ProfilePic'
 function ProfileBox() {
   return (
     
-    <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      Profile Page PLACEHOLDER JACOB. PLACEHOLDER
+    <div className="container">
+  <header className="card-header">
+    <p className="card-header-title">
+      User's Profile Page
     </p>
-    <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
+    <button className="card-header-icon" aria-label="more options">
+      <span className="icon">
+        <i className="fas fa-angle-down" aria-hidden="true"></i>
       </span>
     </button>
   </header>
-  <div class="card-content">
+  <div className="card-content">
+    <div className="columns">
+    <div className="column is-one-quarter">
   <ProfilePic/>
-    <div class="content">
-      This is a placeholder so business logic can be implemented. Trust the process. But also change if you want.
+  </div>
+  <div className="column">
+  <p> Username </p>
+  <p> Community Name</p>
+  <p> PP Level</p>
+  </div>
+  </div>
+    <div className="content">
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     </div>
   </div>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">See All Posts</a>
-    <a href="#" class="card-footer-item">My Posts</a>
+  <footer className="card-footer">
+    <a href="/board" className="card-footer-item">See All Posts</a>
+    <a href="/board" className="card-footer-item">My Posts</a>
+    {/* We need to change this second one to render posts by user once back end is set up */}
   </footer>
 </div>
   )

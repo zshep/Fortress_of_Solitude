@@ -1,1 +1,1 @@
-export const LOGIN = "LOGIN"
+export const ACTIVATE_NAV = "ACTIVATE_NAV"

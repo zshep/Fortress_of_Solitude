@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { LOGIN } from "../utils/actions";
-import { useAppContext } from "../utils/GlobalState";
+import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { useMutation } from "@apollo/client";
 
 function LoginCard() {
   const [authenticated, setAuthenticated] = useState(false);
 
-  const loginWithEmailAndPassword = () => setAuthenticated(true);
+  // const loginWithEmailAndPassword = () => setAuthenticated(true);
 
-  const loginWithProvider = () => setAuthenticated(true);
+  // const loginWithProvider = () => setAuthenticated(true);
 
   const handleClose = () => setAuthenticated(true);
 
@@ -21,23 +21,26 @@ function LoginCard() {
   );
 }
 
-const LoginButton = ({ icon, name, onClick }) => (
-  <div className="field">
-    <p
-      className="control button is-medium is-danger"
-      style={{ width: "300px" }}
-      onClick={onClick}
-    >
-      <span className="icon">
-        <i className={`fa fa-${icon}`} aria-hidden="true"></i>
-      </span>
-      <span>{`Sign In With ${name}`}</span>
-    </p>
-  </div>
-);
+// ***----Consider Deletion----***
+
+// const LoginButton = ({ icon, name, onClick }) => (
+//   <div className="field">
+//     <p
+//       className="control button is-medium is-danger"
+//       style={{ width: "300px" }}
+//       onClick={onClick}
+//     >
+//       <span className="icon">
+//         <i className={`fa fa-${icon}`} aria-hidden="true"></i>
+//       </span>
+//       <span>{`Sign In With ${name}`}</span>
+//     </p>
+//   </div>
+// );
 
 function LoginForm() {
-  const [state, dispatch] = useAppContext();
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
+  // const [loggedIn, dispatch] = useLoginContext();
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
@@ -53,6 +56,8 @@ function LoginForm() {
       case "password":
         setPassword(inputValue);
         break;
+      default:
+        return;
     }
   };
 
@@ -62,14 +67,22 @@ function LoginForm() {
       password,
     };
 
-    console.log(submission);
+    try {
+      const { data } = await loginUser({
+        variables: { ...submission },
+      });
 
-    // log in user using mutation.
-    // set Auth.login with returned token
-    // sets logged in state to true
-    dispatch({
-      type: LOGIN,
-    });
+      if (!data) {
+        throw new Error("No user found with those credentials.");
+      }
+
+      Auth.login(data.login.token);
+      // route user to their personal page?
+      // console.log(`/profile/${data.login.user._id}`)
+      window.location.assign("/profile");
+    } catch (err) {
+      throw new Error("Something went wrong!");
+    }
 
     setEmail("");
     setPassword("");

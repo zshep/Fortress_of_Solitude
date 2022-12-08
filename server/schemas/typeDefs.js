@@ -6,15 +6,20 @@ type User {
     username: String!
     email: String!
     password: String!
-    PP: INT
+    PP: Int
 }
-# Query    
+# Query  
+# Need a getPosts mutation that gets all active posts for rendering on the board page.  
 type Query {
     users: [User]
     user(username: String!): User
     }
     
-# Mutation {
+type Auth {
+    token: ID
+    user: User
+}
+type Mutation {
     login(email: String!, password: String!): Auth
 }
 `;

@@ -1,21 +1,20 @@
 import { useReducer } from "react";
 //import actions from actions.js
-import { LOGIN } from "./actions";
-import Auth from "./auth"
+import { ACTIVATE_NAV } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
     //cases go here
-    case LOGIN: 
+    case ACTIVATE_NAV:
       return {
         ...state,
-        isLoggedIn: !action.isLoggedIn
-      }
+        isActive: !state.isActive,
+      };
     default:
       return state;
   }
 };
 
-export function useAppReducer(initialState) {
+export function useNavReducer(initialState) {
   return useReducer(reducer, initialState);
 }
