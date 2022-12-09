@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
@@ -49,6 +49,7 @@ const placeholderData = {
 };
 
 function ProfileCard() {
+  const [view, setView] = useState("")
   const { data, loading } = useQuery(GET_ME);
   const userData = data?.getMe || {};
 
@@ -57,6 +58,8 @@ function ProfileCard() {
   }
 
   console.log(userData)
+
+  
 
   return (
     <CardContainer>
