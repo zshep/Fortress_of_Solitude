@@ -34,7 +34,7 @@ const resolvers = {
     },
     getMe: async (parent, args, context) => {
       if (context.user) {
-        const meUser = await User.findOne({ _id: context.user._id });
+        const meUser = await User.findOne({ _id: context.user._id }).populate('posts');
         return meUser;
       }
       throw new AuthenticationError("You need to be logged in");
