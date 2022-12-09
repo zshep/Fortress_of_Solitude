@@ -39,7 +39,7 @@ function CreatePost() {
       summary,
     };
     try {
-      console.log(jobData)
+      console.log(jobData);
       // const { data } = await createJob({
       //   variables: { jobData },
       // });
