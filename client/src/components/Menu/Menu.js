@@ -16,7 +16,7 @@ function Menu() {
                 payload: "needed",
               });
             }}
-            className="button m-4"
+            className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
             }}
@@ -25,7 +25,7 @@ function Menu() {
             }}
             style={{ fontFamily: "Permanent Marker", background: "#e3e3e3" }}
           >
-            Your needed jobs
+            Your jobs
           </a>
         </li>
         <li>
@@ -36,7 +36,7 @@ function Menu() {
                 payload: "accepted",
               });
             }}
-            className="button m-4"
+            className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
             }}
@@ -51,7 +51,7 @@ function Menu() {
         <li>
           <a
             href="/board"
-            className="button m-4"
+            className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
             }}
@@ -66,7 +66,7 @@ function Menu() {
         <li>
           <a
             href="/createpost"
-            className="button m-4"
+            className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
             }}
@@ -81,7 +81,7 @@ function Menu() {
         <li>
           <a
             href="/post"
-            className="button m-4"
+            className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
             }}

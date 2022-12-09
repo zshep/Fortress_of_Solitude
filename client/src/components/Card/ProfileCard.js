@@ -9,11 +9,8 @@ import ProfilePic from "../ProfilePic";
 import DashboardBanner from "../Dashboard/DashboardBanner";
 import Menu from "../Menu/Menu";
 import JobContainer from "../Dashboard/JobContainer";
-import AcceptedChoreCard from "./AcceptedChoreCard";
-import NeededChoreCard from "./NeededChoreCard";
 
 import { DashProvider } from "../../utils/context/dashboardContext";
-import { useDashContext } from "../../utils/context/dashboardContext";
 
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
@@ -66,17 +63,17 @@ function ProfileCard() {
       </CardHeader>
       <DashProvider>
         <Columnsss attr="p-2">
-          <Column attr="is-2">
+          <Column attr="is-2-desktop is-full-mobile">
             <Menu />
           </Column>
-          <Column attr="is-10">
+          <Column attr="is-10-tablet is-12-mobile">
             <CardContainer>
               <CardContent>
-                <Columnsss attr="is-centered">
-                  <Column attr="is-2">
+                <Columnsss attr="is-centered is-mobile">
+                  <Column attr="is-2-desktop">
                     <ProfilePic />
                   </Column>
-                  <Column attr="is-2">
+                  <Column attr="is-2-desktop">
                     <>
                       {/* Need empty element wrapping Pcomponents to prevent Column component from treating them as an array and generating new columns */}
                       <PComponent attr={"profileFont"}>
