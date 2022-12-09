@@ -59,10 +59,49 @@ const resolvers = {
     },
     //---------working on finishing mutations--------
 
-    // createJob: async (parent {}) => {
-    //   const newJob = await Post.create({})
+    createJob: async (parent, args) => {
+      const newjob = await Post.create(args);
+      return newjob;
+    },
 
-    // },
+    acceptJob: async (parent, {}) => {
+      const acceptjob = await User.findOneAndUpdate(
+       // need to update user who accepted the job
+        { _id },
+        // {}  needs another parameter
+        { new: true } 
+      
+        );
+
+      return acceptjob;
+    },
+
+    completeJob: async (parent, {}) => {
+      const job = await User.findOneAndUpdate(
+          // need to update user who accepted the job
+          { _id },
+          // {}  needs another parameter
+          { new: true } 
+         );
+
+      return {};
+    },
+
+    deleteJob: async (parent, {}) => {
+      const job = await User.updateOne({
+       // need to update user who accepted the job 
+      })
+
+      return {};
+    },
+    editJob: async (parent, {}) => {
+      const job = await User.updateOne({
+       // need to update user who accepted the job 
+      })
+
+      return {};
+    },
+    
 
   },
 };
