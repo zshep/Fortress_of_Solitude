@@ -38,7 +38,7 @@ transform:rotate(-4deg);
 `;
 
 
-function SmallGreenSticky({title}) {
+function SmallGreenSticky({ title, summary}) {
   return (
     <StyledStickyNote>
       <h1>{title}</h1>

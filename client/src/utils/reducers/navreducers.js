@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 //import actions from actions.js
-import { ACTIVATE_NAV } from "./actions";
+import { ACTIVATE_NAV } from "../actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {

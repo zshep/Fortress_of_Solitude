@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavContext } from "../../utils/NavContext";
+import { useNavContext } from "../../utils/context/NavContext";
 import { ACTIVATE_NAV } from "../../utils/actions";
 
 function NavBurger() {
