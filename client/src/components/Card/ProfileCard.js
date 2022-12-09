@@ -65,7 +65,7 @@ function ProfileCard() {
       <CardHeader>
         <DashboardBanner />
       </CardHeader>
-      <Columnsss>
+      <Columnsss attr="p-2">
         <Column attr="is-2">
           <Menu />
         </Column>
@@ -149,6 +149,10 @@ function ProfileCard() {
                 </Columnsss>
               </Container>
             </CardContent>
+<<<<<<< HEAD
+=======
+            
+>>>>>>> main
           </CardContainer>
         </Column>
       </Columnsss>

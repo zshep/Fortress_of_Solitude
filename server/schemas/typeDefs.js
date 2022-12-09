@@ -7,13 +7,12 @@ const typeDefs = gql`
     email: String!
     password: String!
     posts: [Post]!
-    post: [Post]!
 }
 
   type Post {
     _id: ID
     postTitle: String!
-    postCategory: Category
+    postCategory: String!
     postText: String!
     postUser: String!
   }
