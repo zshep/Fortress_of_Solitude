@@ -57,6 +57,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    //---------working on finishing mutations--------
+
+    // createJob: async (parent {}) => {
+    //   const newJob = await Post.create({})
+
+    // },
+
   },
 };
 
