@@ -5,13 +5,29 @@ export const GET_ME = gql`
     getMe {
       _id
       username
+      posts {
+        postCategory {
+          category
+        }
+        postText
+        postTitle
+        postUser
+      }
+    }
+  }
+`;
+
+export const GET_USERS = gql`
+  query users {
+    users {
+      username
     }
   }
 `;
 
 export const GET_POSTS = gql`
-  query getPosts {
-    getPosts {
+  query posts {
+    posts {
       PostTitle
       PostCategory
       PostText
@@ -19,4 +35,13 @@ export const GET_POSTS = gql`
       createdAt
     }
   }
-`
+`;
+
+export const GET_CATEGORIES = gql`
+  query categories {
+    categories {
+      category
+      posts
+    }
+  }
+`;

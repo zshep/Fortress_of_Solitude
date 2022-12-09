@@ -68,6 +68,7 @@ function LoginForm() {
     };
 
     try {
+      console.log(submission)
       const { data } = await loginUser({
         variables: { ...submission },
       });
@@ -75,6 +76,8 @@ function LoginForm() {
       if (!data) {
         throw new Error("No user found with those credentials.");
       }
+
+      console.log(data)
 
       Auth.login(data.login.token);
       // route user to their personal page?
