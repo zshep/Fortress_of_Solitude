@@ -10,19 +10,15 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { _id, username, category }) => {
+    posts: async (parent, { username, category }) => {
       const params = {};
 
-      if (_id) {
-        params._id = _id;
+      if (category) {
+        params.category = category;
       }
 
       if (username) {
         params.username = username;
-      }
-
-      if (category) {
-        params.category = category;
       }
 
       return Post.find(params);
