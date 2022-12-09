@@ -13,12 +13,12 @@ const resolvers = {
     posts: async (parent, { username, category }) => {
       const params = {};
 
-      if (username) {
-        params.username = username;
-      }
-
       if (category) {
         params.category = category;
+      }
+
+      if (username) {
+        params.username = username;
       }
 
       return Post.find(params);
@@ -34,7 +34,7 @@ const resolvers = {
     },
     getMe: async (parent, args, context) => {
       if (context.user) {
-        const meUser = await User.findOne({ _id: context.user._id });
+        const meUser = await User.findOne({ _id: context.user._id }).populate('posts');
         return meUser;
       }
       throw new AuthenticationError("You need to be logged in");

@@ -8,7 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { NavProvider } from "./utils/NavContext";
+import { NavProvider } from "./utils/context/NavContext";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
@@ -16,6 +16,8 @@ import Login from "./pages/Login";
 import Crash from "./pages/404";
 import ProfilePage from "./pages/ProfilePage";
 import Board from "./pages/Board";
+import Post from "./pages/Post";
+import CreatePost from "./components/CreatePost";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -50,6 +52,9 @@ function App() {
               <Route path="*" element={<Crash />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/board" element={<Board />} />
+              <Route path="/post" element={<Post />} />
+              <Route path="/createpost" element={<CreatePost />} />
+              {/* we will refine this /post route once parts are connected */}
             </Routes>
             <Footer />
           </div>

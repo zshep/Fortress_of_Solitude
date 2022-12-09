@@ -5,6 +5,13 @@ export const GET_ME = gql`
     getMe {
       _id
       username
+      posts {
+        _id
+        postCategory 
+        postText
+        postTitle
+        postUser
+      }
     }
   }
 `;

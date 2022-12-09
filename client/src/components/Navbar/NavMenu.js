@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import NavItem from "./NavItem";
-import { useNavContext } from "../../utils/NavContext";
+import { useNavContext } from "../../utils/context/NavContext";
 
 function NavMenu() {
   const logoutUser = () => {
