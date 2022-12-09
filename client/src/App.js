@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 import Crash from "./pages/404";
 import ProfilePage from "./pages/ProfilePage";
 import Board from "./pages/Board";
+import Post from "./pages/Post";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -50,6 +51,7 @@ function App() {
               <Route path="*" element={<Crash />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/board" element={<Board />} />
+              <Route path="/post" element={<Post />} />
             </Routes>
             <Footer />
           </div>
