@@ -10,8 +10,12 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { username, category }) => {
+    posts: async (parent, { _id, username, category }) => {
       const params = {};
+
+      if (_id) {
+        params._id = _id;
+      }
 
       if (username) {
         params.username = username;
