@@ -38,8 +38,14 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
   type Mutation {
     login(email: String!, password: String!): Auth
+    createJob(jobData: String!): Post
+    acceptJob(jobData: String): Post
+    completeJob(jobData: String): Post
+    deleteJob(jobData: String): Post
+    editJob(jobData: String): Post
   }
 `;
 
