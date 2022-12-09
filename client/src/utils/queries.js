@@ -6,9 +6,8 @@ export const GET_ME = gql`
       _id
       username
       posts {
-        postCategory {
-          category
-        }
+        _id
+        postCategory 
         postText
         postTitle
         postUser

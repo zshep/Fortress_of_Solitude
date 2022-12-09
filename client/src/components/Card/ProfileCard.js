@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import CardContainer from "./CardContainer";
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
-import CardFooter from "./CardFooter";
 import PComponent from "../PComponent";
 import Columnsss from "../Column/Columnsss";
 import Column from "../Column/Column";
 import ProfilePic from "../ProfilePic";
-import DashboardBanner from "../DashboardBanner";
-import Container from "../Container";
-import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
-import SmallStickyNote from "../StickyNotes/SmallStickyNote";
+import DashboardBanner from "../Dashboard/DashboardBanner";
 import Menu from "../Menu/Menu";
+import JobContainer from "../Dashboard/JobContainer";
+import AcceptedChoreCard from "./AcceptedChoreCard";
+import NeededChoreCard from "./NeededChoreCard";
+
+import { DashProvider } from "../../utils/context/dashboardContext";
+import { useDashContext } from "../../utils/context/dashboardContext";
 
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
@@ -50,7 +52,6 @@ const placeholderData = {
 };
 
 function ProfileCard() {
-  const [view, setView] = useState("");
   const { data, loading } = useQuery(GET_ME);
   const userData = data?.getMe || {};
 
@@ -58,101 +59,44 @@ function ProfileCard() {
     return <h2>LOADING...</h2>;
   }
 
-  console.log(userData);
-
   return (
     <>
       <CardHeader>
         <DashboardBanner />
       </CardHeader>
-      <Columnsss attr="p-2">
-        <Column attr="is-2">
-          <Menu />
-        </Column>
-        <Column attr="is-10">
-          <CardContainer>
-            <CardContent>
-              <Columnsss attr="is-centered">
-                <Column attr="is-2">
-                  <ProfilePic />
-                </Column>
-                <Column attr="is-2">
-                  <>
-                    {/* Need empty element wrapping Pcomponents to prevent Column component from treating them as an array and generating new columns */}
-                    <PComponent attr={"profileFont"}>
-                      {placeholderData.username}
-                    </PComponent>
-                    <PComponent attr={"profileFont"}>
-                      {placeholderData.community}
-                    </PComponent>
-                    <PComponent attr={"profileFont"}>
-                      {placeholderData.PP}
-                    </PComponent>
-                  </>
-                </Column>
-              </Columnsss>
-              <Container attr={"has-text-centered"}>
-                <p className="profileSubText">
-                  Here are your posts. Click one to edit it.
-                </p>
-              </Container>
-              <Container>
-                <Columnsss attr="is-multiline">
-                  {placeholderData.neededChores.map((el, i) => {
-                    return (i + 1) % 2 === 0 ? (
-                      <div className="column is-one-third">
-                        <SmallStickyNote
-                          title={el.title}
-                          summary={el.body}
-                          key={el.id}
-                        />
-                      </div>
-                    ) : (
-                      <div className="column is-one-third">
-                        <SmallGreenSticky
-                          title={el.title}
-                          summary={el.body}
-                          key={el.id}
-                        />
-                      </div>
-                    );
-                  })}
+      <DashProvider>
+        <Columnsss attr="p-2">
+          <Column attr="is-2">
+            <Menu />
+          </Column>
+          <Column attr="is-10">
+            <CardContainer>
+              <CardContent>
+                <Columnsss attr="is-centered">
+                  <Column attr="is-2">
+                    <ProfilePic />
+                  </Column>
+                  <Column attr="is-2">
+                    <>
+                      {/* Need empty element wrapping Pcomponents to prevent Column component from treating them as an array and generating new columns */}
+                      <PComponent attr={"profileFont"}>
+                        {userData.username}
+                      </PComponent>
+                      <PComponent attr={"profileFont"}>
+                        {placeholderData.community}
+                      </PComponent>
+                      <PComponent attr={"profileFont"}>
+                        {placeholderData.PP}
+                      </PComponent>
+                    </>
+                  </Column>
                 </Columnsss>
-              </Container>
-              <Container attr={"has-text-centered"}>
-                <p className="profileSubText">
-                  Here are chores you promised to complete. Don't let your
-                  neighborino down.
-                </p>
-              </Container>
-              <Container>
-                <Columnsss attr="is-multiline">
-                  {placeholderData.acceptedChores.map((el, i) => {
-                    return (i + 1) % 2 === 0 ? (
-                      <div className="column is-one-third">
-                        <SmallGreenSticky
-                          title={el.title}
-                          summary={el.body}
-                          key={el.id}
-                        />
-                      </div>
-                    ) : (
-                      <div className="column is-one-third">
-                        <SmallStickyNote
-                          title={el.title}
-                          summary={el.body}
-                          key={el.id}
-                        />
-                      </div>
-                    );
-                  })}
-                </Columnsss>
-              </Container>
-            </CardContent>
-            
-          </CardContainer>
-        </Column>
-      </Columnsss>
+                <JobContainer data={userData}/>
+              </CardContent>
+            </CardContainer>
+          </Column>
+        </Columnsss>
+      </DashProvider>
     </>
   );
 }
