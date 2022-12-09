@@ -7,6 +7,7 @@ export default function Navbar() {
   return (
     <nav
       className="navbar is-black"
+      id="PatricksFancyNav"
       role="navigation"
       aria-label="main navigation"
     >

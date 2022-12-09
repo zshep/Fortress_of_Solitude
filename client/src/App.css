@@ -13,3 +13,21 @@
     color: grey;
     font-family: 'Permanent Marker';
 }
+
+#PatricksFancyNav {
+    background: linear-gradient(-45deg, black, white, black, white, black, white);
+    background-size: 400% 400%;
+	animation: gradient 60s linear infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
