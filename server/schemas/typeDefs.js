@@ -7,6 +7,7 @@ type User {
     email: String!
     password: String!
     posts: [Post]!
+    post: [Post]!
 }
 
 type Post {
