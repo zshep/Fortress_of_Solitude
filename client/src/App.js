@@ -18,6 +18,7 @@ import ProfilePage from "./pages/ProfilePage";
 import Board from "./pages/Board";
 import Post from "./pages/Post";
 import CreatePost from "./components/CreatePost";
+import MatchingIDPost from "./components/MatchingIDPost";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -54,6 +55,7 @@ function App() {
               <Route path="/board" element={<Board />} />
               <Route path="/post" element={<Post />} />
               <Route path="/createpost" element={<CreatePost />} />
+              <Route path="/mypost" element={<MatchingIDPost />} />
               {/* we will refine this /post route once parts are connected */}
             </Routes>
             <Footer />
