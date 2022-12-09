@@ -16,8 +16,8 @@
 
 #PatricksFancyNav {
     background: linear-gradient(-45deg, black, white, black, white, black, white);
-    background-size: 400% 400%;
-	animation: gradient 60s linear infinite;
+    background-size: 800% 800%;
+	animation: gradient 90s linear infinite;
 }
 
 @keyframes gradient {
