@@ -31,7 +31,7 @@ type Query {
     post(_id: String!): Post
     categories: [Category]
     category(category: String!): Category
-    getMe: User
+    getMe(_id: String): User
     }
     
 type Auth {
