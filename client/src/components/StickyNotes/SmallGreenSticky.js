@@ -31,11 +31,12 @@ transform:rotate(-4deg);
 
 
     h1 {
-      font-size:12px; 
+      font-size: 12px; 
      position:relative;
    }
 
 `;
+
 
 function SmallGreenSticky({title}) {
   return (

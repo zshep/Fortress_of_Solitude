@@ -45,7 +45,7 @@ function CreatePost() {
   
         <div class="field is-grouped">
           <div class="control">
-            <button class="button" style={{ fontFamily: 'Permanent Marker', background: '#A6CE90'  }}>
+            <button class="button" onMouseOver={(e) => {e.target.style.transform = 'scale(1.25)';}} onMouseOut={(e) => {e.target.style.transform = 'scale(1)';}}  style={{ fontFamily: 'Permanent Marker', background: '#A6CE90'  }}>
               Create Post
             </button>
           </div>

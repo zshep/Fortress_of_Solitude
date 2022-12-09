@@ -65,7 +65,7 @@ function ProfileCard() {
       <CardHeader>
         <DashboardBanner />
       </CardHeader>
-      <Columnsss>
+      <Columnsss attr="p-2">
         <Column attr="is-2">
           <Menu />
         </Column>
@@ -149,11 +149,7 @@ function ProfileCard() {
                 </Columnsss>
               </Container>
             </CardContent>
-            <CardFooter>
-              <a href="/board" className="card-footer-item">
-                See All Posts
-              </a>
-            </CardFooter>
+            
           </CardContainer>
         </Column>
       </Columnsss>
