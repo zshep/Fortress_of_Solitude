@@ -93,6 +93,21 @@ function Menu() {
             Temp one job
           </a>
         </li>
+        <li>
+          <a
+            href="/mypost"
+            className="button m-4 is-size-6-tablet"
+            onMouseOver={(e) => {
+              e.target.style.transform = "scale(1.25)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.transform = "scale(1)";
+            }}
+            style={{ fontFamily: "Permanent Marker", background: "#dbe0d7" }}
+          >
+            Temp Edit One Job
+          </a>
+        </li>
       </ul>
     </aside>
   );
