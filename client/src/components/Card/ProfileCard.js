@@ -149,11 +149,6 @@ function ProfileCard() {
                 </Columnsss>
               </Container>
             </CardContent>
-            <CardFooter>
-              <a href="/board" className="card-footer-item">
-                See All Posts
-              </a>
-            </CardFooter>
           </CardContainer>
         </Column>
       </Columnsss>
