@@ -23,6 +23,14 @@ const typeDefs = gql`
     posts: [Post]!
   }
 
+  # input for jobData
+  input jobData {
+    postTitle: String!
+    postCategory: String!
+    postText: String!
+    postUser: String!
+  }
+
   # Queries
   type Query {
     users: [User]
@@ -41,11 +49,11 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    createJob(jobData: String!): Post
-    acceptJob(jobData: String): Post
-    completeJob(jobData: String): Post
-    deleteJob(jobData: String): Post
-    editJob(jobData: String): Post
+    createJob(content: jobData): Post
+    acceptJob(content: jobData): Post
+    completeJob(content: jobData): Post
+    deleteJob(content: jobData): Post
+    editJob(content: jobData): Post
   }
 `;
 
