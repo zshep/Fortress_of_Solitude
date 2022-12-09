@@ -25,6 +25,15 @@ export const LOGIN_USER = gql`
   }
 `;
 
+
+export const CREATE_CATEGORY = gql`
+  mutation createCategory($category: String!) {
+    createCategory(category: $category) {
+      category
+    }
+  }
+`
+
 export const CREATE_JOB = gql`
   mutation createJob($jobData: jobData!) {
     createJob(jobData: $jobData) {
