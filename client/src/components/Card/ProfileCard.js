@@ -56,6 +56,8 @@ function ProfileCard() {
     return <h2>LOADING...</h2>;
   }
 
+  console.log(userData)
+
   return (
     <CardContainer>
       <CardHeader>
