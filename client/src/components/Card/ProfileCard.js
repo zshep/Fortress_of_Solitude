@@ -55,7 +55,7 @@ function ProfileCard() {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-
+  console.log(data)
   return (
     <>
       <CardHeader>
