@@ -16,6 +16,17 @@ export const GET_ME = gql`
   }
 `;
 
+export const GET_SINGLE_POST = gql`
+  query post($id: String) {
+    post(_id: $id) {
+      postTitle
+      postCategory
+      postText
+      postUser
+    }
+  }
+`
+
 export const GET_USERS = gql`
   query users {
     users {

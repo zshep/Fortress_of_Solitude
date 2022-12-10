@@ -9,9 +9,24 @@ import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "./StickyNotes/SmallStickyNote";
 import MatchingPostBanner from "./MatchingPostBanner";
 
+import { useQuery } from "@apollo/client";
+import { GET_SINGLE_POST } from "../utils/queries"; 
+
 function MatchingIDPost(props) {
   const [searchParams, setSearchParams] = useSearchParams()
   const postId = searchParams.get('postId')
+
+  const { data, loading } = useQuery(GET_SINGLE_POST, {
+    variables: { id: postId }
+  })
+
+  const postData = data?.post || {}
+
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+
+  console.log(postData)
 
   const retrievedTitle= 'Dog Poop!'
 
