@@ -63,6 +63,7 @@ OTHER
     login(email: String!, password: String!): Auth
     newUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String!, email: String!, password: String!): User
+    deleteUser(username: String!, email: String!, password: String!): User
     createJob(content: jobData): Post
     acceptJob(content: jobData): Post
     completeJob(content: jobData): Post

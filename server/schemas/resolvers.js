@@ -85,7 +85,21 @@ const resolvers = {
       user.password = password;
 
       return user.save();
+    },
+    deleteUser: async (parent, { username, email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError("Cannot find a user with that email");
+      }
 
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password");
+      }
+
+      console.log("This user has been deleted");
+      return user.delete();
     },
     //---------working on finishing mutations--------
 
