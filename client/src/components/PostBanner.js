@@ -14,10 +14,10 @@ const PostBannerWrapper = styled.div`
   font-family: 'Permanent Marker', cursive;
 `;
 
-function PostBanner() {
+function PostBanner({title}) {
   return (
     <PostBannerWrapper>
-      Volunteer Opportunity #123456
+      Volunteer Opportunity #123456 - {title}
     </PostBannerWrapper>
   );
 }

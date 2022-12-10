@@ -20,6 +20,12 @@ import Post from "./pages/Post";
 import CreatePost from "./components/CreatePost";
 import MatchingIDPost from "./components/MatchingIDPost";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faPenToSquare)
+
 const httpLink = createHttpLink({
   uri: "graphql",
 });
