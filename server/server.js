@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 
 // Import Apollo Sever an necessary libraries 
 const { ApolloServer } = require('apollo-server-express');
