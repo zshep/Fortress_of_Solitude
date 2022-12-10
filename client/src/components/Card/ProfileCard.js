@@ -55,7 +55,7 @@ function ProfileCard() {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-  console.log(data)
+
   return (
     <>
       <CardHeader>
@@ -69,8 +69,8 @@ function ProfileCard() {
           <Column attr="is-10-tablet is-12-mobile">
             <CardContainer>
               <CardContent>
-                <Columnsss attr="is-centered is-mobile">
-                  <Column attr="is-2-desktop">
+                <Columnsss attr="is-centered is-vcentered is-mobile">
+                  <Column attr="is-2-desktop has-text-centered">
                     <ProfilePic />
                   </Column>
                   <Column attr="is-2-desktop">
