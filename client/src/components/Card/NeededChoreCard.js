@@ -16,20 +16,19 @@ function NeededChoreCard({ data }) {
         <Columnsss attr="is-multiline">
           {data.posts.map((el, i) => {
             return (i + 1) % 2 === 0 ? (
-              <div className="column is-one-third">
-                <SmallStickyNote
-                  title={el.postTitle}
-                  summary={el.postText}
-                  key={el._id}
-                />
+              <div className="column is-one-third" key={el._id} postid={el._id}>
+                <a href={`/mypost/?postId=${el._id}`}>
+                  <SmallStickyNote title={el.postTitle} summary={el.postText} />
+                </a>
               </div>
             ) : (
-              <div className="column is-one-third">
-                <SmallGreenSticky
-                  title={el.postTitle}
-                  summary={el.postText}
-                  key={el._id}
-                />
+              <div className="column is-one-third" key={el._id} postid={el._id}>
+                <a href={`/mypost/?postId=${el._id}`}>
+                  <SmallGreenSticky
+                    title={el.postTitle}
+                    summary={el.postText}
+                  />
+                </a>
               </div>
             );
           })}

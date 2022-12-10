@@ -1,10 +1,29 @@
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { DELETE_JOB } from "../utils/mutations";
 import { Modal } from "react-bulma-components";
 
-function DeleteModal() {
+function DeleteModal({ postId }) {
   const [isActive, setState] = useState(false);
+  const [deleteThisPost, { error }] = useMutation(DELETE_JOB);
   const handleClick = () => {
     setState(!isActive);
+  };
+  const deleteJob = async () => {
+    const jobData = {
+      _id: postId,
+    };
+    try {
+      console.log(jobData);
+      // const { data } = await deleteThisPost({
+      //   variables: { jobData },
+      // });
+      // if (!data) {
+      //   throw new Error("No data returned");
+      // }
+    } catch (error) {
+      throw new Error("Failed to delete the post.");
+    }
   };
   const active = isActive ? "is-active" : "";
   return (
@@ -23,7 +42,15 @@ function DeleteModal() {
             />
           </header>
           <footer className="modal-card-foot">
-            <button className="button is-danger">Delete Post</button>
+            <button
+              className="button is-danger"
+              onClick={() => {
+                deleteJob();
+                handleClick();
+              }}
+            >
+              Delete Post
+            </button>
             <button onClick={handleClick} className="button">
               Cancel
             </button>

@@ -56,6 +56,7 @@ function App() {
               <Route path="/post" element={<Post />} />
               <Route path="/createpost" element={<CreatePost />} />
               <Route path="/mypost" element={<MatchingIDPost />} />
+              <Route path="/mypost/?postId=:postId" element={<MatchingIDPost />} />
               {/* we will refine this /post route once parts are connected */}
             </Routes>
             <Footer />

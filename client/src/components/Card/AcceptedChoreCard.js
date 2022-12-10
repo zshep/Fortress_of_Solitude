@@ -17,19 +17,19 @@ function AcceptedChoreCard({ data }) {
         <Columnsss attr="is-multiline">
           {data.acceptedChores.map((el, i) => {
             return (i + 1) % 2 === 0 ? (
-              <div className="column is-one-third">
+              <div className="column is-one-third" key={el.id} postid={el._id}>
                 <SmallGreenSticky
                   title={el.title}
                   summary={el.body}
-                  key={el.id}
+                  
                 />
               </div>
             ) : (
-              <div className="column is-one-third">
+              <div className="column is-one-third" key={el.id} postid={el._id}>
                 <SmallStickyNote
                   title={el.title}
                   summary={el.body}
-                  key={el.id}
+                  
                 />
               </div>
             );
