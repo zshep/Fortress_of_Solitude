@@ -133,14 +133,14 @@ const resolvers = {
 
     deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
-        // need to update user who accepted the job 
+        // need tofind one and delete 
       })
 
       return {};
     },
     editJob: async (parent, { }) => {
-      const job = await User.updateOne({
-        // need to update user who accepted the job 
+      const job = await Post.updateOne({
+        // need to update the post 
       })
 
       return {};
