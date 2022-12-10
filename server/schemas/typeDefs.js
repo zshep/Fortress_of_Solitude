@@ -48,10 +48,10 @@ OTHER
     users: [User]
     user(username: String!): User
     posts: [Post]
-    post(_id: String!): Post
+    post(_id: ID!): Post
     categories: [Category]
     category(category: String!): Category
-    getMe(_id: String): User
+    getMe(_id: ID): User
   }
 
   type Auth {
