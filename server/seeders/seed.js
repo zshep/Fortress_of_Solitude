@@ -11,7 +11,6 @@ db.once('open', async () => {
         await Category.deleteMany({});
 
         await User.create(userSeeds);
-        await Post.create(postSeeds);
         await Category.create(categorySeeds);
 
         for (let i = 0; i < postSeeds.length; i++) {
