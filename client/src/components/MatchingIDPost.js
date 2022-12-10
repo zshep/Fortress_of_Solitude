@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 import PostBanner from "./PostBanner";
 import ProfilePic from "./ProfilePic";
 import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "./StickyNotes/SmallStickyNote";
 
-function MatchingIDPost() {
+function MatchingIDPost(props) {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const postId = searchParams.get('postId')
+  console.log(postId)
   return (
     <div
       className="container box p-6
@@ -89,7 +93,7 @@ function MatchingIDPost() {
         >
           Edit Job Details
         </button>
-        <DeleteModal />
+        <DeleteModal postId={postId}/>
       </div>
     </div>
   );
