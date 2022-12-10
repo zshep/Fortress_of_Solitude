@@ -12,14 +12,14 @@ const typeDefs = gql`
   type Post {
     _id: ID
     postTitle: String!
-    postCategory: String!
+    postCategory: categoryChoices!
     postText: String!
     postUser: String!
   }
 
   type Category {
     _id: ID
-    category: String!
+    category: categoryChoices!
     posts: [Post]!
   }
 
@@ -30,6 +30,17 @@ const typeDefs = gql`
     postText: String!
     postUser: String!
   }
+
+enum categoryChoices {
+YARDWORK
+AUTOMOTIVE
+PETCARE
+HOME_MAINTENANCE
+HOUSEKEEPING
+COOKING
+TECHNOLOGY
+OTHER
+}
 
   # Queries
   type Query {
