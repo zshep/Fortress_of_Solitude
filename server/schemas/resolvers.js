@@ -10,7 +10,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { username, category }) => {
+    posts: async (parent, { username, category, _id }) => {
       const params = {};
 
       if (category) {
@@ -19,6 +19,10 @@ const resolvers = {
 
       if (username) {
         params.username = username;
+      }
+
+      if (_id) {
+        params._id = _id;
       }
 
       return Post.find(params);
@@ -62,6 +66,26 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    updateUser: async (parent, { username, email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError("Cannot find a user with that email");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password");
+      }
+
+
+      user.username = username;
+      user.email = email;
+      user.password = password;
+
+      return user.save();
+
     },
     //---------working on finishing mutations--------
 

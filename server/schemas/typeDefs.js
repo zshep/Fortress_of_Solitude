@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     posts: [Post]!
+    ppLevel: Int!
 }
 
   type Post {
@@ -61,6 +62,7 @@ OTHER
   type Mutation {
     login(email: String!, password: String!): Auth
     newUser(username: String!, email: String!, password: String!): Auth
+    updateUser(username: String!, email: String!, password: String!): User
     createJob(content: jobData): Post
     acceptJob(content: jobData): Post
     completeJob(content: jobData): Post
