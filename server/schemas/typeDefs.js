@@ -60,6 +60,7 @@ OTHER
 
   type Mutation {
     login(email: String!, password: String!): Auth
+    newUser(username: String!, email: String!, password: String!): Auth
     createJob(content: jobData): Post
     acceptJob(content: jobData): Post
     completeJob(content: jobData): Post

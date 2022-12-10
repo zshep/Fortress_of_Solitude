@@ -57,6 +57,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    newUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+
+      return { token, user };
+    },
     //---------working on finishing mutations--------
 
     createJob: async (parent, args) => {
@@ -64,44 +70,44 @@ const resolvers = {
       return newjob;
     },
 
-    acceptJob: async (parent, {}) => {
+    acceptJob: async (parent, { }) => {
       const acceptjob = await User.findOneAndUpdate(
-       // need to update user who accepted the job
+        // need to update user who accepted the job
         { _id },
         // {}  needs another parameter
-        { new: true } 
-      
-        );
+        { new: true }
+
+      );
 
       return acceptjob;
     },
 
-    completeJob: async (parent, {}) => {
+    completeJob: async (parent, { }) => {
       const job = await User.findOneAndUpdate(
-          // need to update user who accepted the job
-          { _id },
-          // {}  needs another parameter
-          { new: true } 
-         );
+        // need to update user who accepted the job
+        { _id },
+        // {}  needs another parameter
+        { new: true }
+      );
 
       return {};
     },
 
-    deleteJob: async (parent, {}) => {
+    deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
-       // need to update user who accepted the job 
+        // need to update user who accepted the job 
       })
 
       return {};
     },
-    editJob: async (parent, {}) => {
+    editJob: async (parent, { }) => {
       const job = await User.updateOne({
-       // need to update user who accepted the job 
+        // need to update user who accepted the job 
       })
 
       return {};
     },
-    
+
 
   },
 };
