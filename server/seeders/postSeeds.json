@@ -1,38 +1,50 @@
 [
     {
         "postTitle": "Mow my lawn",
-        "postCategory": "YardWork",
+        "postCategory": "YARDWORK",
         "postText": "My arm is broken and I can't mow my lawn. The HOA is trying to repossess my house and destroy my daffodils. Could you save me before Tuesday?",
         "postUser": "Shep"
     },
     {
         "postTitle": "Dog Poop!",
-        "postCategory": "DoggyDuty",
+        "postCategory": "PETCARE",
         "postText": "I need someone to pick up the dog poop off of my lawn. It's terrible. Oh GAWD",
         "postUser": "Jacob"
     },
     {
         "postTitle": "Gutter Cleaning",
-        "postCategory": "Cleaning",
+        "postCategory": "HOME_MAINTENANCE",
         "postText": "Looking for someone to help me clean out my gutters",
         "postUser": "Patrick"
     },
     {
         "postTitle": "Junk Removal",
-        "postCategory": "Cleaning",
+        "postCategory": "HOME_MAINTENANCE",
         "postText": "Looking for some hunks to take out all my junk in my garage",
         "postUser": "Shadin"
     },
     {
         "postTitle": "Lawn Care Maintenance",
-        "postCategory": "YardWork",
+        "postCategory": "YARDWORK",
         "postText": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks",
         "postUser": "Tony"
     },
     {
         "postTitle": "Coding Lessons",
-        "postCategory": "Lessons",
+        "postCategory": "TECHNOLOGY",
         "postText": "Looking for someone to teach me how to code",
         "postUser": "Patrick"
+    },
+    {
+        "postTitle": "Blinker Fluid",
+        "postCategory": "AUTOMOTIVE",
+        "postText": "Need help adding blinker fluid to my car",
+        "postUser": "Shadin"
+    },
+    {
+        "postTitle": "Changing a Lightbulb",
+        "postCategory": "HOUSEKEEPING",
+        "postText": "How do I change a lightbulb?",
+        "postUser": "Tony"
     }
 ]

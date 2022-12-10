@@ -1,14 +1,26 @@
 [
     {
-        "category": "YardWork"
+        "category": "YARDWORK"
     },
     {
-        "category": "DoggyDuty"
+        "category": "AUTOMOTIVE"
     },
     {
-        "category": "Lessons"
+        "category": "PETCARE"
     },
     {
-        "category": "Cleaning"
+        "category": "HOME_MAINTENANCE"
+    },
+    {
+        "category": "HOUSEKEEPING"
+    },
+    {
+        "category": "COOKING"
+    },
+    {
+        "category": "TECHNOLOGY"
+    },
+    {
+        "category": "OTHER"
     }
 ]
