@@ -5,33 +5,25 @@ import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "./StickyNotes/SmallStickyNote";
 
 function PublicPost() {
+
+  const retrievedTitle= 'Dog Poop!'
   return (
     <div
       class="container box p-6
                 has-background-light"
     >
-      <PostBanner />
+      <PostBanner title={retrievedTitle} />
 
       <div class="tile is-ancestor py-6">
         <div class="tile is-parent is-vertical">
-          <div
-            class="tile is-child box is-12 has-text-centered"
-            style={{
-              fontFamily: "Permanent Marker",
-              background: "#e3e3e3",
-              fontSize: "32px",
-            }}
-          >
-            <h1>Dog Poop!</h1>
-          </div>
           <div class="tile is-parent ">
-            <div class="tile is-parent is-3 ">
+          <div class="tile is-parent  is-2">
               <div
                 class="tile is-child box has-text-centered"
                 style={{ background: "#f7fff2" }}
               >
-                <h1>Category</h1>
-                <SmallStickyNote title={"Clean Up"} />
+                <h1>Goblin Avatar</h1>
+                <ProfilePic />
               </div>
             </div>
             <div class="tile is-parent  is-3">
@@ -43,14 +35,17 @@ function PublicPost() {
                 <SmallGreenSticky title={"Karen Karenson"} />
               </div>
             </div>
-            <div class="tile is-parent  is-2">
+            <div class="tile is-parent is-3 ">
               <div
                 class="tile is-child box has-text-centered"
                 style={{ background: "#f7fff2" }}
               >
-                <ProfilePic />
+                <h1>Category</h1>
+                <SmallStickyNote title={"Clean Up"} />
               </div>
             </div>
+            
+            
             <div class="tile is-parent  is-4">
               <div
                 class="tile is-child box has-text-centered"
