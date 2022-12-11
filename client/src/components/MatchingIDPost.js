@@ -37,7 +37,7 @@ function MatchingIDPost(props) {
       className="container box p-6
     has-background-light has-text-centered"
     >
-      <MatchingPostBanner title={retrievedTitle} />
+      <MatchingPostBanner title={postData.postTitle} />
       <h1> Click on a pencil icon to edit a section</h1>
 
 <div class="tile is-ancestor py-6">
@@ -58,7 +58,7 @@ function MatchingIDPost(props) {
           style={{ background: "#fcfce6" }}
         >
           <h1>Creator -</h1>
-          <SmallGreenSticky title={"Karen Karenson"} />
+          <SmallGreenSticky title={postData.postUser} />
         </div>
       </div>
       <div class="tile is-parent is-3 ">
@@ -68,7 +68,7 @@ function MatchingIDPost(props) {
         >
           <h1>Category</h1>
           <EditCategory />
-          <SmallStickyNote title={"Clean Up"} />
+          <SmallStickyNote title={postData.postCategory} />
         </div>
       </div>
       
@@ -79,7 +79,7 @@ function MatchingIDPost(props) {
           style={{ background: "#fcfce6" }}
         >
           <h1>Time Posted</h1>
-          <SmallGreenSticky title={"01/19/2022 11:45 PM"} />
+          <SmallGreenSticky title={postData.createdAt} />
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ function MatchingIDPost(props) {
       style={{ background: "#e3e3e3" }}
     >
             <h1>
-              {pulledText}
+              {postData.postText}
             </h1>
             <EditText editedText={pulledText}/>
           </div>

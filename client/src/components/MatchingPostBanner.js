@@ -49,7 +49,7 @@ function MatchingPostBanner({title}) {
   return (
     <>
     <PostBannerWrapper>
-      Volunteer Opportunity #123456 - {title} -
+      Volunteer Opportunity - {title} -
       
       <div className="App">
     <FontAwesomeIcon icon="fa-solid fa-pen-to-square" onClick={handleClick}  />
