@@ -139,11 +139,14 @@ const resolvers = {
       return {};
     },
     editJob: async (parent, { }) => {
-      const job = await Post.updateOne({
+      const job = await Post.findOneAndUpdate(
         // need to update the post 
-      })
+        { _id: context.post._id},
+        //how to specifically update the things
+        {new: true}
+        )
 
-      return {};
+      return job;
     },
 
 
