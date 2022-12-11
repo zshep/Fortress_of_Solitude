@@ -106,8 +106,8 @@ const resolvers = {
     },
     //---------working on finishing mutations--------
 
-    createJob: async (parent, args) => {
-      const newjob = await Post.create(args);
+    createJob: async (parent, {postTitle, postCategory, postText, postUser}) => {
+      const newjob = await Post.create({postTitle, postCategory, postText, postUser});
       return newjob;
     },
 

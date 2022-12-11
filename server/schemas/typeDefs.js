@@ -12,11 +12,11 @@ const typeDefs = gql`
 
   type Post {
     _id: ID
-    postTitle: String!
-    postCategory: categoryChoices!
-    postText: String!
-    postUser: String!
-    createdAt: String!
+    postTitle: String
+    postCategory: categoryChoices
+    postText: String
+    postUser: String
+    createdAt: String
   }
 
   type Category {
@@ -27,10 +27,10 @@ const typeDefs = gql`
 
   # input for jobData
   input jobData {
-    postTitle: String!
-    postCategory: String!
-    postText: String!
-    postUser: String!
+    postTitle: String
+    postCategory: String
+    postText: String
+    postUser: String
   }
 
 enum categoryChoices {
