@@ -36,6 +36,14 @@ export const GET_USERS = gql`
   }
 `;
 
+export const GET_SINGLE_USERNAME = gql`
+  query user($_id: ID!)  {
+    user(_id: $_id) {
+      username
+    }
+  }
+`;
+
 export const GET_POSTS = gql`
   query posts {
     posts {
@@ -52,7 +60,6 @@ export const GET_CATEGORIES = gql`
   query categories {
     categories {
       category
-      posts
     }
   }
 `;

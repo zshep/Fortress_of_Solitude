@@ -1,13 +1,22 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { CREATE_JOB } from "../utils/mutations";
+import { GET_CATEGORIES, GET_SINGLE_USERNAME } from "../utils/queries";
 import Auth from "../utils/auth";
 
 function CreatePost() {
+  const [getUserName, { called, getUserLoading, getUserData }] = useLazyQuery(
+    GET_SINGLE_USERNAME,
+    {
+      variables: { _id: Auth.getProfile().data._id },
+    }
+  );
   const [createJob, { error }] = useMutation(CREATE_JOB);
+  const { data, loading } = useQuery(GET_CATEGORIES);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState("");
+
   const changeState = (event) => {
     const { target } = event;
     const inputType = target.name;
@@ -25,6 +34,7 @@ function CreatePost() {
         break;
     }
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -33,13 +43,19 @@ function CreatePost() {
         "You need to be logged in to save a job. How did you get here?"
       );
     }
+
+    getUserName()
+    console.log(called, getUserLoading, getUserData)
+
+
     const jobData = {
       category,
       title,
       summary,
     };
+
     try {
-      console.log(jobData);
+      // console.log(jobData);
       // const { data } = await createJob({
       //   variables: { jobData },
       // });
@@ -50,6 +66,15 @@ function CreatePost() {
       throw new Error("Failed to save job.");
     }
   };
+
+  if (loading) {
+    return;
+  }
+
+  const categoryData =
+    data?.categories.map((el) => {
+      return el.category;
+    }) || {};
 
   return (
     <div
@@ -79,16 +104,13 @@ function CreatePost() {
             className="control has-icons-left
                       has-icons-right"
           >
-            <input
-              className="input"
-              name="category"
-              type="text"
-              placeholder=" Cleaning, Repair, Construction etc..."
-              onChange={changeState}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
-            </span>
+            <div className="select">
+              <select onChange={changeState} name="category">
+                {categoryData.map((el) => {
+                  return <option>{el}</option>;
+                })}
+              </select>
+            </div>
           </div>
         </div>
         <div className="field">
