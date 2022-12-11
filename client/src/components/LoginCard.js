@@ -6,10 +6,6 @@ import { useMutation } from "@apollo/client";
 function LoginCard() {
   const [authenticated, setAuthenticated] = useState(false);
 
-  // const loginWithEmailAndPassword = () => setAuthenticated(true);
-
-  // const loginWithProvider = () => setAuthenticated(true);
-
   const handleClose = () => setAuthenticated(true);
 
   return (
@@ -21,26 +17,9 @@ function LoginCard() {
   );
 }
 
-// ***----Consider Deletion----***
-
-// const LoginButton = ({ icon, name, onClick }) => (
-//   <div className="field">
-//     <p
-//       className="control button is-medium is-danger"
-//       style={{ width: "300px" }}
-//       onClick={onClick}
-//     >
-//       <span className="icon">
-//         <i className={`fa fa-${icon}`} aria-hidden="true"></i>
-//       </span>
-//       <span>{`Sign In With ${name}`}</span>
-//     </p>
-//   </div>
-// );
-
 function LoginForm() {
   const [loginUser, { error }] = useMutation(LOGIN_USER);
-  // const [loggedIn, dispatch] = useLoginContext();
+  const [hidden, setHidden] = useState("is-hidden");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
@@ -68,7 +47,7 @@ function LoginForm() {
     };
 
     try {
-      console.log(submission)
+      console.log(submission);
       const { data } = await loginUser({
         variables: { ...submission },
       });
@@ -77,13 +56,14 @@ function LoginForm() {
         throw new Error("No user found with those credentials.");
       }
 
-      console.log(data)
+      if (error) {
+        setHidden({ visibility: "visible" });
+      }
 
       Auth.login(data.login.token);
-      // route user to their personal page?
-      // console.log(`/profile/${data.login.user._id}`)
       window.location.assign("/profile");
     } catch (err) {
+      setHidden("is-visible"); // Need to move this once password validation error is returned & exchange for more generaic login failure option
       throw new Error("Something went wrong!");
     }
 
@@ -132,6 +112,11 @@ function LoginForm() {
               onChange={handleChange}
             />
           </div>
+        </div>
+        <div className="has-text-centered">
+          <p className={`has-text-danger is-size-7 ${hidden}`}>
+            Incorrect password
+          </p>
         </div>
 
         <div className="field">

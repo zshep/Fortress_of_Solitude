@@ -14,7 +14,6 @@ function DeleteModal({ postId }) {
       _id: postId,
     };
     try {
-      // console.log(jobData);
       const { data } = await deleteThisPost({
         variables: { jobData },
       });
