@@ -134,15 +134,16 @@ const resolvers = {
     deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
         // need tofind one and delete 
+        //might be better to find by id first, then delete (look at delete user above)
       })
 
       return {};
     },
     editJob: async (parent, { }) => {
       const job = await Post.findOneAndUpdate(
-        // need to update the post 
         { _id: context.post._id},
-        //how to specifically update the things
+         //how to specifically update the things
+        {},
         {new: true}
         )
 
