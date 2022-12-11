@@ -31,3 +31,8 @@
 		background-position: 0% 50%;
 	}
 }
+
+.boardSubText {
+	display: flex;
+	justify-content: center;
+}

@@ -56,12 +56,13 @@ export const GET_CATS_AND_LOGGEDIN_USER = gql `
 `
 
 export const GET_POSTS = gql`
-  query posts {
+  query getPosts {
     posts {
-      PostTitle
-      PostCategory
-      PostText
-      PostUser
+      _id
+      postTitle
+      postCategory
+      postText
+      postUser
       createdAt
     }
   }
