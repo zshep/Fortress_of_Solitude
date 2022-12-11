@@ -16,9 +16,11 @@ const VolunteerBannerWrapper = styled.div`
 
 function VolunteerBanner() {
   return (
+    <>
     <VolunteerBannerWrapper>
       Here are some volunteer opportunities
     </VolunteerBannerWrapper>
+    </>
   );
 }
 

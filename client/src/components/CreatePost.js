@@ -86,8 +86,8 @@ function CreatePost() {
       className="container box p-6
                 has-background-light"
     >
-      <h2 className="subtitle has-text-centered">
-        Volunteer Opportunity #xxxxxx
+      <h2 className="subtitle has-text-centered" style={{ fontFamily: "Permanent Marker"}}>
+        Create a Volunteer Opportunity
       </h2>
       <form action="">
         <div className="field">
