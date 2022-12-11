@@ -27,7 +27,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 library.add(fab, faPenToSquare)
 
 const httpLink = createHttpLink({
-  uri: "graphql",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

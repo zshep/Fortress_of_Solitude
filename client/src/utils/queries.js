@@ -17,12 +17,13 @@ export const GET_ME = gql`
 `;
 
 export const GET_SINGLE_POST = gql`
-  query post($id: String) {
+  query post($id: ID!) {
     post(_id: $id) {
       postTitle
       postCategory
       postText
       postUser
+      createdAt
     }
   }
 `
