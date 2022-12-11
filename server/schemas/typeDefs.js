@@ -47,7 +47,7 @@ OTHER
   # Queries
   type Query {
     users: [User]
-    user(username: String!): User
+    user(_id: ID!): User
     posts: [Post]
     post(_id: ID!): Post
     categories: [Category]
