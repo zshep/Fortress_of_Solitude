@@ -44,6 +44,17 @@ export const GET_SINGLE_USERNAME = gql`
   }
 `;
 
+export const GET_CATS_AND_LOGGEDIN_USER = gql `
+  query user($_id: ID!)  {
+    user(_id: $_id) {
+      username
+    }
+    categories {
+      category
+    }
+  }
+`
+
 export const GET_POSTS = gql`
   query posts {
     posts {

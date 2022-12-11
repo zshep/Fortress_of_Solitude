@@ -1,21 +1,27 @@
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { CREATE_JOB } from "../utils/mutations";
-import { GET_CATEGORIES, GET_SINGLE_USERNAME } from "../utils/queries";
+import { GET_CATEGORIES, GET_SINGLE_USERNAME, GET_CATS_AND_LOGGEDIN_USER } from "../utils/queries";
 import Auth from "../utils/auth";
 
 function CreatePost() {
-  const [getUserName, { called, getUserLoading, getUserData }] = useLazyQuery(
-    GET_SINGLE_USERNAME,
+  const { loading, data } = useQuery(
+    GET_CATS_AND_LOGGEDIN_USER,
     {
       variables: { _id: Auth.getProfile().data._id },
     }
   );
   const [createJob, { error }] = useMutation(CREATE_JOB);
-  const { data, loading } = useQuery(GET_CATEGORIES);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState("");
+
+  if (loading) return
+
+  // un comment when no longer returning null
+  // const userName = data?.user.username
+
+  // console.log(userName)
 
   const changeState = (event) => {
     const { target } = event;
@@ -44,14 +50,11 @@ function CreatePost() {
       );
     }
 
-    getUserName()
-    console.log(called, getUserLoading, getUserData)
-
-
     const jobData = {
       category,
       title,
       summary,
+      // user: userName
     };
 
     try {
