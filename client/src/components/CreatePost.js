@@ -19,9 +19,7 @@ function CreatePost() {
   if (loading) return
 
   // un comment when no longer returning null
-  // const userName = data?.user.username
-
-  // console.log(userName)
+  const userName = data?.user.username
 
   const changeState = (event) => {
     const { target } = event;
@@ -50,21 +48,25 @@ function CreatePost() {
       );
     }
 
+    if (category === "pick a category my dude") {
+      throw new Error("that's not a category my dude")
+    }
+
     const jobData = {
-      category,
-      title,
-      summary,
-      // user: userName
+      postCategory: category,
+      postTitle: title,
+      postText: summary,
+      postUser: userName
     };
 
     try {
-      // console.log(jobData);
-      // const { data } = await createJob({
-      //   variables: { jobData },
-      // });
-      // if (!data) {
-      //   throw new Error("No data returned");
-      // }
+      console.log(jobData);
+      const { data } = await createJob({
+        variables: { jobData: jobData },
+      });
+      if (!data) {
+        throw new Error("No data returned");
+      }
     } catch (error) {
       throw new Error("Failed to save job.");
     }
@@ -109,6 +111,7 @@ function CreatePost() {
           >
             <div className="select">
               <select onChange={changeState} name="category">
+                <option>pick a category my dude</option>
                 {categoryData.map((el) => {
                   return <option>{el}</option>;
                 })}
