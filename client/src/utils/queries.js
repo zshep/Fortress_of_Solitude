@@ -5,6 +5,7 @@ export const GET_ME = gql`
     getMe {
       _id
       username
+      ppLevel
       posts {
         _id
         postCategory 
