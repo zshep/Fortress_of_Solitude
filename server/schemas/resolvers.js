@@ -10,6 +10,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate('posts');
+    },
     posts: async (parent, { username, category, _id }) => {
       const params = {};
 
@@ -134,16 +137,20 @@ const resolvers = {
     deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
         // need tofind one and delete 
+        //might be better to find by id first, then delete (look at delete user above)
       })
 
       return {};
     },
     editJob: async (parent, { }) => {
-      const job = await Post.updateOne({
-        // need to update the post 
-      })
+      const job = await Post.findOneAndUpdate(
+        { _id: context.post._id},
+         //how to specifically update the things
+        {},
+        {new: true}
+        )
 
-      return {};
+      return job;
     },
 
 
