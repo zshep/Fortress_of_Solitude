@@ -26,9 +26,9 @@ const PostSchema = new Schema({
     required: true,
     trim: true,
   },
-  postStatus: {
-    type: //BOOLEAN? NOT ASSIGNED -- ACCEPTED -- COMPLETED ASK THE TUTOR?
-  },
+  // postStatus: {
+  //   type: //BOOLEAN? NOT ASSIGNED -- ACCEPTED -- COMPLETED ASK THE TUTOR?
+  // }
   // timestamp
 }, { timestamps: true })
 

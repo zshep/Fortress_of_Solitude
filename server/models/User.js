@@ -27,11 +27,11 @@ const UserSchema = new Schema({
       ref: 'Post',
     },
   ],
-  acceptedPosts: [
-    {
-      ref: 'Post',
-    }
-  ]
+  // acceptedPosts: [
+  //   {
+  //     ref: 'Post',
+  //   }
+  // ]
   // publishedPosts: [
   //     PostSchema
   // ],
