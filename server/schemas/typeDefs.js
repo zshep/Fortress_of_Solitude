@@ -16,6 +16,7 @@ const typeDefs = gql`
     postCategory: categoryChoices!
     postText: String!
     postUser: String!
+    createdAt: String!
   }
 
   type Category {

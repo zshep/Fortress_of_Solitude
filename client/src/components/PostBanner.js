@@ -17,7 +17,7 @@ const PostBannerWrapper = styled.div`
 function PostBanner({title}) {
   return (
     <PostBannerWrapper>
-      Volunteer Opportunity #123456 - {title}
+      Volunteer Opportunity - {title}
     </PostBannerWrapper>
   );
 }
