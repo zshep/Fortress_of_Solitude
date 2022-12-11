@@ -62,7 +62,7 @@ export const COMPLETE_JOB = gql`
 
 export const DELETE_JOB = gql`
 mutation deleteJob($jobData: jobData!) {
-    deleteJob(jobData: $jobData) {
+    deleteJob(content: $jobData) {
       postTitle
     }
   }

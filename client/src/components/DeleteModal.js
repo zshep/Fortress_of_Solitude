@@ -14,13 +14,13 @@ function DeleteModal({ postId }) {
       _id: postId,
     };
     try {
-      console.log(jobData);
-      // const { data } = await deleteThisPost({
-      //   variables: { jobData },
-      // });
-      // if (!data) {
-      //   throw new Error("No data returned");
-      // }
+      // console.log(jobData);
+      const { data } = await deleteThisPost({
+        variables: { jobData },
+      });
+      if (!data) {
+        throw new Error("No data returned");
+      }
     } catch (error) {
       throw new Error("Failed to delete the post.");
     }
