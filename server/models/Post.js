@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-//const timestamp
 
 const PostSchema = new Schema({
   postTitle: {
