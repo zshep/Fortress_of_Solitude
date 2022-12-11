@@ -10,6 +10,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate('posts');
+    },
     posts: async (parent, { username, category, _id }) => {
       const params = {};
 
