@@ -5,7 +5,6 @@ export const GET_ME = gql`
     getMe {
       _id
       username
-      ppLevel
       posts {
         _id
         postCategory 
@@ -25,6 +24,21 @@ export const GET_SINGLE_POST = gql`
       postText
       postUser
       createdAt
+    }
+  }
+`
+
+export const GET_ME_AND_SINGLE_POST = gql`
+  query post($id: ID!){
+    post(_id: $id) {
+      postTitle
+      postCategory
+      postText
+      postUser
+      createdAt
+    }
+    getMe {
+      username
     }
   }
 `
