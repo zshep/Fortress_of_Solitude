@@ -36,17 +36,17 @@ function ProfileCard(props) {
       <CardHeader>
         <DashboardBanner />
       </CardHeader>
-      <h1 className="boardSubText">Below is information about your profile. Click on a tab on the left to navigate!</h1>
+      <h1 className="boardSubText has-text-white">Below is information about your profile. Click on a tab on the left to navigate!</h1>
       <DashProvider>
         <Columnsss attr="p-2">
           <Column attr="is-2-desktop is-full-mobile">
             <Menu />
           </Column>
-          <Column attr="is-10-tablet is-12-mobile">
+          <Column attr="container is-5">
             <CardContainer>
               <CardContent>
                 <Columnsss attr="is-centered is-vcentered is-mobile">
-                  <Column attr="is-2-desktop has-text-centered">
+                  <Column attr="has-text-centered">
                     <ProfilePic />
                   </Column>
                   <Column attr="is-4-desktop">
@@ -64,10 +64,13 @@ function ProfileCard(props) {
                     </>
                   </Column>
                 </Columnsss>
-                <JobContainer data={userData}/>
+                
               </CardContent>
+              
             </CardContainer>
+            <JobContainer data={userData}/>
           </Column>
+          
         </Columnsss>
       </DashProvider>
     </>

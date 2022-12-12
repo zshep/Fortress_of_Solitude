@@ -10,7 +10,13 @@
 
 .profileSubText {
     font-size: 18px;
-    color: grey;
+    color: rgb(230, 228, 228);
+    font-family: 'Permanent Marker';
+}
+
+.profileCardSubText {
+    font-size: 18px;
+    color: rgb(153, 152, 152);
     font-family: 'Permanent Marker';
 }
 
@@ -35,4 +41,5 @@
 .boardSubText {
 	display: flex;
 	justify-content: center;
+	color: rgb(230, 228, 228);
 }

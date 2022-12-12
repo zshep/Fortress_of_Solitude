@@ -24,6 +24,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
+import heroTree from './components/tree1.jpg'
+
 library.add(fab, faPenToSquare)
 
 const httpLink = createHttpLink({
@@ -47,10 +49,16 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client} >
       <Router>
         <>
-          <div className="App">
+          <div className="App" style={{ 
+      backgroundImage: `url(${heroTree})`, 
+      minHeight: `600px`,
+  backgroundPosition: `center`,
+  backgroundRepeat: `no-repeat`,
+  backgroundSize: `cover`,
+    }} >
             <NavProvider>
               <Navbar />
             </NavProvider>

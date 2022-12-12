@@ -37,7 +37,7 @@ function EditCategory({ postId }) {
   return (
     
     <div className="App">
-    <FontAwesomeIcon icon="fa-solid fa-pen-to-square" onClick={handleClick}/>
+    <FontAwesomeIcon icon="fa-solid fa-pen-to-square" style={{color: 'white'}} onClick={handleClick}/>
 
     <div className={`modal ${active}`}>
         <div className="modal-background"></div>
