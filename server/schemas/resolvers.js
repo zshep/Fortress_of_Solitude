@@ -61,6 +61,7 @@ const resolvers = {
 
     createJob: async (parent, args) => {
       const newjob = await Post.create(args);
+      //make post status available
       return newjob;
     },
 
@@ -68,6 +69,7 @@ const resolvers = {
       const acceptjob = await User.findOneAndUpdate(
        // need to update user who accepted the job
         { _id },
+        //CHANGE JOB STATUS TO ACCEPTED
         // {}  needs another parameter
         { new: true } 
       
@@ -77,10 +79,11 @@ const resolvers = {
     },
 
     completeJob: async (parent, {}) => {
-      const job = await User.findOneAndUpdate(
+      const completeJob = await User.findOneAndUpdate(
           // need to update user who accepted the job
           { _id },
           // {}  needs another parameter
+          //CHANGE JOB STATUS TO COMPLETED
           { new: true } 
          );
 
@@ -90,6 +93,7 @@ const resolvers = {
     deleteJob: async (parent, {}) => {
       const job = await User.updateOne({
        // need to update user who accepted the job 
+       //YEET JOB STATUS
       })
 
       return {};
@@ -97,6 +101,7 @@ const resolvers = {
     editJob: async (parent, {}) => {
       const job = await User.updateOne({
        // need to update user who accepted the job 
+       //CHANGE JOB STATUS TO AVAILABLE
       })
 
       return {};
@@ -107,3 +112,5 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+//JUST STUB OUT THE JOB STATUS AND USER WHO ACCEPTS
