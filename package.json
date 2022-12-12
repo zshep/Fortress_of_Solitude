@@ -8,7 +8,8 @@
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "seed": "cd server && node seeders/seed.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "apollo-server": "^3.11.1",
     "bcrypt": "^5.1.0",
     "express": "^4.18.2",

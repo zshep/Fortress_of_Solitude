@@ -27,11 +27,12 @@ const UserSchema = new Schema({
       ref: 'Post',
     },
   ],
-  // acceptedPosts: [
-  //   {
-  //     ref: 'Post',
-  //   }
-  // ]
+
+  ppLevel: {
+    type: Number,
+    default: 0,
+    required: false,
+  },
   // publishedPosts: [
   //     PostSchema
   // ],

@@ -16,82 +16,61 @@ import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 
 const placeholderData = {
-  username: "Jacob",
   community: "Auburn Acres",
-  PP: 69420,
-  email: "test@test.com",
-  neededChores: [
-    {
-      id: 23,
-      title: "Clean my gutters",
-      body: "Need help cleaning goblins out of my gutters.",
-    },
-    {
-      id: 24,
-      title: "unclog toilet",
-      body: "My father clogged up his toilet again, I need someone who knows how to snake a toilet to help me out.",
-    },
-  ],
-  acceptedChores: [
-    {
-      id: 978,
-      title: "Mow Betty's lawn",
-      body: "My grandma Betty broker her hip and the lawn is terribly overgrown. Can someone come mow her lawn please?",
-      author: "Stacy Smith",
-    },
-    {
-      id: 77,
-      title: "Dog sitting",
-      body: "We are going to be out of town for the weekend, can someone watch my dog please?",
-      auther: "Ligma Johnson",
-    },
-  ],
 };
 
-function ProfileCard() {
+function ProfileCard(props) {
   const { data, loading } = useQuery(GET_ME);
   const userData = data?.getMe || {};
 
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-  console.log(data)
+
+  const passedNameValue = 'Username: ';
+  const passedCommunityName= 'Community: ';
+  const passedPatriotPoints= 'Patriot Points: ';
+
   return (
     <>
       <CardHeader>
         <DashboardBanner />
       </CardHeader>
+      <h1 className="boardSubText has-text-white">Below is information about your profile. Click on a tab on the left to navigate!</h1>
       <DashProvider>
         <Columnsss attr="p-2">
           <Column attr="is-2-desktop is-full-mobile">
             <Menu />
           </Column>
-          <Column attr="is-10-tablet is-12-mobile">
+          <Column attr="container is-5">
             <CardContainer>
               <CardContent>
-                <Columnsss attr="is-centered is-mobile">
-                  <Column attr="is-2-desktop">
+                <Columnsss attr="is-centered is-vcentered is-mobile">
+                  <Column attr="has-text-centered">
                     <ProfilePic />
                   </Column>
-                  <Column attr="is-2-desktop">
+                  <Column attr="is-4-desktop">
                     <>
                       {/* Need empty element wrapping Pcomponents to prevent Column component from treating them as an array and generating new columns */}
-                      <PComponent attr={"profileFont"}>
-                        {userData.username}
+                      <PComponent attr={"profileFont"} title={passedNameValue} value={userData.username}>
+                        
                       </PComponent>
-                      <PComponent attr={"profileFont"}>
-                        {placeholderData.community}
+                      <PComponent attr={"profileFont"} title={passedCommunityName} value={placeholderData.community}>
+                
                       </PComponent>
-                      <PComponent attr={"profileFont"}>
-                        {placeholderData.PP}
+                      <PComponent attr={"profileFont"} title={passedPatriotPoints} value={userData.ppLevel}>
+                        
                       </PComponent>
                     </>
                   </Column>
                 </Columnsss>
-                <JobContainer data={userData}/>
+                
               </CardContent>
+              
             </CardContainer>
+            <JobContainer data={userData}/>
           </Column>
+          
         </Columnsss>
       </DashProvider>
     </>

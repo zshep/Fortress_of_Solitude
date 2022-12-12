@@ -10,7 +10,10 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { username, category }) => {
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate('posts');
+    },
+    posts: async (parent, { username, category, _id }) => {
       const params = {};
 
       if (category) {
@@ -19,6 +22,10 @@ const resolvers = {
 
       if (username) {
         params.username = username;
+      }
+
+      if (_id) {
+        params._id = _id;
       }
 
       return Post.find(params);
@@ -45,7 +52,7 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError("The email you entered did not match our records.");
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -57,26 +64,66 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    newUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    updateUser: async (parent, { username, email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError("The email you entered did not match our records.");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password");
+      }
+
+      user.username = username;
+      user.email = email;
+      user.password = password;
+
+      return user.save();
+    },
+    deleteUser: async (parent, { username, email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError("The email you entered did not match our records.");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password");
+      }
+
+      console.log("This user has been deleted");
+      return user.delete();
+    },
     //---------working on finishing mutations--------
 
-    createJob: async (parent, args) => {
-      const newjob = await Post.create(args);
-      //make post status available
+
+    createJob: async (parent, { postTitle, postCategory, postText, postUser }) => {
+      const newjob = await Post.create({ postTitle, postCategory, postText, postUser });
       return newjob;
     },
 
-    acceptJob: async (parent, {}) => {
+    acceptJob: async (parent, { }) => {
       const acceptjob = await User.findOneAndUpdate(
-       // need to update user who accepted the job
+        // need to update user who accepted the job
         { _id },
         //CHANGE JOB STATUS TO ACCEPTED
         // {}  needs another parameter
-        { new: true } 
-      
-        );
+        { new: true }
+
+      );
 
       return acceptjob;
     },
+
 
     completeJob: async (parent, {}) => {
       const completeJob = await User.findOneAndUpdate(
@@ -90,23 +137,33 @@ const resolvers = {
       return {};
     },
 
-    deleteJob: async (parent, {}) => {
+    deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
+
        // need to update user who accepted the job 
        //YEET JOB STATUS
+
+        // need tofind one and delete 
+        //might be better to find by id first, then delete (look at delete user above)
+
       })
 
       return {};
     },
-    editJob: async (parent, {}) => {
-      const job = await User.updateOne({
-       // need to update user who accepted the job 
+    editJob: async (parent, { }) => {
+      const job = await Post.findOneAndUpdate(
+        { _id: context.post._id },
+        //how to specifically update the things
+        // need to update user who accepted the job 
        //CHANGE JOB STATUS TO AVAILABLE
-      })
+        {},
+        { new: true }
+      )
 
-      return {};
+      return job;
+
     },
-    
+
 
   },
 };
