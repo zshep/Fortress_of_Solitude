@@ -25,6 +25,11 @@ const PostSchema = new Schema({
     required: true,
     trim: true,
   },
+  postStatus: {
+    type: String,
+    required: true,
+    trim: true
+  }
   // timestamp
 }, { timestamps: true })
 

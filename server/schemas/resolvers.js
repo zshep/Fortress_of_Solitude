@@ -105,6 +105,7 @@ const resolvers = {
     },
     //---------working on finishing mutations--------
 
+
     createJob: async (parent, { postTitle, postCategory, postText, postUser }) => {
       const newjob = await Post.create({ postTitle, postCategory, postText, postUser });
       return newjob;
@@ -114,6 +115,7 @@ const resolvers = {
       const acceptjob = await User.findOneAndUpdate(
         // need to update user who accepted the job
         { _id },
+        //CHANGE JOB STATUS TO ACCEPTED
         // {}  needs another parameter
         { new: true }
 
@@ -122,21 +124,28 @@ const resolvers = {
       return acceptjob;
     },
 
-    completeJob: async (parent, { }) => {
-      const job = await User.findOneAndUpdate(
-        // need to update user who accepted the job
-        { _id },
-        // {}  needs another parameter
-        { new: true }
-      );
+
+    completeJob: async (parent, {}) => {
+      const completeJob = await User.findOneAndUpdate(
+          // need to update user who accepted the job
+          { _id },
+          // {}  needs another parameter
+          //CHANGE JOB STATUS TO COMPLETED
+          { new: true } 
+         );
 
       return {};
     },
 
     deleteJob: async (parent, { }) => {
       const job = await User.updateOne({
+
+       // need to update user who accepted the job 
+       //YEET JOB STATUS
+
         // need tofind one and delete 
         //might be better to find by id first, then delete (look at delete user above)
+
       })
 
       return {};
@@ -145,11 +154,14 @@ const resolvers = {
       const job = await Post.findOneAndUpdate(
         { _id: context.post._id },
         //how to specifically update the things
+        // need to update user who accepted the job 
+       //CHANGE JOB STATUS TO AVAILABLE
         {},
         { new: true }
       )
 
       return job;
+
     },
 
 
@@ -157,3 +169,5 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+//JUST STUB OUT THE JOB STATUS AND USER WHO ACCEPTS

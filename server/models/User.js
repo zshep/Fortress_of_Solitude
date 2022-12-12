@@ -27,6 +27,7 @@ const UserSchema = new Schema({
       ref: 'Post',
     },
   ],
+
   ppLevel: {
     type: Number,
     default: 0,
