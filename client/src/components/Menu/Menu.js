@@ -6,7 +6,7 @@ function Menu() {
   const [dashState, dispatch] = useDashContext();
   return (
     <aside className="menu pl-2  pt-4">
-      <p className="menu-label">General</p>
+      <p className="menu-label has-text-white">General</p>
       <ul className="menu-list">
         <li>
           <a
@@ -91,21 +91,6 @@ function Menu() {
             style={{ fontFamily: "Permanent Marker", background: "#e3e3e3" }}
           >
             Temp one job
-          </a>
-        </li>
-        <li>
-          <a
-            href="/mypost"
-            className="button m-4 is-size-6-tablet"
-            onMouseOver={(e) => {
-              e.target.style.transform = "scale(1.25)";
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = "scale(1)";
-            }}
-            style={{ fontFamily: "Permanent Marker", background: "#dbe0d7" }}
-          >
-            Temp Edit One Job
           </a>
         </li>
       </ul>
