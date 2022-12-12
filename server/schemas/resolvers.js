@@ -52,7 +52,7 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError("The email you entered did not match our records.");
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -73,7 +73,7 @@ const resolvers = {
     updateUser: async (parent, { username, email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError("Cannot find a user with that email");
+        throw new AuthenticationError("The email you entered did not match our records.");
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -81,7 +81,6 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect password");
       }
-
 
       user.username = username;
       user.email = email;
@@ -92,7 +91,7 @@ const resolvers = {
     deleteUser: async (parent, { username, email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError("Cannot find a user with that email");
+        throw new AuthenticationError("The email you entered did not match our records.");
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -106,8 +105,8 @@ const resolvers = {
     },
     //---------working on finishing mutations--------
 
-    createJob: async (parent, {postTitle, postCategory, postText, postUser}) => {
-      const newjob = await Post.create({postTitle, postCategory, postText, postUser});
+    createJob: async (parent, { postTitle, postCategory, postText, postUser }) => {
+      const newjob = await Post.create({ postTitle, postCategory, postText, postUser });
       return newjob;
     },
 
@@ -144,11 +143,11 @@ const resolvers = {
     },
     editJob: async (parent, { }) => {
       const job = await Post.findOneAndUpdate(
-        { _id: context.post._id},
-         //how to specifically update the things
+        { _id: context.post._id },
+        //how to specifically update the things
         {},
-        {new: true}
-        )
+        { new: true }
+      )
 
       return job;
     },
