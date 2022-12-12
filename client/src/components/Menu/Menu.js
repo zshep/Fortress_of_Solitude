@@ -1,6 +1,7 @@
 import React from "react";
 import { useDashContext } from "../../utils/context/dashboardContext";
 import { DASH_DISPLAY } from "../../utils/actions";
+import { Link } from "react-router-dom";
 
 function Menu() {
   const [dashState, dispatch] = useDashContext();
@@ -9,7 +10,7 @@ function Menu() {
       <p className="menu-label has-text-white">General</p>
       <ul className="menu-list">
         <li>
-          <a
+          <Link
             onClick={async () => {
               await dispatch({
                 type: DASH_DISPLAY,
@@ -26,10 +27,10 @@ function Menu() {
             style={{ fontFamily: "Permanent Marker", background: "#e3e3e3" }}
           >
             Your jobs
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             onClick={async () => {
               await dispatch({
                 type: DASH_DISPLAY,
@@ -46,11 +47,11 @@ function Menu() {
             style={{ fontFamily: "Permanent Marker", background: "#c3c9bf" }}
           >
             Accepted jobs
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/board"
+          <Link
+            to="/board"
             className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
@@ -61,11 +62,11 @@ function Menu() {
             style={{ fontFamily: "Permanent Marker", background: "#dbe0d7" }}
           >
             See All jobs
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/createpost"
+          <Link
+            to="/createpost"
             className="button m-4 is-size-6-tablet"
             onMouseOver={(e) => {
               e.target.style.transform = "scale(1.25)";
@@ -76,22 +77,7 @@ function Menu() {
             style={{ fontFamily: "Permanent Marker", background: "#c3c9bf" }}
           >
             Create a job
-          </a>
-        </li>
-        <li>
-          <a
-            href="/post"
-            className="button m-4 is-size-6-tablet"
-            onMouseOver={(e) => {
-              e.target.style.transform = "scale(1.25)";
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = "scale(1)";
-            }}
-            style={{ fontFamily: "Permanent Marker", background: "#e3e3e3" }}
-          >
-            Temp one job
-          </a>
+          </Link>
         </li>
       </ul>
     </aside>
