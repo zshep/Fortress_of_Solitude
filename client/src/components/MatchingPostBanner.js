@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import EditTitle from './EditTitle';
-import { useMutation } from "@apollo/client";
-import { Modal } from "react-bulma-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PostBannerWrapper = styled.div`
@@ -20,6 +17,9 @@ const PostBannerWrapper = styled.div`
 
 function MatchingPostBanner({title}) {
     const [isActive, setState] = useState(false);
+
+    const [newTitle, setTitle] = useState(title)
+
     //const [EditTilte, { error }] = useMutation(EDIT_JOB);
     const handleClick = () => {
       setState(!isActive);
@@ -27,32 +27,30 @@ function MatchingPostBanner({title}) {
   
   
   
-    const changeTitle = async () => {
-      const jobData = {
-        // _id: postId,
-        // title: title,
-      };
+    const changeTitle = async (event) => {
+      
       try {
-        console.log(jobData);
-        // const { data } = await EditTitle({
-        //   variables: { jobData },
-        // });
-        // if (!data) {
-        //   throw new Error("No data returned");
-        // }
+        console.log(newTitle)
+        
+        handleClick()
       } catch (error) {
         throw new Error("Failed to change the title.");
       }
     };
   
     const active = isActive ? "is-active" : "";
+
+    function handleChange (event) {
+      setTitle(event.target.value)
+    }
+
   return (
     <>
     <PostBannerWrapper>
-      Volunteer Opportunity - {title} -
+      Volunteer Opportunity - {newTitle} -
       
       <div className="App">
-    <FontAwesomeIcon icon="fa-solid fa-pen-to-square" onClick={handleClick}  />
+    <FontAwesomeIcon icon="fa-solid fa-pen-to-square"  onClick={handleClick}  />
     
 
     <div className={`modal ${active}`}>
@@ -66,23 +64,28 @@ function MatchingPostBanner({title}) {
             aria-label="close"
           />
         </header>
+        <form onSubmit={changeTitle}>
         <section className="modal-card-body">
           <div className="field">
             <div className="control">
               <input
+                name="newTitleName"
                 className="input"
                 type="text"
                 placeholder="e.g New Title"
+                value={newTitle} 
+                onChange={handleChange}
               />
             </div>
           </div>
         </section>
         <footer className="modal-card-foot">
-          <button className="button is-success">Save changes</button>
+          <button type="submit" className="button is-success">Save changes</button>
           <button onClick={handleClick} className="button">
             Cancel
           </button>
         </footer>
+        </form>
       </div>
     </div>
 
