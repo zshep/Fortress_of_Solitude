@@ -177,9 +177,12 @@ const resolvers = {
       });
       return job;
     },
-
-
   },
+
+  //edit post title -> post Id and title
+  // edit category ->
+  // edit message
+
 };
 
 module.exports = resolvers;
