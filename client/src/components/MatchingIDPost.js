@@ -26,13 +26,9 @@ function MatchingIDPost(props) {
     return <h2>LOADING...</h2>;
   }
 
-  // console.log(postData);
-
-  const pulledText =
-    "There are bunch of bags of dop poop all over the trail behind the neighborhood. I don't understand why people bag it, and then just leave it. Like might as well let it biodegrade right? Anyways, anyone wanna clean it?";
   return (
     <div className="container p-6 has-text-centered">
-      <MatchingPostBanner title={postData.postTitle} />
+      <MatchingPostBanner job={postData} />
       <h1 className="has-text-white">
         {" "}
         Click on a pencil icon to edit a section
@@ -55,7 +51,7 @@ function MatchingIDPost(props) {
             <div class="tile is-parent is-3 ">
               <div class="tile is-child is-transparent has-text-centered">
                 <h1 className="has-text-white">Category</h1>
-                <EditCategory />
+                <EditCategory job={postData}/>
                 <SmallStickyNote title={postData.postCategory} />
               </div>
             </div>
@@ -71,7 +67,7 @@ function MatchingIDPost(props) {
             style={{ background: "#d7ebce" }}
           >
             <h1>{postData.postText}</h1>
-            <EditText editedText={pulledText} />
+            <EditText job={postData} />
           </div>
         </div>
       </div>

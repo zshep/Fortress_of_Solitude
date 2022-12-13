@@ -19,6 +19,7 @@ export const GET_ME = gql`
 export const GET_SINGLE_POST = gql`
   query post($id: ID!) {
     post(_id: $id) {
+      _id
       postTitle
       postCategory
       postText
