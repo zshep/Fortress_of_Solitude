@@ -119,20 +119,18 @@ const resolvers = {
       post.postStatus = ASSIGNED; 
 
       return job;
+     },
+
+
+     completeJob: (parent, { _id, post}) => { 
+      const job = find(post, { id: postId }); 
+      if (!post) {
+        throw new Error(`Couldn’t find job with id ${postId}`);
+      }
+      post.postStatus = COMPLETED; 
+
+      return job;
      }
-
-
-    completeJob: async (parent, {}) => {
-      const completeJob = await User.findOneAndUpdate(
-          // need to update user who accepted the job
-          { _id },
-          // {}  needs another parameter
-          //CHANGE JOB STATUS TO COMPLETED
-          { new: true } 
-         );
-
-      return {};
-    },
 
     deleteJob: async (parent, { jobID }, context) => {
       if (context.user) {
