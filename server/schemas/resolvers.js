@@ -152,34 +152,50 @@ const resolvers = {
       return job;
      },
 
-    deleteJob: async (parent, { jobID }, context) => {
+    deleteJob: async (parent, { content }, context) => {
+      const { postId }  = content
+      console.log(postId);
       if (context.user) {
-        const job = await Post.findOneAndDelete({
-          _id: jobID,
-          User: context.user.username,
+        
+        
+        const job = await Post.findOneAndDelete(
+          
+          {
+          _id: postId,
+          //User: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { post: post._id } }
+          { $pull: { posts: postId } }
         );
+        return console.log('the delete work');
 
-        return job;
       }
       throw new AuthenticationError('There is no job with that ID!');
     },
 
-    editJob: async (parent, { postTitle, postCategory, postText }) => {
-      const job = await Post.findByIdAndUpdate({ 
-        postTitle, 
-        postCategory, 
-        postText,
-      });
+    editJob: async (parent, { content } ) => {
+      const { postTitle, postCategory, postText, postId} = content;
+      //console.log(postTitle);
+      //console.log(postId);
+      const job = await Post.findByIdAndUpdate(
+        postId,      
+        { 
+          postTitle, 
+          postCategory, 
+          postText,
+      },
+      { $new: true}
+      );
       return job;
     },
-
-
   },
+
+  //edit post title -> post Id and title
+  // edit category ->
+  // edit message
+
 };
 
 module.exports = resolvers;
