@@ -130,7 +130,7 @@ const resolvers = {
       post.postStatus = COMPLETED; 
 
       return job;
-     }
+     },
 
     deleteJob: async (parent, { jobID }, context) => {
       if (context.user) {
@@ -149,18 +149,13 @@ const resolvers = {
       throw new AuthenticationError('There is no job with that ID!');
     },
 
-    editJob: async (parent, { }) => {
-      const job = await Post.findOneAndUpdate(
-        { _id: context.post._id },
-        //how to specifically update the things
-        // need to update user who accepted the job 
-       //CHANGE JOB STATUS TO AVAILABLE
-        {},
-        { new: true }
-      )
-
+    createJob: async (parent, { postTitle, postCategory, postText }) => {
+      const job = await Post.findByIdAndUpdate({ 
+        postTitle, 
+        postCategory, 
+        postText,
+      });
       return job;
-
     },
 
 
