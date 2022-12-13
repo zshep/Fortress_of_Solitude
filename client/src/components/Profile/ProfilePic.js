@@ -5,7 +5,7 @@ import goblinOne from '../Images/goblin1.jpg'
 const StyledProfilePic = styled.img`
     border: 1px solid grey;
 	height: 200px;
-	width: 200px;
+	min-width: 200px;
 
 	border-radius: 10px  10px 10px 10px;
 	box-shadow: 5px 5px 5px grey;
