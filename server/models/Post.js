@@ -30,7 +30,9 @@ const PostSchema = new Schema({
     // required: true,
     default: "available",
     trim: true
-  }
+  },
+  
+
   // timestamp
 }, { timestamps: true })
 
