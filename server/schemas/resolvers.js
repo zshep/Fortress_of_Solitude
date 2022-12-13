@@ -112,50 +112,57 @@ const resolvers = {
         postTitle: input.postTitle, 
         postCategory: input.postCategory, 
         postText: input.postText, 
-        postUser: input.postUser 
+        postUser: input.postUser, 
+        postStatus: UNASSIGNED,
       });
       return newjob;
     },
 
-    acceptJob: async (parent, { }) => {
+    acceptJob: async (parent, {_id, post}) => {
       const acceptjob = await User.findOneAndUpdate(
-        // need to update user who accepted the job
-        { _id },
-        //CHANGE JOB STATUS TO ACCEPTED
-        // {}  needs another parameter
+          if (!acceptjob) {
+            throw new Error(`Couldnt find job with id ${_Id}`);
+          }
+          //CHANGE JOB STATUS TO ACCEPTED
+         post.postStatus = ASSIGNED;
+         return acceptjob;
+         },
         { new: true }
-
+        
       );
-
-      return acceptjob;
-    },
+    
 
 
-    completeJob: async (parent, {}) => {
-      const completeJob = await User.findOneAndUpdate(
-          // need to update user who accepted the job
-          { _id },
-          // {}  needs another parameter
-          //CHANGE JOB STATUS TO COMPLETED
+    completeJob: async (parent, {_id, postStatus}) => {
+      const completeJob = await Post.findOneAndUpdate(
+          return Post.findOneAndUpdate(
+            { _id: postID },
+            //CHANGE JOB STATUS TO COMPLETED
+          { _id, postStatus: Completed },
           { new: true } 
          );
-
-      return {};
+      )
+         
     },
 
-    deleteJob: async (parent, { }) => {
-      const job = await User.updateOne({
+    deleteJob: async (parent, { jobID }, context) => {
+      if (context.user) {
+        const job = await Post.findOneAndDelete({
+          _id: jobID,
+          thoughtAuthor: context.user.username,
+        });
 
-       // need to update user who accepted the job 
-       //YEET JOB STATUS
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { post: post._id } }
+        );
 
-        // need tofind one and delete 
-        //might be better to find by id first, then delete (look at delete user above)
-
-      })
-
-      return {};
+        return job;
+      }
+      throw new AuthenticationError('There is no job with that ID!');
     },
+
+
     editJob: async (parent, { }) => {
       const job = await Post.findOneAndUpdate(
         { _id: context.post._id },
