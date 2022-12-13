@@ -111,18 +111,15 @@ const resolvers = {
       return newjob;
     },
 
-    acceptJob: async (parent, { }) => {
-      const acceptjob = await User.findOneAndUpdate(
-        // need to update user who accepted the job
-        { _id },
-        //CHANGE JOB STATUS TO ACCEPTED
-        // {}  needs another parameter
-        { new: true }
+    acceptJob: (parent, { _id, post}) => { 
+      const job = find(post, { id: postId }); 
+      if (!post) {
+        throw new Error(`Couldn’t find job with id ${postId}`);
+      }
+      post.postStatus = ASSIGNED; 
 
-      );
-
-      return acceptjob;
-    },
+      return job;
+     }
 
 
     completeJob: async (parent, {}) => {
@@ -141,7 +138,7 @@ const resolvers = {
       if (context.user) {
         const job = await Post.findOneAndDelete({
           _id: jobID,
-          thoughtAuthor: context.user.username,
+          User: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -153,7 +150,7 @@ const resolvers = {
       }
       throw new AuthenticationError('There is no job with that ID!');
     },
-    
+
     editJob: async (parent, { }) => {
       const job = await Post.findOneAndUpdate(
         { _id: context.post._id },
