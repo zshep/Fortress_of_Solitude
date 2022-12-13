@@ -137,19 +137,23 @@ const resolvers = {
       return {};
     },
 
-    deleteJob: async (parent, { }) => {
-      const job = await User.updateOne({
+    deleteJob: async (parent, { jobID }, context) => {
+      if (context.user) {
+        const job = await Post.findOneAndDelete({
+          _id: jobID,
+          thoughtAuthor: context.user.username,
+        });
 
-       // need to update user who accepted the job 
-       //YEET JOB STATUS
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { post: post._id } }
+        );
 
-        // need tofind one and delete 
-        //might be better to find by id first, then delete (look at delete user above)
-
-      })
-
-      return {};
+        return job;
+      }
+      throw new AuthenticationError('There is no job with that ID!');
     },
+    
     editJob: async (parent, { }) => {
       const job = await Post.findOneAndUpdate(
         { _id: context.post._id },
