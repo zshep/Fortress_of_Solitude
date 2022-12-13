@@ -11,7 +11,7 @@ function DeleteModal({ postId }) {
   };
   const deleteJob = async () => {
     const jobData = {
-      _id: postId,
+      postId,
     };
     try {
       const { data } = await deleteThisPost({
