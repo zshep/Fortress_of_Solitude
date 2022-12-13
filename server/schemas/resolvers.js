@@ -103,53 +103,60 @@ const resolvers = {
       console.log("This user has been deleted");
       return user.delete();
     },
-    //---------working on finishing mutations--------
 
 
-    createJob: async (parent, { _id, input }) => {
+
+    createJob: async (parent, { input }, context) => {
+      console.log(context.user)
+      if (context.user) {
       const newjob = await Post.create({ 
-        _id,
+        
         postTitle: input.postTitle, 
         postCategory: input.postCategory, 
         postText: input.postText, 
-        postUser: input.postUser, 
-        postStatus: UNASSIGNED,
+        postUser: input.postUser
       });
-      return newjob;
-    },
 
-    acceptJob: async (parent, {_id, post}) => {
-      const acceptjob = await User.findOneAndUpdate(
-          if (!acceptjob) {
-            throw new Error(`Couldnt find job with id ${_Id}`);
+      await User.findOneAndUpdate(
+        { _id: context.user._id},
+        {
+          $addToSet: {
+              posts: newjob._id,
           }
-          //CHANGE JOB STATUS TO ACCEPTED
-         post.postStatus = ASSIGNED;
-         return acceptjob;
-         },
-        { new: true }
-        
-      );
-    
+        }
 
-
-    completeJob: async (parent, {_id, postStatus}) => {
-      const completeJob = await Post.findOneAndUpdate(
-          return Post.findOneAndUpdate(
-            { _id: postID },
-            //CHANGE JOB STATUS TO COMPLETED
-          { _id, postStatus: Completed },
-          { new: true } 
-         );
       )
-         
-    },
+
+      return newjob;
+    }
+  },
+
+    acceptJob: (parent, { _id, post}) => { 
+      const job = find(post, { id: postId }); 
+      if (!post) {
+        throw new Error(`Couldn’t find job with id ${postId}`);
+      }
+      post.postStatus = ASSIGNED; 
+
+      return job;
+     },
+
+
+     completeJob: (parent, { _id, post}) => { 
+      const job = find(post, { id: postId }); 
+      if (!post) {
+        throw new Error(`Couldn’t find job with id ${postId}`);
+      }
+      post.postStatus = COMPLETED; 
+
+      return job;
+     },
 
     deleteJob: async (parent, { jobID }, context) => {
       if (context.user) {
         const job = await Post.findOneAndDelete({
           _id: jobID,
-          thoughtAuthor: context.user.username,
+          User: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -162,19 +169,13 @@ const resolvers = {
       throw new AuthenticationError('There is no job with that ID!');
     },
 
-
-    editJob: async (parent, { }) => {
-      const job = await Post.findOneAndUpdate(
-        { _id: context.post._id },
-        //how to specifically update the things
-        // need to update user who accepted the job 
-       //CHANGE JOB STATUS TO AVAILABLE
-        {},
-        { new: true }
-      )
-
+    editJob: async (parent, { postTitle, postCategory, postText }) => {
+      const job = await Post.findByIdAndUpdate({ 
+        postTitle, 
+        postCategory, 
+        postText,
+      });
       return job;
-
     },
 
 

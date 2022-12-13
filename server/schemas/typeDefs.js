@@ -16,6 +16,7 @@ const typeDefs = gql`
     postCategory: categoryChoices
     postText: String
     postUser: String
+    postStatus: String
     createdAt: String
   }
 
@@ -31,6 +32,8 @@ const typeDefs = gql`
     postCategory: String
     postText: String
     postUser: String
+    postStatus: String
+    userId: String
   }
 
 enum categoryChoices {
