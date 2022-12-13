@@ -32,7 +32,7 @@ function MatchingIDPost(props) {
     "There are bunch of bags of dop poop all over the trail behind the neighborhood. I don't understand why people bag it, and then just leave it. Like might as well let it biodegrade right? Anyways, anyone wanna clean it?";
   return (
     <div className="container p-6 has-text-centered">
-      <MatchingPostBanner title={postData.postTitle} />
+      <MatchingPostBanner job={postData} />
       <h1 className="has-text-white">
         {" "}
         Click on a pencil icon to edit a section
