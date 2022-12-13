@@ -33,6 +33,7 @@ const typeDefs = gql`
     postText: String
     postUser: String
     postStatus: String
+    userId: String
   }
 
 enum categoryChoices {

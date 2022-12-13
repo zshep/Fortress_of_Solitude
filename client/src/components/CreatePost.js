@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CREATE_JOB } from "../utils/mutations";
 import { GET_CATEGORIES, GET_SINGLE_USERNAME, GET_CATS_AND_LOGGEDIN_USER } from "../utils/queries";
 import Auth from "../utils/auth";
+import GoblinState from '../utils/localStorage'
 
 function CreatePost() {
   const { loading, data } = useQuery(
@@ -20,6 +21,9 @@ function CreatePost() {
 
   // un comment when no longer returning null
   const userName = data?.user.username
+  const activeGoblin = new GoblinState().getLoginState().id
+
+  //console.log(activeGoblin)
 
   const changeState = (event) => {
     const { target } = event;
@@ -57,7 +61,9 @@ function CreatePost() {
       postTitle: title,
       postText: summary,
       postUser: userName,
-      postStatus: "AVAILABLE"
+      postStatus: "AVAILABLE",
+      userId: activeGoblin
+
     };
 
     try {
