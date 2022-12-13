@@ -149,7 +149,7 @@ const resolvers = {
       throw new AuthenticationError('There is no job with that ID!');
     },
 
-    createJob: async (parent, { postTitle, postCategory, postText }) => {
+    editJob: async (parent, { postTitle, postCategory, postText }) => {
       const job = await Post.findByIdAndUpdate({ 
         postTitle, 
         postCategory, 
