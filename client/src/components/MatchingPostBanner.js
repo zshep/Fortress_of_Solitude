@@ -22,6 +22,7 @@ function MatchingPostBanner({ job }) {
   const [newTitle, setTitle] = useState(job.postTitle);
   const [editTitle, { error }] = useMutation(EDIT_JOB);
   const active = isActive ? "is-active" : "";
+  
   const handleClick = (event) => {
     event.preventDefault();
     setState(!isActive);
