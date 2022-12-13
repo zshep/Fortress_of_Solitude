@@ -67,8 +67,8 @@ function MatchingIDPost(props) {
             </div>
           </div>
           <div
-            class="tile box is-12 has-text-centered"
-            style={{ background: "#e3e3e3" }}
+            class="container box"
+            style={{ background: "#d7ebce" }}
           >
             <h1>{postData.postText}</h1>
             <EditText editedText={pulledText} />

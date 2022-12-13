@@ -41,7 +41,8 @@ function PublicPost() {
       </div>
       </div>
       </div>
-        <div class="tile box is-12 has-text-centered" style={{ background: "#e3e3e3" }}>
+        <div class="container box"
+            style={{ background: "#d7ebce" }}>
           <h1>There are bunch of bags of dop poop all over the trail behind the
               neighborhood. I don't understand why people bag it, and then just
               leave it. Like might as well let it biodegrade right? Anyways,
