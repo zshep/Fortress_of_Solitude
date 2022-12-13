@@ -1,9 +1,9 @@
-import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
+import { useMutation, useQuery} from "@apollo/client";
 import React, { useState } from "react";
-import { CREATE_JOB } from "../utils/mutations";
-import { GET_CATEGORIES, GET_SINGLE_USERNAME, GET_CATS_AND_LOGGEDIN_USER } from "../utils/queries";
-import Auth from "../utils/auth";
-import GoblinState from '../utils/localStorage'
+import { CREATE_JOB } from "../../utils/mutations";
+import { GET_CATS_AND_LOGGEDIN_USER } from "../../utils/queries";
+import Auth from "../../utils/auth";
+import GoblinState from '../../utils/localStorage'
 
 function CreatePost() {
   const { loading, data } = useQuery(
@@ -12,7 +12,7 @@ function CreatePost() {
       variables: { _id: Auth.getProfile().data._id },
     }
   );
-  const [createJob, { error }] = useMutation(CREATE_JOB);
+  const [createJob] = useMutation(CREATE_JOB);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState("");

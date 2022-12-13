@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavContext } from "../../utils/context/NavContext";
 import { ACTIVATE_NAV } from "../../utils/actions";
 

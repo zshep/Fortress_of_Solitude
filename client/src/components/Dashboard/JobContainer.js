@@ -43,6 +43,9 @@ function JobContainer({ data }) {
             return <NeededChoreCard data={data}/>
         case "accepted":
             return <AcceptedChoreCard data={placeholderData}/>
+          default: 
+            <p>Default return what?</p>
+            //What do we want to default return?
     }
 }
 

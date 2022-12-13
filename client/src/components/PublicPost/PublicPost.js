@@ -1,8 +1,8 @@
 import React from "react";
-import PostBanner from "./PostBanner";
-import ProfilePic from "./ProfilePic";
-import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
-import SmallStickyNote from "./StickyNotes/SmallStickyNote";
+import PostBanner from "../Banners/PostBanner.js";
+import ProfilePic from "../Profile/ProfilePic";
+import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
+import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 
 function PublicPost() {
 

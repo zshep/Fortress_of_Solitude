@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../gob4.jpg";
+import Logo from "../Images/gob4.jpg";
 import NavBurger from "./NavBurger";
 import NavMenu from "./NavMenu";
 

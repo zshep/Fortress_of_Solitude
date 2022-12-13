@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { EDIT_JOB } from "../utils/mutations";
+import { EDIT_JOB } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 
 const PostBannerWrapper = styled.div`

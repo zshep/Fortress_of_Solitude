@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { Modal } from "react-bulma-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { EDIT_JOB } from "../utils/mutations";
+import { EDIT_JOB } from "../../utils/mutations";
 
 function EditText({ job }) {
   const { _id, postText } = job;
   const [isActive, setState] = useState(false);
   const [newText, setText] = useState(postText);
-  const [editText, { error }] = useMutation(EDIT_JOB);
+  const [editText] = useMutation(EDIT_JOB);
 
   const handleClick = () => {
     setState(!isActive);
