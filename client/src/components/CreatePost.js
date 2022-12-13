@@ -56,7 +56,8 @@ function CreatePost() {
       postCategory: category,
       postTitle: title,
       postText: summary,
-      postUser: userName
+      postUser: userName,
+      postStatus: "AVAILABLE"
     };
 
     try {

@@ -36,7 +36,8 @@ export const CREATE_CATEGORY = gql`
 
 export const CREATE_JOB = gql`
   mutation createJob($jobData: jobData!) {
-    createJob(content: $jobData) {
+    createJob(input: $jobData) {
+  
       postTitle
       createdAt
     }

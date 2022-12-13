@@ -106,9 +106,9 @@ const resolvers = {
     //---------working on finishing mutations--------
 
 
-    createJob: async (parent, { _id, input }) => {
+    createJob: async (parent, { input }) => {
       const newjob = await Post.create({ 
-        _id,
+        
         postTitle: input.postTitle, 
         postCategory: input.postCategory, 
         postText: input.postText, 
