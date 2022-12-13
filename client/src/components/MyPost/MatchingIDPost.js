@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "./DeleteModal.js";
 import EditCategory from "./EditCategory";
 import EditText from "./EditText";
-import EditTitle from "./EditTitle";
-import ProfilePic from "./ProfilePic";
-import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
-import SmallStickyNote from "./StickyNotes/SmallStickyNote";
-import MatchingPostBanner from "./MatchingPostBanner";
+import ProfilePic from "../Profile/ProfilePic";
+import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
+import SmallStickyNote from "../StickyNotes/SmallStickyNote";
+import MatchingPostBanner from "../Banners/MatchingPostBanner";
 
 import { useQuery } from "@apollo/client";
-import { GET_SINGLE_POST } from "../utils/queries";
+import { GET_SINGLE_POST } from "../../utils/queries";
 
 function MatchingIDPost(props) {
  

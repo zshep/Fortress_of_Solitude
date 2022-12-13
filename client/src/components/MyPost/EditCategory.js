@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { Modal } from "react-bulma-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { GET_CATEGORIES } from "../utils/queries";
-import { EDIT_JOB } from "../utils/mutations";
+import { GET_CATEGORIES } from "../../utils/queries";
+import { EDIT_JOB } from "../../utils/mutations";
 
 function EditCategory({ job }) {
   const { postCategory, _id } = job;
   const [isActive, setState] = useState(false);
   const [newCategory, setCategory] = useState(postCategory);
   const { data, loading } = useQuery(GET_CATEGORIES);
-  const [editCategory, { error }] = useMutation(EDIT_JOB);
+  const [editCategory] = useMutation(EDIT_JOB);
 
   if (loading) {
     return

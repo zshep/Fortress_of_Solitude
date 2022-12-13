@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import goblinOne from './goblin1.jpg'
+import goblinOne from '../Images/goblin1.jpg'
 
 const StyledProfilePic = styled.img`
     border: 1px solid grey;

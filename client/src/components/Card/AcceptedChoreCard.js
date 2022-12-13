@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../Container";
+import Container from "../RandomComponents/Container.js";
 import Columnsss from "../Column/Columnsss";
 import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import PublicPost from '../components/PublicPost'
-import MatchingIDPost from '../components/MatchingIDPost'
+import PublicPost from '../components/PublicPost/PublicPost'
+import MatchingIDPost from '../components/MyPost/MatchingIDPost.js'
 import { useLoginContext } from '../utils/context/loginContext'
 import GoblinState from '../utils/localStorage'
 
