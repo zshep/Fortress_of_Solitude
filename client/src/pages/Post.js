@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import PublicPost from '../components/PublicPost/PublicPost'
 import MatchingIDPost from '../components/MyPost/MatchingIDPost.js'
-import { useLoginContext } from '../utils/context/loginContext'
 import GoblinState from '../utils/localStorage'
 
 import { useQuery } from '@apollo/client'
@@ -10,9 +9,8 @@ import { GET_SINGLE_POST } from '../utils/queries'
 
 
 function Post() {
-  const [loginState] = useLoginContext()
   let { postId } = useParams()
-  const loggedInGoblin = new GoblinState().getLoginState().username
+  const loggedInGoblin = new GoblinState().getLoginState()
  
   const {data, loading} = useQuery(GET_SINGLE_POST, {
     variables: {id: postId}
@@ -22,7 +20,11 @@ function Post() {
       <h1>LOADING be patient, bitch</h1>
     )
   }
-  let loggedInUser = loginState?.username || loggedInGoblin
+  if (loggedInGoblin === null) {
+    return (<PublicPost />)
+  }
+
+  let loggedInUser = loggedInGoblin.username
   let postUser = data?.post.postUser || ""
 
   return (loggedInUser === postUser) ? (
