@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String!
     posts: [Post]!
     ppLevel: Int!
+    acceptedPosts: [Post]
 }
 
   type Post {

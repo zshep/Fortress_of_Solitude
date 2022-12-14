@@ -20,23 +20,23 @@ function AcceptedChoreCard({ data }) {
       </Container>
       <Container>
         <Columnsss attr="is-multiline">
-          {data.acceptedChores.map((el, i) => {
+          {data.acceptedPosts.map((el, i) => {
             return (i + 1) % 2 === 0 ? (
-              <div className="column is-one-third" key={el.id} postid={el._id}>
+              <div className="column is-one-third" key={el._id} postid={el._id}>
                 <Link to={`/post/${el._id}`}>
                 <SmallGreenSticky
-                  title={el.title}
-                  summary={el.body}
+                  title={el.postTitle}
+                  summary={el.postText}
                   
                 />
                 </Link>
               </div>
             ) : (
-              <div className="column is-one-third" key={el.id} postid={el._id}>
+              <div className="column is-one-third" key={el._id} postid={el._id}>
                 <Link to={`/post/${el._id}`}>
                 <SmallStickyNote
-                  title={el.title}
-                  summary={el.body}
+                  title={el.postTitle}
+                  summary={el.postText}
                   
                 />
                 </Link>
