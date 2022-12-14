@@ -2,9 +2,12 @@ import React from "react";
 import Auth from "../../utils/auth";
 import NavItem from "./NavItem";
 import { useNavContext } from "../../utils/context/NavContext";
+import GoblinState from "../../utils/localStorage";
 
 function NavMenu() {
   const logoutUser = () => {
+    const logoutGoblin = new GoblinState()
+    logoutGoblin.clearLocalStorage()
     Auth.logout();
   };
   const [navState] = useNavContext();

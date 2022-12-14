@@ -103,13 +103,33 @@ const resolvers = {
       console.log("This user has been deleted");
       return user.delete();
     },
-    //---------working on finishing mutations--------
 
 
-    createJob: async (parent, { postTitle, postCategory, postText, postUser }) => {
-      const newjob = await Post.create({ postTitle, postCategory, postText, postUser });
+
+    createJob: async (parent, { input }, context) => {
+      console.log(context.user)
+      if (context.user) {
+      const newjob = await Post.create({ 
+        
+        postTitle: input.postTitle, 
+        postCategory: input.postCategory, 
+        postText: input.postText, 
+        postUser: input.postUser
+      });
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id},
+        {
+          $addToSet: {
+              posts: newjob._id,
+          }
+        }
+
+      )
+
       return newjob;
-    },
+    }
+  },
 
     acceptJob: (parent, { _id, post}) => { 
       const job = find(post, { id: postId }); 

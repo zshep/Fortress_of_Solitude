@@ -16,6 +16,7 @@ const typeDefs = gql`
     postCategory: categoryChoices
     postText: String
     postUser: String
+    postStatus: String
     createdAt: String
   }
 
@@ -31,6 +32,8 @@ const typeDefs = gql`
     postCategory: String
     postText: String
     postUser: String
+    postStatus: String
+    userId: String
   }
 
 enum categoryChoices {
@@ -65,7 +68,7 @@ OTHER
     newUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String!, email: String!, password: String!): User
     deleteUser(username: String!, email: String!, password: String!): User
-    createJob(content: jobData): Post
+    createJob(input: jobData): Post
     acceptJob(content: jobData): Post
     completeJob(content: jobData): Post
     deleteJob(content: jobData): Post
