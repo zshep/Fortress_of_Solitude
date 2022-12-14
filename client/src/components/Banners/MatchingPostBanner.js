@@ -29,7 +29,6 @@ function MatchingPostBanner({ job }) {
   };
 
   async function handleSubmit(event) {
-    event.preventDefault();
     setState(!isActive);
     try {
       const jobData = {
@@ -43,6 +42,7 @@ function MatchingPostBanner({ job }) {
       if (error) {
         throw new Error(error);
       }
+      window.location.reload()
     } catch (error) {
       throw new Error("Failed to save changes.");
     }
