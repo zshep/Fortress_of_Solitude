@@ -152,9 +152,12 @@ const resolvers = {
     },
 
     acceptJob: async(parent, { content }, context) => {
+      console.log(context.user)
       const job = await Post.findOneAndUpdate(
+        
         {_id: content.postId },
-        { postStatus: "assigned"}
+        { postStatus: "assigned",
+          choreGoblin: context.user.username}
         
         )
       if (!job) {

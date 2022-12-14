@@ -68,6 +68,16 @@ function MatchingIDPost(props) {
             <h1>{postData.postText}</h1>
             <EditText job={postData} />
           </div>
+          <div class="container box"
+            style={{ background: "#d7ebce" }}>
+          <h1> Post Status: {postData.postStatus}</h1>
+          
+          {postData.postStatus === "assigned" &&  
+            <h1>Claimed By: {postData.choreGoblin}</h1>
+            }
+            
+          
+        </div>
         </div>
       </div>
       <div className="container has-text-centered">
