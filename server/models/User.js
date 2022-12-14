@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 // const PostSchema = require('./Post');
 var bcrypt = require('bcrypt');
 var saltFactor = 10;
+// const validator = require('validator');
 
 const UserSchema = new Schema({
   username: {

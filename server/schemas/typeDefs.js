@@ -38,14 +38,14 @@ const typeDefs = gql`
   }
 
 enum categoryChoices {
-YARDWORK
-AUTOMOTIVE
-PETCARE
-HOME_MAINTENANCE
-HOUSEKEEPING
-COOKING
-TECHNOLOGY
-OTHER
+YardWork
+Automotive
+PetCare
+HomeMaintenance
+Housekeeping
+Cooking
+Technology
+Other
 }
 
   # Queries
