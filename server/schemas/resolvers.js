@@ -151,13 +151,13 @@ const resolvers = {
       }
     },
 
-    acceptJob: (parent, { _id, post }) => {
-      const job = find(post, { id: postId });
+    acceptJob: async(parent, { _id, post }) => {
+      const job = await Post.findOneAndUpdate(post, { id: postId })
       if (!post) {
         throw new Error(`Couldnt find job with id ${postId}`);
       }
       post.postStatus = ASSIGNED;
-
+      
       return job;
     },
 
