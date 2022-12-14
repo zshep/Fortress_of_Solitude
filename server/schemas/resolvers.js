@@ -42,7 +42,7 @@ const resolvers = {
     },
     getMe: async (parent, args, context) => {
       if (context.user) {
-        const meUser = await User.findOne({ _id: context.user._id }).populate('posts');
+        const meUser = await User.findOne({ _id: context.user._id }).populate('posts').populate('acceptedPosts');
         return meUser;
       }
       throw new AuthenticationError("You need to be logged in");
@@ -151,18 +151,28 @@ const resolvers = {
       }
     },
 
-    acceptJob: async(parent, { _id, post }) => {
-      const job = await Post.findOneAndUpdate(post, { id: postId })
-      if (!post) {
-        throw new Error(`Couldnt find job with id ${postId}`);
+    acceptJob: async(parent, { content }, context) => {
+      const job = await Post.findOneAndUpdate(
+        {_id: content.postId },
+        { postStatus: "assigned"}
+        
+        )
+      if (!job) {
+        throw new Error(`Couldnt find job with id ${content.postId}`);
       }
-      post.postStatus = ASSIGNED;
-      
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        {
+          $addToSet: {
+            acceptedPosts: content.postId,
+          }
+        }) 
+         
       return job;
     },
 
 
-    completeJob: (parent, { _id, post }) => {
+    completeJob: async (parent, { _id, post }) => {
       const job = await Post.findOneAndUpdate(post, { id: postId })
       if (!post) {
         throw new Error(`Couldnt find job with id ${postId}`);
