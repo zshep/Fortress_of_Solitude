@@ -31,6 +31,12 @@ const PostSchema = new Schema({
     default: "available",
     trim: true
   },
+  choreGoblin: {
+    type: String,
+    // required: true,
+    trim: true
+  },
+
   
 
   // timestamp

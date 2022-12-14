@@ -5,12 +5,14 @@ export const GET_ME = gql`
     getMe {
       _id
       username
+      ppLevel
       acceptedPosts {
         _id
         postCategory 
         postText
         postTitle
         postUser
+        choreGoblin
       }
       posts {
         _id
@@ -18,6 +20,7 @@ export const GET_ME = gql`
         postText
         postTitle
         postUser
+        choreGoblin
       }
     }
   }
@@ -32,6 +35,8 @@ export const GET_SINGLE_POST = gql`
       postText
       postUser
       createdAt
+      postStatus
+      choreGoblin
     }
   }
 `

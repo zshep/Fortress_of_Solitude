@@ -19,6 +19,7 @@ const typeDefs = gql`
     postUser: String
     postStatus: String
     createdAt: String
+    choreGoblin: String
   }
 
   type Category {
