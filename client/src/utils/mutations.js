@@ -37,7 +37,6 @@ export const CREATE_CATEGORY = gql`
 export const CREATE_JOB = gql`
   mutation createJob($jobData: jobData!) {
     createJob(input: $jobData) {
-  
       postTitle
       createdAt
     }
@@ -71,8 +70,10 @@ mutation deleteJob($jobData: jobData!) {
 
 export const EDIT_JOB = gql`
 mutation editJob($jobData: jobData!) {
-    editJob(jobData: $jobData) {
+    editJob(content: $jobData) {
       postTitle
+      postText
+      postCategory
     }
   }
 `;
