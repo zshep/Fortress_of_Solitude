@@ -1,26 +1,26 @@
 [
     {
-        "category": "YARDWORK"
+        "category": "YardWork"
     },
     {
-        "category": "AUTOMOTIVE"
+        "category": "Automotive"
     },
     {
-        "category": "PETCARE"
+        "category": "PetCare"
     },
     {
-        "category": "HOME_MAINTENANCE"
+        "category": "HomeMaintenance"
     },
     {
-        "category": "HOUSEKEEPING"
+        "category": "Housekeeping"
     },
     {
-        "category": "COOKING"
+        "category": "Cooking"
     },
     {
-        "category": "TECHNOLOGY"
+        "category": "Technology"
     },
     {
-        "category": "OTHER"
+        "category": "Other"
     }
 ]

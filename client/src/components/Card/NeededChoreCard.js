@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Container from "../Container";
+import Container from "../RandomComponents/Container";
 import Columnsss from "../Column/Columnsss";
 import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 
 function NeededChoreCard({ data }) {
+  console.log(data)
   return (
     <>
       <Container attr={"has-text-centered"}>

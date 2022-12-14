@@ -1,6 +1,5 @@
 import React from "react";
-import ProfilePic from "./ProfilePic";
-import ProfileCard from "./Card/ProfileCard";
+import ProfileCard from "../Card/ProfileCard";
 
 function ProfileBox() {
   return (

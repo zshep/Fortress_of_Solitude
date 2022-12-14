@@ -12,19 +12,19 @@ import { NavProvider } from "./utils/context/NavContext";
 import { LoginProvider } from "./utils/context/loginContext";
 
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login";
 import Crash from "./pages/404";
 import ProfilePage from "./pages/ProfilePage";
 import Board from "./pages/Board";
 import Post from "./pages/Post";
-import CreatePost from "./components/CreatePost";
+import CreatePost from "./components/CreatePost/CreatePost";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-import heroTree from "./components/tree1.jpg";
+import heroTree from "./components/Images/tree1.jpg";
 
 library.add(fab, faPenToSquare);
 

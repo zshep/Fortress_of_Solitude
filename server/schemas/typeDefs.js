@@ -34,17 +34,18 @@ const typeDefs = gql`
     postUser: String
     postStatus: String
     userId: String
+    postId: String
   }
 
 enum categoryChoices {
-YARDWORK
-AUTOMOTIVE
-PETCARE
-HOME_MAINTENANCE
-HOUSEKEEPING
-COOKING
-TECHNOLOGY
-OTHER
+YardWork
+Automotive
+PetCare
+HomeMaintenance
+Housekeeping
+Cooking
+Technology
+Other
 }
 
   # Queries

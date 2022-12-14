@@ -1,59 +1,58 @@
 [
     {
         "postTitle": "Mow my lawn",
-        "postCategory": "YARDWORK",
+        "postCategory": "YardWork",
         "postText": "My arm is broken and I can't mow my lawn. The HOA is trying to repossess my house and destroy my daffodils. Could you save me before Tuesday?",
         "postUser": "Shep",
-        "postStatus": "ASSIGNED"
+        "postStatus": "Assigned"
     },
     {
         "postTitle": "Dog Poop!",
-        "postCategory": "PETCARE",
+        "postCategory": "PetCare",
         "postText": "I need someone to pick up the dog poop off of my lawn. It's terrible. Oh GAWD",
         "postUser": "Jacob",
-        "postStatus": "ASSIGNED"
+        "postStatus": "Assigned"
     },
     {
         "postTitle": "Gutter Cleaning",
-        "postCategory": "HOME_MAINTENANCE",
+        "postCategory": "HomeMaintenance",
         "postText": "Looking for someone to help me clean out my gutters",
         "postUser": "Patrick",
-        "postStatus": "AVAILABLE"
+        "postStatus": "Available"
     },
     {
         "postTitle": "Junk Removal",
-        "postCategory": "HOME_MAINTENANCE",
+        "postCategory": "HomeMaintenance",
         "postText": "Looking for some hunks to take out all my junk in my garage",
         "postUser": "Shadin",
-        "postStatus": "AVAILABLE"
+        "postStatus": "Available"
     },
     {
         "postTitle": "Lawn Care Maintenance",
-        "postCategory": "YARDWORK",
+        "postCategory": "YardWork",
         "postText": "Looking for someone to help take care of my lawn while I'm out of town for a couple weeks",
         "postUser": "Tony",
-        "postStatus": "COMPLETED"
-    
+        "postStatus": "Completed"
     },
     {
         "postTitle": "Coding Lessons",
-        "postCategory": "TECHNOLOGY",
+        "postCategory": "Technology",
         "postText": "Looking for someone to teach me how to code",
         "postUser": "Patrick",
-        "postStatus": "COMPLETED"
+        "postStatus": "Completed"
     },
     {
         "postTitle": "Blinker Fluid",
-        "postCategory": "AUTOMOTIVE",
+        "postCategory": "Automotive",
         "postText": "Need help adding blinker fluid to my car",
         "postUser": "Shadin",
-        "postStatus": "AVAILABLE"
+        "postStatus": "Available"
     },
     {
         "postTitle": "Changing a Lightbulb",
-        "postCategory": "HOUSEKEEPING",
+        "postCategory": "Housekeeping",
         "postText": "How do I change a lightbulb?",
         "postUser": "Tony",
-        "postStatus": "ASSIGNED"
+        "postStatus": "Assigned"
     }
 ]

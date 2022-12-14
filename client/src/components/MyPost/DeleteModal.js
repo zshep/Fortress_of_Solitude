@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { DELETE_JOB } from "../utils/mutations";
-import { Modal } from "react-bulma-components";
+import { DELETE_JOB } from "../../utils/mutations";
 
 function DeleteModal({ postId }) {
   const [isActive, setState] = useState(false);
-  const [deleteThisPost, { error }] = useMutation(DELETE_JOB);
+  const [deleteThisPost] = useMutation(DELETE_JOB);
   const handleClick = () => {
     setState(!isActive);
   };
   const deleteJob = async () => {
     const jobData = {
-      _id: postId,
+      postId,
     };
     try {
       const { data } = await deleteThisPost({
