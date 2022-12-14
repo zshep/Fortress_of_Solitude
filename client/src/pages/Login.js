@@ -1,12 +1,11 @@
 import React from "react";
-import Container from "../components/Container";
-import Section from "../components/Section";
+import Container from "../components/RandomComponents/Container.js";
+import Section from "../components/Login/Section";
 import Columnsss from "../components/Column/Columnsss";
 import Column from "../components/Column/Column";
-import LoginCard from "../components/LoginCard";
+import LoginCard from "../components/Login/LoginCard";
 import Auth from "../utils/auth";
-import Button from "../components/Button";
-import LoginBanner from "../components/LoginBanner";
+import LoginBanner from "../components/Banners/LoginBanner";
 
 //These are just random components thrown in here for now I am using for testing
 

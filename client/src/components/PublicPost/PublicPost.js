@@ -1,17 +1,32 @@
 import React from "react";
-import PostBanner from "./PostBanner";
-import ProfilePic from "./ProfilePic";
-import SmallGreenSticky from "./StickyNotes/SmallGreenSticky";
-import SmallStickyNote from "./StickyNotes/SmallStickyNote";
+import { useParams } from "react-router-dom";
+import PostBanner from "../Banners/PostBanner.js";
+import ProfilePic from "../Profile/ProfilePic";
+import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
+import SmallStickyNote from "../StickyNotes/SmallStickyNote";
+
+import { useQuery } from "@apollo/client";
+import { GET_SINGLE_POST } from "../../utils/queries";
 
 function PublicPost() {
 
-  const retrievedTitle= 'Dog Poop!'
+  const { postId } = useParams()
+
+  const { data, loading } = useQuery(GET_SINGLE_POST, {
+    variables: { id: postId },
+  });
+
+  const postData = data?.post || {};
+
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+
   return (
     <div
       class="container p-6"
     >
-      <PostBanner title={retrievedTitle} />
+      <PostBanner title={postData.postTitle} />
 
       <div class="tile is-ancestor py-6">
       <div class="tile is-parent is-vertical">
@@ -25,28 +40,25 @@ function PublicPost() {
         <div class="tile is-parent  is-3">
         <div class="tile is-child is-transparent has-text-centered">
           <h1 className="has-text-white">Creator -</h1>
-          <SmallGreenSticky title={"Karen Karenson"} />
+          <SmallGreenSticky title={postData.postUser} />
           </div>
         </div>
       <div class="tile is-parent is-3 ">
         <div class="tile is-child is-transparent has-text-centered">
           <h1 className="has-text-white">Category</h1>
-          <SmallStickyNote title={"Clean Up"} />
+          <SmallStickyNote title={postData.postCategory} />
       </div>
     </div>  
     <div class="tile is-parent  is-2">
       <div class="tile is-child is-transparent has-text-centered">
         <h1 className="has-text-white">Time Posted</h1>
-        <SmallGreenSticky title={"01/19/2022 11:45 PM"} />
+        <SmallGreenSticky title={postData.createdAt} />
       </div>
       </div>
       </div>
         <div class="container box"
             style={{ background: "#d7ebce" }}>
-          <h1>There are bunch of bags of dop poop all over the trail behind the
-              neighborhood. I don't understand why people bag it, and then just
-              leave it. Like might as well let it biodegrade right? Anyways,
-              anyone wanna clean it?</h1>
+          <h1>{postData.postText}</h1>
         </div>
       </div>
     </div>
