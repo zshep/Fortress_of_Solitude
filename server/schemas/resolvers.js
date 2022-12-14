@@ -154,7 +154,7 @@ const resolvers = {
     acceptJob: (parent, { _id, post }) => {
       const job = find(post, { id: postId });
       if (!post) {
-        throw new Error(`Couldn’t find job with id ${postId}`);
+        throw new Error(`Couldnt find job with id ${postId}`);
       }
       post.postStatus = ASSIGNED;
 
@@ -165,7 +165,7 @@ const resolvers = {
     completeJob: (parent, { _id, post }) => {
       const job = find(post, { id: postId });
       if (!post) {
-        throw new Error(`Couldn’t find job with id ${postId}`);
+        throw new Error(`Couldnt find job with id ${postId}`);
       }
       post.postStatus = COMPLETED;
 
