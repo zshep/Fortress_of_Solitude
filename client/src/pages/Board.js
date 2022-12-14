@@ -10,18 +10,12 @@ import VolunteerBanner from "../components/Banners/VolunteerBanner.js";
 import GoblinState from "../utils/localStorage";
 
 function Board() {
-  let [loginState] = useLoginContext()
+
   const { data, loading } = useQuery(GET_POSTS)
   const posts = data?.posts || {};
 
   if (loading) {
     return <div>Loading...</div>;
-  }
-
-  // if page is refreshed and state is lost grab user data from local storage. 
-  if (loginState === {}) {
-    const goblinLogin = new GoblinState()
-    loginState = goblinLogin.getLoginState()
   }
 
   return (
