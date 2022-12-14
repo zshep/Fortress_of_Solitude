@@ -5,8 +5,9 @@ import ProfilePic from "../Profile/ProfilePic";
 import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
+import { ACCEPT_JOB } from "../../utils/mutations";
 
 function PublicPost() {
 
@@ -15,11 +16,30 @@ function PublicPost() {
   const { data, loading } = useQuery(GET_SINGLE_POST, {
     variables: { id: postId },
   });
+  const [acceptJob] = useMutation(ACCEPT_JOB)
 
   const postData = data?.post || {};
 
   if (loading) {
     return <h2>LOADING...</h2>;
+  }
+
+  const claimJob = async(event) => {
+    event.preventDefault();
+    const jobData = {
+      postId
+    }
+    try {
+      const { data } = await acceptJob({
+        variables: { jobData }
+      })
+      if (!data) {
+        throw new Error("No data returned");
+      }
+
+    } catch (error) {
+      throw new Error(error)
+    }
   }
 
   return (
@@ -66,6 +86,7 @@ function PublicPost() {
       <div class="container has-text-centered">
         <button
           class="button m-4"
+          onClick={claimJob}
           onMouseOver={(e) => {
             e.target.style.transform = "scale(1.25)";
           }}
