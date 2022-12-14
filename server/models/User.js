@@ -7,20 +7,20 @@ var saltFactor = 10;
 const UserSchema = new Schema({
   username: {
     type: String,
-    required: true,
-    unique: true,
+    required: [true, 'Username is required'],
+    unique: [true, 'This username has already been taken'],
     trim: true,
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+    required: [true, 'Email is required'],
+    unique: [true, 'This email has already been taken'],
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
     type: String,
-    required: true,
-    minlength: 5,
+    required: [true, 'Password is required'],
+    minlength: [5, 'Password minimum length must be at least 5 characters long']
   },
   posts: [
     {
