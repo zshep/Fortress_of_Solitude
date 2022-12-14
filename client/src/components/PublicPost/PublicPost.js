@@ -4,6 +4,8 @@ import PostBanner from "../Banners/PostBanner.js";
 import ProfilePic from "../Profile/ProfilePic";
 import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";
+import ClaimJob from "../Buttons/ClaimJob.js";
+import CompleteJob from "../Buttons/CompleteJob.js";
 
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
@@ -113,32 +115,8 @@ function PublicPost() {
     </div>
 
       <div class="container has-text-centered">
-        <button
-          class="button m-4"
-          onClick={claimJob}
-          onMouseOver={(e) => {
-            e.target.style.transform = "scale(1.25)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = "scale(1)";
-          }}
-          style={{ fontFamily: "Permanent Marker", background: "#ffa" }}
-        >
-          Claim Job
-        </button>
-        <button
-          class="button m-4"
-          onClick={completeJob}
-          onMouseOver={(e) => {
-            e.target.style.transform = "scale(1.25)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = "scale(1)";
-          }}
-          style={{ fontFamily: "Permanent Marker", background: "#A6CE90" }}
-        >
-          Complete Job
-        </button>
+        <ClaimJob action={claimJob} />
+        <CompleteJob action={completeJob} />
       </div>
     </div>
   );

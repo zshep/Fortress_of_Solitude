@@ -10,7 +10,7 @@ import VolunteerBanner from "../components/Banners/VolunteerBanner.js";
 import GoblinState from "../utils/localStorage";
 
 function Board() {
-  const [loginState] = useLoginContext()
+  let [loginState] = useLoginContext()
   const { data, loading } = useQuery(GET_POSTS)
   const posts = data?.posts || {};
 
