@@ -13,8 +13,6 @@ function Post() {
   const [loginState] = useLoginContext()
   let { postId } = useParams()
   const loggedInGoblin = new GoblinState().getLoginState().username
-
-  console.log(loggedInGoblin)
  
   const {data, loading} = useQuery(GET_SINGLE_POST, {
     variables: {id: postId}
