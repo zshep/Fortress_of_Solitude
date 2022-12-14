@@ -163,7 +163,7 @@ const resolvers = {
 
 
     completeJob: (parent, { _id, post }) => {
-      const job = find(post, { id: postId });
+      const job = await Post.findOneAndUpdate(post, { id: postId })
       if (!post) {
         throw new Error(`Couldnt find job with id ${postId}`);
       }
