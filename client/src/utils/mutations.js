@@ -53,7 +53,7 @@ export const ACCEPT_JOB = gql`
 
 export const COMPLETE_JOB = gql`
  mutation completeJob($jobData: jobData!) {
-    completeJob(jobData: $jobData) {
+    completeJob(content: $jobData) {
       postTitle
     }
   }

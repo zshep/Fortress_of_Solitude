@@ -7,7 +7,7 @@ import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
-import { ACCEPT_JOB } from "../../utils/mutations";
+import { ACCEPT_JOB, COMPLETE_JOB } from "../../utils/mutations";
 
 function PublicPost() {
 
@@ -17,6 +17,7 @@ function PublicPost() {
     variables: { id: postId },
   });
   const [acceptJob] = useMutation(ACCEPT_JOB)
+  const [finishJob] = useMutation(COMPLETE_JOB)
 
   const postData = data?.post || {};
 
@@ -31,6 +32,24 @@ function PublicPost() {
     }
     try {
       const { data } = await acceptJob({
+        variables: { jobData }
+      })
+      if (!data) {
+        throw new Error("No data returned");
+      }
+
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
+  const completeJob = async(event) => {
+    event.preventDefault()
+    const jobData = {
+      postId
+    }
+    try {
+      const { data } = await finishJob({
         variables: { jobData }
       })
       if (!data) {
@@ -99,6 +118,7 @@ function PublicPost() {
         </button>
         <button
           class="button m-4"
+          onClick={completeJob}
           onMouseOver={(e) => {
             e.target.style.transform = "scale(1.25)";
           }}
