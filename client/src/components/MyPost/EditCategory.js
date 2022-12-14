@@ -39,6 +39,7 @@ function EditCategory({ job }) {
         if (!data) {
           throw new Error("No data returned");
         }
+        window.location.reload()
       } catch (error) {
         throw new Error("Failed to change the category.");
       }

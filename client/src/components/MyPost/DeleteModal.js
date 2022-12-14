@@ -19,6 +19,7 @@ function DeleteModal({ postId }) {
       if (!data) {
         throw new Error("No data returned");
       }
+      window.location.replace('/profile')
     } catch (error) {
       throw new Error("Failed to delete the post.");
     }
