@@ -29,6 +29,14 @@ const UserSchema = new Schema({
     },
   ],
 
+  acceptedPosts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+
+  ],
+
   ppLevel: {
     type: Number,
     default: 0,
