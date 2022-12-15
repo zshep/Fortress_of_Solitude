@@ -21,6 +21,9 @@ function MatchingIDPost(props) {
 
   const postData = data?.post || {};
 
+  const date = new Date(postData.createdAt * 1)
+  const pacificTime = date.toLocaleString('en-US', {timeZone: 'America/Los_Angeles'})
+
   if (loading) {
     return <h2>LOADING...</h2>;
   }
@@ -57,7 +60,7 @@ function MatchingIDPost(props) {
             <div class="tile is-parent  is-2">
               <div class="tile is-child is-transparent has-text-centered">
                 <h1 className="has-text-white">Time Posted</h1>
-                <SmallGreenSticky title={postData.createdAt} />
+                <SmallGreenSticky title={pacificTime} />
               </div>
             </div>
           </div>
