@@ -9,9 +9,8 @@ import CompleteJob from "../Buttons/CompleteJob.js";
 import GoblinState from "../../utils/localStorage.js";
 import ErrorModal from "../Modals/ErrorModal"
 
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
-import { ACCEPT_JOB, COMPLETE_JOB } from "../../utils/mutations";
 
 function PublicPost() {
   const { postId } = useParams();
@@ -19,8 +18,7 @@ function PublicPost() {
   const { data, loading } = useQuery(GET_SINGLE_POST, {
     variables: { id: postId },
   });
-  const [acceptJob] = useMutation(ACCEPT_JOB);
-  const [finishJob] = useMutation(COMPLETE_JOB);
+ 
   const loggedInGoblin = new GoblinState().getLoginState();
 
   const postData = data?.post || {};
@@ -28,58 +26,6 @@ function PublicPost() {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
-
-  const claimJob = async (event) => {
-    event.preventDefault();
-    const jobData = {
-      postId,
-    };
-    try {
-      const { data } = await acceptJob({
-        variables: { jobData },
-      });
-      if (!data) {
-        const error = new Error("No data returned");
-        return (
-          <>
-            <ErrorModal message={error.message} activate={true} />
-          </>
-        );
-      }
-    } catch (error) {
-      return (
-        <>
-          <ErrorModal message={error.message} activate={true} />
-        </>
-      );
-    }
-  };
-
-  const completeJob = async (event) => {
-    event.preventDefault();
-    const jobData = {
-      postId,
-    };
-    try {
-      const { data } = await finishJob({
-        variables: { jobData },
-      });
-      if (!data) {
-        const error = new Error("No data returned");
-        return (
-          <>
-            <ErrorModal message={error.message} activate={true} />
-          </>
-        );
-      }
-    } catch (error) {
-      return (
-        <>
-          <ErrorModal message={error.message} activate={true} />
-        </>
-      );
-    }
-  };
 
   return (
     <div class="container p-6">
@@ -129,8 +75,8 @@ function PublicPost() {
       <div class="container has-text-centered">
         {loggedInGoblin !== null && (
           <>
-            <ClaimJob action={claimJob} />
-            <CompleteJob action={completeJob} />
+            <ClaimJob postId={postId}/>
+            <CompleteJob postId={postId}/>
           </>
         )}
       </div>
