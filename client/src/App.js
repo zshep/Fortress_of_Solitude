@@ -10,6 +10,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavProvider } from "./utils/context/NavContext";
 
+
+
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login";
@@ -67,11 +69,12 @@ function App() {
 
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="*" element={<Crash />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/board" element={<Board />} />
               <Route path="/createpost" element={<CreatePost />} />
               <Route path="/post/:postId" element={<Post />} />
+              <Route path="*" element={<Crash />} />
+
               {/* we will refine this /post route once parts are connected */}
             </Routes>
 
