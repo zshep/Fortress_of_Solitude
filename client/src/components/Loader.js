@@ -1,4 +1,5 @@
 import React from "react"
+import styled from 'styled-components'
 
 const styledLoader = styled.div`.spinner {
     margin:20px auto 20px auto;
@@ -24,8 +25,8 @@ function Loader(){
 
 return (
     <styledLoader>
-<div class='spinner'></div>
-</styledLoader>
+    <div class='spinner'></div>
+    </styledLoader>
 
 )}
 
