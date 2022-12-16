@@ -3,7 +3,7 @@
   "engines": {
     "node": "18.12.1"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An online board posting site where a community shares posts to advertise yard work to be done or people willing to do the yard work",
   "main": "index.js",
   "scripts": {
