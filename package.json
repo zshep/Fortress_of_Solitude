@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/zshep/Fortress_of_Solitude/issues"
   },
-  "homepage": ".",
+  "homepage": "https://gomode.herokuapp.com/",
   "devDependencies": {
     "concurrently": "^7.6.0"
   },

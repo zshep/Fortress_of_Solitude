@@ -32,6 +32,10 @@ const startApolloServer = async (typeDefs, resolvers) => {
     app.use(express.static(path.join(__dirname, '../client/build')));
   }
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
+
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`GO MODE server running on port ${PORT}!`);
