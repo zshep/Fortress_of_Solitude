@@ -25,10 +25,11 @@ function Loader(){
 
 return (
     <styledLoader>
-    <div class='spinner'></div>
+    <div className="spinner"></div>
     </styledLoader>
 
 )}
+
 
 
 module.exports = Loader 
