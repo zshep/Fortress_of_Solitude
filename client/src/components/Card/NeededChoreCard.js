@@ -6,7 +6,6 @@ import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 
 function NeededChoreCard({ data }) {
-  console.log(data)
   return (
     <>
       <Container attr={"has-text-centered"}>

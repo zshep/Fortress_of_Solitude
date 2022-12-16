@@ -175,12 +175,18 @@ const resolvers = {
     },
 
 
-    completeJob: async (parent, { _id, post }) => {
-      const job = await Post.findOneAndUpdate(post, { id: postId })
-      if (!post) {
-        throw new Error(`Couldnt find job with id ${postId}`);
+    completeJob: async (parent, { content }, context) => {
+      console.log(context.user);
+      const job = await Post.findOneAndUpdate(
+        {_id: content.postId },
+        { postStatus: "completed",
+          choreGoblin: context.user.username}
+        
+        )
+      if (!job) {
+        throw new Error(`Couldnt find job with id ${_id}`);
       }
-      post.postStatus = COMPLETED;
+      //job.postStatus = COMPLETED;
 
       return job;
     },

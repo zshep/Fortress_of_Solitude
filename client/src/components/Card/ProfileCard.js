@@ -20,7 +20,7 @@ const placeholderData = {
   community: "Auburn Acres",
 };
 
-function ProfileCard(props) {
+function ProfileCard() {
 
   const { data, loading } = useQuery(GET_ME);
   const userData = data?.getMe || {};

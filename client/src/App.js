@@ -9,7 +9,8 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavProvider } from "./utils/context/NavContext";
-// import { LoginProvider } from "./utils/context/loginContext";
+
+
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -50,7 +51,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* <LoginProvider> */}
       <Router>
         <>
           <div
@@ -74,6 +74,7 @@ function App() {
               <Route path="/createpost" element={<CreatePost />} />
               <Route path="/post/:postId" element={<Post />} />
               <Route path="*" element={<Crash />} />
+
               {/* we will refine this /post route once parts are connected */}
             </Routes>
 
@@ -81,7 +82,6 @@ function App() {
           </div>
         </>
       </Router>
-      {/* </LoginProvider> */}
     </ApolloProvider>
   );
 }
