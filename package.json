@@ -1,5 +1,8 @@
 {
   "name": "fortress_of_solitude",
+  "engines": {
+    "node": "18.12.1"
+  },
   "version": "1.0.0",
   "description": "An online board posting site where a community shares posts to advertise yard work to be done or people willing to do the yard work",
   "main": "index.js",
