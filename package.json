@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "An online board posting site where a community shares posts to advertise yard work to be done or people willing to do the yard work",
   "main": "index.js",
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
