@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { parseError } from "../../utils/helpers";
 
 function ErrorModal({ message, activate }) {
   const [isActive, setActive] = useState(activate);
+  const errorMessage = parseError(message)
+  console.log(message)
   const handleClick = () => {
     setActive(!isActive);
   };
@@ -10,7 +13,7 @@ function ErrorModal({ message, activate }) {
     <div className={`modal ${active}`}>
       <div className="modal-background"></div>
       <div className="modal-content has-background-link-light p-4">
-        <p className="is-size-5 has-text-centered">{message}</p>
+        <p className="is-size-5 has-text-centered">{errorMessage}</p>
         <button
         className="button is-normal is-danger"
         aria-label="close"
