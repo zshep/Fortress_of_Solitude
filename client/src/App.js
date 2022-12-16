@@ -69,11 +69,11 @@ function App() {
 
               <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="*" element={<Crash />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/board" element={<Board />} />
                 <Route path="/createpost" element={<CreatePost />} />
                 <Route path="/post/:postId" element={<Post />} />
+                <Route path="*" element={<Crash />} />
                 {/* we will refine this /post route once parts are connected */}
               </Routes>
 
