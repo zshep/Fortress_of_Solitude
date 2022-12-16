@@ -23,7 +23,9 @@ const styledLoader = styled.div`.spinner {
 function Loader(){
 
 return (
+    <styledLoader>
 <div class='spinner'></div>
+</styledLoader>
 
 )}
 
