@@ -9,7 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavProvider } from "./utils/context/NavContext";
-import { LoginProvider } from "./utils/context/loginContext";
+// import { LoginProvider } from "./utils/context/loginContext";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -50,38 +50,38 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <LoginProvider>
-        <Router>
-          <>
-            <div
-              className="App"
-              style={{
-                backgroundImage: `url(${heroTree})`,
-                minHeight: `600px`,
-                backgroundPosition: `center`,
-                backgroundRepeat: `no-repeat`,
-                backgroundSize: `cover`,
-              }}
-            >
-              <NavProvider>
-                <Navbar />
-              </NavProvider>
+      {/* <LoginProvider> */}
+      <Router>
+        <>
+          <div
+            className="App"
+            style={{
+              backgroundImage: `url(${heroTree})`,
+              minHeight: `600px`,
+              backgroundPosition: `center`,
+              backgroundRepeat: `no-repeat`,
+              backgroundSize: `cover`,
+            }}
+          >
+            <NavProvider>
+              <Navbar />
+            </NavProvider>
 
-              <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/board" element={<Board />} />
-                <Route path="/createpost" element={<CreatePost />} />
-                <Route path="/post/:postId" element={<Post />} />
-                <Route path="*" element={<Crash />} />
-                {/* we will refine this /post route once parts are connected */}
-              </Routes>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/board" element={<Board />} />
+              <Route path="/createpost" element={<CreatePost />} />
+              <Route path="/post/:postId" element={<Post />} />
+              <Route path="*" element={<Crash />} />
+              {/* we will refine this /post route once parts are connected */}
+            </Routes>
 
-              <Footer />
-            </div>
-          </>
-        </Router>
-      </LoginProvider>
+            <Footer />
+          </div>
+        </>
+      </Router>
+      {/* </LoginProvider> */}
     </ApolloProvider>
   );
 }
