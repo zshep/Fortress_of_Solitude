@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
+import ErrorModal from "../Modals/ErrorModal";
 
 function LoginCard() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -22,6 +23,13 @@ function LoginForm() {
   const [hidden, setHidden] = useState("is-hidden");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
+  if (error) {
+    return (
+      <>
+        <ErrorModal message={error.message} activate={true} />
+      </>
+    );
+  }
 
   const handleChange = (event) => {
     const { target } = event;
@@ -47,13 +55,12 @@ function LoginForm() {
     };
 
     try {
-      console.log(submission);
       const { data } = await loginUser({
         variables: { ...submission },
       });
 
       if (!data) {
-        throw new Error("No user found with those credentials.");
+        return new Error("No user found with those credentials.");
       }
 
       if (error) {
@@ -62,9 +69,8 @@ function LoginForm() {
 
       Auth.login(data.login.token);
       window.location.assign("/profile");
-    } catch (err) {
-      setHidden("is-visible"); // Need to move this once password validation error is returned & exchange for more generaic login failure option
-      throw new Error("Something went wrong!");
+    } catch (error) {
+      return error
     }
 
     setEmail("");

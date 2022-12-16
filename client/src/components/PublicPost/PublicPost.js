@@ -7,6 +7,7 @@ import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 import ClaimJob from "../Buttons/ClaimJob.js";
 import CompleteJob from "../Buttons/CompleteJob.js";
 import GoblinState from "../../utils/localStorage.js";
+import ErrorModal from "../Modals/ErrorModal"
 
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
@@ -42,10 +43,19 @@ function PublicPost() {
         variables: { jobData },
       });
       if (!data) {
-        throw new Error("No data returned");
+        const error = new Error("No data returned");
+        return (
+          <>
+            <ErrorModal message={error.message} activate={true} />
+          </>
+        );
       }
     } catch (error) {
-      throw new Error(error);
+      return (
+        <>
+          <ErrorModal message={error.message} activate={true} />
+        </>
+      );
     }
   };
 
@@ -59,10 +69,19 @@ function PublicPost() {
         variables: { jobData },
       });
       if (!data) {
-        throw new Error("No data returned");
+        const error = new Error("No data returned");
+        return (
+          <>
+            <ErrorModal message={error.message} activate={true} />
+          </>
+        );
       }
     } catch (error) {
-      throw new Error(error);
+      return (
+        <>
+          <ErrorModal message={error.message} activate={true} />
+        </>
+      );
     }
   };
 
