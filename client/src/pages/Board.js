@@ -2,12 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_POSTS } from "../utils/queries";
-import { useLoginContext } from "../utils/context/loginContext";
 import Columnsss from "../components/Column/Columnsss";
 import StickyNote from "../components/StickyNotes/StickyNote";
 import GreenSticky from "../components/StickyNotes/GreenSticky";
 import VolunteerBanner from "../components/Banners/VolunteerBanner.js";
-import GoblinState from "../utils/localStorage";
 
 function Board() {
 
