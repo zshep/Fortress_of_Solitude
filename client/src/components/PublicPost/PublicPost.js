@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import PostBanner from "../Banners/PostBanner.js";
 import ProfilePic from "../Profile/ProfilePic";
@@ -7,12 +7,12 @@ import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 import ClaimJob from "../Buttons/ClaimJob.js";
 import CompleteJob from "../Buttons/CompleteJob.js";
 import GoblinState from "../../utils/localStorage.js";
-import ErrorModal from "../Modals/ErrorModal"
 
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
 
 function PublicPost() {
+  
   const { postId } = useParams();
 
   const { data, loading } = useQuery(GET_SINGLE_POST, {
@@ -25,7 +25,8 @@ function PublicPost() {
 
   const date = new Date(postData.createdAt * 1)
   const pacificTime = date.toLocaleString('en-US', {timeZone: 'America/Los_Angeles'})
-
+  const [postState, setPostState] = useState(postData.postStatus)
+  const [goblinState, setGoblinState] = useState(postData.choreGoblin)
 
   if (loading) {
     return <h2>LOADING...</h2>;
@@ -67,10 +68,10 @@ function PublicPost() {
             <h1>{postData.postText}</h1>
           </div>
           <div class="container box" style={{ background: "#d7ebce" }}>
-            <h1> Post Status: {postData.postStatus}</h1>
+            <h1> Post Status: {postState}</h1>
 
-            {postData.postStatus === "assigned" && (
-              <h1>Claimed By: {postData.choreGoblin}</h1>
+            {postState === "assigned" && (
+              <h1>Claimed By: {goblinState}</h1>
             )}
           </div>
         </div>
@@ -79,8 +80,9 @@ function PublicPost() {
       <div class="container has-text-centered">
         {loggedInGoblin !== null && (
           <>
-            <ClaimJob postId={postId}/>
-            <CompleteJob postId={postId}/>
+            {postState === "available" && <ClaimJob postId={postId} action={{setPostState, setGoblinState}}/>}
+            {postState === "assigned" && <CompleteJob postId={postId} action={setPostState}/>}
+            
           </>
         )}
       </div>

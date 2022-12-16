@@ -26,13 +26,13 @@ function Board() {
       {posts.map((el, i) => {
         return (i + 1) % 2 === 0 ? (
           <div className="column is-one-third">
-            <Link to={`/post/${el._id}`}>
+            <Link to={`/post/${el._id}`} key={i}>
               <StickyNote title={el.postTitle} summary={el.postText} key={el._id} />
             </Link>
           </div>
         ) : (
           <div className="column is-one-third">
-            <Link to={`/post/${el._id}`}>
+            <Link to={`/post/${el._id}`} key={i}>
               <GreenSticky title={el.postTitle} summary={el.postText} key={el._id} />
             </Link>
           </div>
