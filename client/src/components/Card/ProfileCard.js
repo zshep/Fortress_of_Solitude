@@ -12,19 +12,16 @@ import JobContainer from "../Dashboard/JobContainer";
 import GoblinState from "../../utils/localStorage";
 
 import { DashProvider } from "../../utils/context/dashboardContext";
-import { useLoginContext } from "../../utils/context/loginContext";
 
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
-import { LOGIN_USER } from "../../utils/actions";
-import Loader from "../Loader";
 
 const placeholderData = {
   community: "Auburn Acres",
 };
 
-function ProfileCard(props) {
-  const [loginState, dispatch] = useLoginContext()
+function ProfileCard() {
+
   const { data, loading } = useQuery(GET_ME);
   const userData = data?.getMe || {};
 
@@ -32,15 +29,10 @@ function ProfileCard(props) {
     return <Loader/>;
   }
 
-  dispatch({
-    type: LOGIN_USER,
-    payload: userData
-  })
-
   // saves user id and name to localstorage for grabbing later.
   const saveGoblin = {
-    id: loginState._id,
-    username: loginState.username
+    id: userData._id,
+    username: userData.username
   }
   const testGoblin = new GoblinState(saveGoblin)
   testGoblin.setLoginState()

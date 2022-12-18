@@ -1,8 +1,11 @@
 {
   "name": "fortress_of_solitude",
-  "version": "1.0.0",
+  "engines": {
+    "node": "18.12.1"
+  },
+  "version": "1.0.1",
   "description": "An online board posting site where a community shares posts to advertise yard work to be done or people willing to do the yard work",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
@@ -20,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/zshep/Fortress_of_Solitude/issues"
   },
-  "homepage": "https://github.com/zshep/Fortress_of_Solitude#readme",
+  "homepage": "https://gomode.herokuapp.com/",
   "devDependencies": {
     "concurrently": "^7.6.0"
   },

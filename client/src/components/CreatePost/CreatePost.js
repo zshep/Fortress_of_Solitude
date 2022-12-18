@@ -1,27 +1,33 @@
-import { useMutation, useQuery} from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { CREATE_JOB } from "../../utils/mutations";
 import { GET_CATS_AND_LOGGEDIN_USER } from "../../utils/queries";
 import Auth from "../../utils/auth";
-import GoblinState from '../../utils/localStorage'
+import GoblinState from "../../utils/localStorage";
+import ErrorModal from "../Modals/ErrorModal"
 
 function CreatePost() {
-  const { loading, data } = useQuery(
-    GET_CATS_AND_LOGGEDIN_USER,
-    {
-      variables: { _id: Auth.getProfile().data._id },
-    }
-  );
-  const [createJob] = useMutation(CREATE_JOB);
+  const { loading, data } = useQuery(GET_CATS_AND_LOGGEDIN_USER, {
+    variables: { _id: Auth.getProfile().data._id },
+  });
+  const [createJob, { error }] = useMutation(CREATE_JOB);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState("");
 
-  if (loading) return
+  if (error) {
+    return (
+      <>
+        <ErrorModal message={error.message} activate={true} />
+      </>
+    );
+  }
+
+  if (loading) return;
 
   // un comment when no longer returning null
-  const userName = data?.user.username
-  const activeGoblin = new GoblinState().getLoginState().id
+  const userName = data?.user.username;
+  const activeGoblin = new GoblinState().getLoginState().id;
 
   //console.log(activeGoblin)
 
@@ -47,13 +53,23 @@ function CreatePost() {
     event.preventDefault();
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
-      throw new Error(
+      const error = new Error(
         "You need to be logged in to save a job. How did you get here?"
+      );
+      return (
+        <>
+          <ErrorModal message={error.message} activate={true} />
+        </>
       );
     }
 
     if (category === "pick a category my dude") {
-      throw new Error("that's not a category my dude")
+      const error = new Error("that's not a category my dude");
+      return (
+        <>
+          <ErrorModal message={error.message} activate={true} />
+        </>
+      );
     }
 
     const jobData = {
@@ -62,20 +78,28 @@ function CreatePost() {
       postText: summary,
       postUser: userName,
       postStatus: "AVAILABLE",
-      userId: activeGoblin
-
+      userId: activeGoblin,
     };
 
     try {
-      console.log(jobData);
       const { data } = await createJob({
         variables: { jobData: jobData },
       });
       if (!data) {
-        throw new Error("No data returned");
+        const error = new Error("No data returned!")
+        return (
+          <>
+            <ErrorModal message={error.message} activate={true} />
+          </>
+        );
       }
+      window.location.replace("/profile");
     } catch (error) {
-      throw new Error("Failed to save job.");
+      return (
+        <>
+          <ErrorModal message={error.message} activate={true} />
+        </>
+      );
     }
   };
 
@@ -93,7 +117,10 @@ function CreatePost() {
       className="container box p-6
                 has-background-light"
     >
-      <h2 className="subtitle has-text-centered" style={{ fontFamily: "Permanent Marker"}}>
+      <h2
+        className="subtitle has-text-centered"
+        style={{ fontFamily: "Permanent Marker" }}
+      >
         Create a Volunteer Opportunity
       </h2>
       <form action="">

@@ -1,27 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.275a76ca.chunk.css",
-    "main.js": "/static/js/main.1cdd608a.chunk.js",
-    "main.js.map": "/static/js/main.1cdd608a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.93ec6a2a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.93ec6a2a.js.map",
-    "static/css/2.f4c5cc59.chunk.css": "/static/css/2.f4c5cc59.chunk.css",
-    "static/js/2.ce4f9ca6.chunk.js": "/static/js/2.ce4f9ca6.chunk.js",
-    "static/js/2.ce4f9ca6.chunk.js.map": "/static/js/2.ce4f9ca6.chunk.js.map",
-    "static/js/3.7052fc2e.chunk.js": "/static/js/3.7052fc2e.chunk.js",
-    "static/js/3.7052fc2e.chunk.js.map": "/static/js/3.7052fc2e.chunk.js.map",
+    "main.css": "/static/css/main.ffcc033a.css",
+    "main.js": "/static/js/main.3583bdc9.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/tree1.jpg": "/static/media/tree1.b5ae28ab57347bf3a64f.jpg",
+    "static/media/goblin1.jpg": "/static/media/goblin1.eca8e6aa31ab69b3dbac.jpg",
+    "static/media/gob4.jpg": "/static/media/gob4.e39f4fbbfa94108f6b88.jpg",
     "index.html": "/index.html",
-    "static/css/2.f4c5cc59.chunk.css.map": "/static/css/2.f4c5cc59.chunk.css.map",
-    "static/css/main.275a76ca.chunk.css.map": "/static/css/main.275a76ca.chunk.css.map",
-    "static/js/2.ce4f9ca6.chunk.js.LICENSE.txt": "/static/js/2.ce4f9ca6.chunk.js.LICENSE.txt",
-    "static/media/gob4.e39f4fbb.jpg": "/static/media/gob4.e39f4fbb.jpg",
-    "static/media/wood.df2c8603.png": "/static/media/wood.df2c8603.png"
+    "main.ffcc033a.css.map": "/static/css/main.ffcc033a.css.map",
+    "main.3583bdc9.js.map": "/static/js/main.3583bdc9.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.93ec6a2a.js",
-    "static/css/2.f4c5cc59.chunk.css",
-    "static/js/2.ce4f9ca6.chunk.js",
-    "static/css/main.275a76ca.chunk.css",
-    "static/js/main.1cdd608a.chunk.js"
+    "static/css/main.ffcc033a.css",
+    "static/js/main.3583bdc9.js"
   ]
 }

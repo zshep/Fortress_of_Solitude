@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String!
     posts: [Post]!
     ppLevel: Int!
+    acceptedPosts: [Post]
 }
 
   type Post {
@@ -18,6 +19,7 @@ const typeDefs = gql`
     postUser: String
     postStatus: String
     createdAt: String
+    choreGoblin: String
   }
 
   type Category {
