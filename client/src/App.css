@@ -45,9 +45,16 @@
 }
 
 .loginBackground {
-	background-color: aliceblue;
-	opacity: 50%;
-	padding-top: 0%;
+	background: rgba(204, 204, 204, 0.5);
+	padding-top: 0px;
+	border-radius: 25px;
+	padding: 20px;
+	width: fit-content;
+	height: fit-content;
+}
+
+.loginContent {
+	opacity: 150%;
 }
 
 .footer {

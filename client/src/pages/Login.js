@@ -20,15 +20,11 @@ const Login = () => {
           <Columnsss attr={"is-centered is-vcentered"}>
             <Column attr={"is-half"}>
               <LoginCard />
-              
-              
             </Column>
             
           </Columnsss>
-          
         </Container>
         <Container attr={"container has-text-centered"}>
-
 <div className="pt-5 loginBackground">
           <p className="has-text-white pt-5 "> This site is a by-invite site only so that you can keep your community tight. </p>
           <p className="has-text-white">The administrator of your community should have provided you with your login credentials. Contact them for your credentials.</p>
