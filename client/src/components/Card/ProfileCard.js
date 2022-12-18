@@ -17,6 +17,7 @@ import { useLoginContext } from "../../utils/context/loginContext";
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 import { LOGIN_USER } from "../../utils/actions";
+import Loader from "../Loader";
 
 const placeholderData = {
   community: "Auburn Acres",
@@ -28,7 +29,7 @@ function ProfileCard(props) {
   const userData = data?.getMe || {};
 
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <Loader/>;
   }
 
   dispatch({

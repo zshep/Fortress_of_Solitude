@@ -1,7 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
 
-const styledLoader = styled.div`.spinner {
+const StyledLoader = styled.div
+`.spinner {
     margin:20px auto 20px auto;
     position:relative;
     -webkit-animation: spin 1s infinite ease-in;
@@ -24,12 +25,12 @@ const styledLoader = styled.div`.spinner {
 function Loader(){
 
 return (
-    <styledLoader>
+    <StyledLoader>
     <div className="spinner"></div>
-    </styledLoader>
+    </StyledLoader>
 
 )}
 
 
 
-module.exports = Loader 
+export default Loader 

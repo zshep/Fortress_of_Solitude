@@ -57,7 +57,7 @@ function App() {
               className="App"
               style={{
                 backgroundImage: `url(${heroTree})`,
-                minHeight: `600px`,
+                minHeight: `100vh`,
                 backgroundPosition: `center`,
                 backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
