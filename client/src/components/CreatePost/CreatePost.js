@@ -5,6 +5,7 @@ import { GET_CATS_AND_LOGGEDIN_USER } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import GoblinState from "../../utils/localStorage";
 import ErrorModal from "../Modals/ErrorModal"
+import Loader from "../Loader";
 
 function CreatePost() {
   const { loading, data } = useQuery(GET_CATS_AND_LOGGEDIN_USER, {
@@ -104,7 +105,7 @@ function CreatePost() {
   };
 
   if (loading) {
-    return;
+    return <Loader/>;
   }
 
   const categoryData =
