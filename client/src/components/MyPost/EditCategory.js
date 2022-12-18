@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GET_CATEGORIES } from "../../utils/queries";
 import { EDIT_JOB } from "../../utils/mutations";
+import Loader from "../Loader";
 
 function EditCategory({ job }) {
   const { postCategory, _id } = job;
@@ -12,7 +13,7 @@ function EditCategory({ job }) {
   const [editCategory] = useMutation(EDIT_JOB);
 
   if (loading) {
-    return
+    return <Loader/>
   }
 
   const categoryData = data?.categories || {};
