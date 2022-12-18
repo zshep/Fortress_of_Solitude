@@ -7,6 +7,7 @@ import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 import ClaimJob from "../Buttons/ClaimJob.js";
 import CompleteJob from "../Buttons/CompleteJob.js";
 import GoblinState from "../../utils/localStorage.js";
+import Loader from "../Loader";
 
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
@@ -29,7 +30,7 @@ function PublicPost() {
   const [goblinState, setGoblinState] = useState(postData.choreGoblin)
 
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <Loader/>;
   }
 
   return (
