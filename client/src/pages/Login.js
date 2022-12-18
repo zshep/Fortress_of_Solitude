@@ -28,9 +28,13 @@ const Login = () => {
           
         </Container>
         <Container attr={"container has-text-centered"}>
+
+<div className="pt-5 loginBackground">
           <p className="has-text-white pt-5 "> This site is a by-invite site only so that you can keep your community tight. </p>
           <p className="has-text-white">The administrator of your community should have provided you with your login credentials. Contact them for your credentials.</p>
           <p className="has-text-white"> If you would like to create a GoMode community, contact one of the devs listed at the footer of this page</p>
+          </div>
+
         </Container>
         
       </Section>

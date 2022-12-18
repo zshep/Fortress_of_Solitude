@@ -26,7 +26,7 @@ function ProfileCard() {
   const userData = data?.getMe || {};
 
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <Loader/>;
   }
 
   // saves user id and name to localstorage for grabbing later.
