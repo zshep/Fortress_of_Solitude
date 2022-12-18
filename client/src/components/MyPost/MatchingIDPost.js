@@ -7,6 +7,7 @@ import ProfilePic from "../Profile/ProfilePic";
 import SmallGreenSticky from "../StickyNotes/SmallGreenSticky";
 import SmallStickyNote from "../StickyNotes/SmallStickyNote";
 import MatchingPostBanner from "../Banners/MatchingPostBanner";
+import Loader from "../Loader";
 
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_POST } from "../../utils/queries";
@@ -25,7 +26,7 @@ function MatchingIDPost(props) {
   const pacificTime = date.toLocaleString('en-US', {timeZone: 'America/Los_Angeles'})
 
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <Loader/>;
   }
 
   return (

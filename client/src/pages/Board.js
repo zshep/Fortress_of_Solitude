@@ -6,6 +6,7 @@ import Columnsss from "../components/Column/Columnsss";
 import StickyNote from "../components/StickyNotes/StickyNote";
 import GreenSticky from "../components/StickyNotes/GreenSticky";
 import VolunteerBanner from "../components/Banners/VolunteerBanner.js";
+import Loader from "../Loader";
 
 function Board() {
 
@@ -13,7 +14,7 @@ function Board() {
   const posts = data?.posts || {};
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   return (

@@ -17,7 +17,7 @@ function Post() {
   })
   if (loading) {
     return (
-      <h1>LOADING be patient, bitch</h1>
+      <Loader/>
     )
   }
   if (loggedInGoblin === null) {
