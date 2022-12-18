@@ -10,7 +10,7 @@ import DashboardBanner from "../Dashboard/DashboardBanner";
 import Menu from "../Menu/Menu";
 import JobContainer from "../Dashboard/JobContainer";
 import GoblinState from "../../utils/localStorage";
-
+import Loader from "../Loader";
 import { DashProvider } from "../../utils/context/dashboardContext";
 
 import { useQuery } from "@apollo/client";
