@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import PublicPost from '../components/PublicPost/PublicPost'
 import MatchingIDPost from '../components/MyPost/MatchingIDPost.js'
 import GoblinState from '../utils/localStorage'
+import Loader from "../components/Loader"
 
 import { useQuery } from '@apollo/client'
 import { GET_SINGLE_POST } from '../utils/queries'

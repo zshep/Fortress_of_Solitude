@@ -6,8 +6,7 @@ import Columnsss from "../components/Column/Columnsss";
 import StickyNote from "../components/StickyNotes/StickyNote";
 import GreenSticky from "../components/StickyNotes/GreenSticky";
 import VolunteerBanner from "../components/Banners/VolunteerBanner.js";
-import Loader from "../Loader";
-
+import Loader from "../components/Loader"
 function Board() {
 
   const { data, loading } = useQuery(GET_POSTS)
