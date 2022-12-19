@@ -15,7 +15,9 @@ const resolvers = {
       return User.findOne({ _id }).populate('posts');
     },
     posts: async (parent, { username, category, _id }) => {
-      const params = {};
+      const params = {
+        postStatus: "available"
+      };
 
       if (category) {
         params.category = category;
@@ -29,7 +31,7 @@ const resolvers = {
         params._id = _id;
       }
 
-      return Post.find(params);
+      return await Post.find(params);
     },
     post: async (parent, { _id }) => {
       return await Post.findById(_id);
