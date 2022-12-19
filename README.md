@@ -6,11 +6,11 @@
 
 Welcome to **GoMode**! 
 
-Feeling unfulfilled? Do you feel like a failure? Come join our exclusive GoMode community where completing volunteer opportunities increases your PP level! Telling your friends and family about your increasing PP will definitely get them jealous. Doctors hate us!
+Wanting to find a way to fill your spare time? Have you looked around your neighborhood and wondered what you could do to help out? Need a creative outlet for your skills and have already redone your bathroom twice? You've come to the right place!
 
 GoMode, is a place to find, post, and take on volunteer opportunities in your community.
 
-This site is a by-invite site only so that you can keep your community tight.
+This site is a by-invite site only so that you can keep your community secure.
 The administrator of your community should have provided you with your login credentials. Contact them for your credentials.
 If you would like to create a GoMode community, contact one of the devs listed at the footer of this page
 
