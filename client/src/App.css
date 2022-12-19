@@ -3,26 +3,26 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 .profileFont {
-    font-size: 24px;
-    color: black;
-    font-family: 'Permanent Marker';
+	font-size: 24px;
+	color: black;
+	font-family: 'Permanent Marker';
 }
 
 .profileSubText {
-    font-size: 18px;
-    color: rgb(230, 228, 228);
-    font-family: 'Permanent Marker';
+	font-size: 18px;
+	color: rgb(230, 228, 228);
+	font-family: 'Permanent Marker';
 }
 
 .profileCardSubText {
-    font-size: 18px;
-    color: rgb(153, 152, 152);
-    font-family: 'Permanent Marker';
+	font-size: 18px;
+	color: rgb(153, 152, 152);
+	font-family: 'Permanent Marker';
 }
 
 #PatricksFancyNav {
-    background: linear-gradient(-45deg, black, white, black, white, black, white);
-    background-size: 800% 800%;
+	background: linear-gradient(-45deg, black, white, black, white, black, white);
+	background-size: 800% 800%;
 	animation: gradient 90s linear infinite;
 }
 
@@ -30,9 +30,11 @@
 	0% {
 		background-position: 0% 50%;
 	}
+
 	50% {
 		background-position: 100% 50%;
 	}
+
 	100% {
 		background-position: 0% 50%;
 	}
@@ -45,9 +47,12 @@
 }
 
 .loginBackground {
-	background-color: aliceblue;
-	opacity: 50%;
+	background-color: rgba(153, 152, 152, 0.507);
+	width: auto;
+	margin-top: 2rem;
+	/* opacity: 50%;
 	padding-top: 0%;
+	color: white; */
 }
 
 .footer {
