@@ -79,10 +79,11 @@ function App() {
               {/* we will refine this /post route once parts are connected */}
             </Routes>
 
-            <Footer />
+            
           </div>
         </>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
