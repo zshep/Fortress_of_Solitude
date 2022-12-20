@@ -47,10 +47,27 @@ Technology used to build the application:
 ## Demonstration
 
 ---
+<h3 align="center">
+  Login Page
+</h3>
 
-INSERT SCREENSHOTS HERE
+![Login Page](assets/screenshots/login.png)
 
-Live application deployed to Heroku is available *insert heroku deployment here*
+<h3 align="center">
+  Profile Page
+</h3>
+
+![Profile Page](assets/screenshots/profileUI.png)
+
+<h3 align="center">
+  Job Page
+</h3>
+
+![Job Postings](assets/screenshots/sticky.png)
+
+[Video Demonstration](https://drive.google.com/file/d/16HI1u05cHYHkJoR_A9UAjv4jV2gI2Y8Y/view)
+
+Live application deployed to Heroku is available [here](https://gomodez.herokuapp.com/)
 
 ## Future Development
 
